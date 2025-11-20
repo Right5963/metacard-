@@ -1,0 +1,35 @@
+{
+  "name": "prompt-classifier-v3",
+  "version": "3.0.0",
+  "description": "Stable Diffusion生成画像からプロンプトを完全抽出・8カテゴリ自動分類",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build:mac": "electron-builder --mac"
+  },
+  "keywords": [
+    "stable-diffusion",
+    "prompt",
+    "classifier",
+    "metadata"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "electron": "^28.0.0",
+    "electron-builder": "^24.9.1",
+    "electron-mcp-server": "^1.5.0",
+    "electron-packager": "^17.1.1",
+    "javascript-obfuscator": "^4.1.1"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "adm-zip": "^0.5.16",
+    "axios": "^1.13.1",
+    "form-data": "^4.0.4",
+    "level": "^10.0.0",
+    "sharp": "^0.33.0",
+    "ws": "^8.18.3"
+  }
+}

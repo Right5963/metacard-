@@ -1,0 +1,39 @@
+name: Build Mac Electron App
+
+on:
+  push:
+    branches: [ "main", "master" ]
+    paths:
+      - 'mac_build_source/**'
+  workflow_dispatch:
+
+jobs:
+  build-mac:
+    runs-on: macos-latest
+    defaults:
+      run:
+        working-directory: ./mac_build_source
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        cache-dependency-path: mac_build_source/package-lock.json
+        
+    - name: Install dependencies
+      run: npm install
+        
+    - name: Build Mac App
+      run: npm run build:mac
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: Mac-Electron-App
+        path: mac_build_source/dist/*.zip

@@ -1,0 +1,2137 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' data: blob: http://127.0.0.1:* https://127.0.0.1:* ws://127.0.0.1:*;">
+    <title>🎨 プロンプト分類ツール v3.0</title>
+    <link rel="stylesheet" href="set-modal.css">
+    <link rel="stylesheet" href="story-builder.css">
+    <link rel="stylesheet" href="yaml_generator_system/yaml-generator.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .container {
+            display: flex;
+            align-items: flex-start;
+            min-height: 100vh;
+            background: #f8f9fa;
+        }
+
+        /* サイドバー */
+        .sidebar {
+            width: 280px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+            overflow-y: auto;
+        }
+
+        .sidebar h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.3em;
+            text-align: center;
+        }
+
+        .sidebar-section {
+            margin-bottom: 25px;
+        }
+
+        .sidebar-section h4 {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.9em;
+            margin-bottom: 12px;
+            padding: 8px 10px;  /* ✅ UI改善: padding調整 */
+            cursor: pointer;  /* ✅ UI改善: クリック可能にする */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+
+        .sidebar-section h4:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* ✅ UI改善: 折りたたみアイコン */
+        .sidebar-section h4::after {
+            content: '▼';
+            font-size: 0.8em;
+            transition: transform 0.3s;
+        }
+
+        .sidebar-section.collapsed h4::after {
+            transform: rotate(-90deg);  /* 折りたたみ時は右向き */
+        }
+
+        /* ✅ UI改善: 折りたたみ可能なコンテンツ */
+        .sidebar-section-content {
+            max-height: 1000px;  /* 十分な高さ */
+            overflow: hidden;
+            transition: max-height 0.3s ease-out, opacity 0.3s;
+            opacity: 1;
+        }
+
+        .sidebar-section.collapsed .sidebar-section-content {
+            max-height: 0;
+            opacity: 0;
+        }
+
+        .sidebar-btn {
+            width: 100%;
+            padding: 12px 16px;
+            background: rgba(255, 255, 255, 0.15);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.95em;
+            font-weight: 500;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .sidebar-btn:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateX(5px);
+        }
+
+        /* メインコンテンツ */
+        .main-content {
+            flex: 1;
+            min-width: 0;
+            padding: 30px;
+            overflow: visible;
+        }
+
+        .header {
+            background: white;
+            padding: 25px 30px;
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 25px;
+        }
+
+        .header h1 {
+            font-size: 1.8em;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        /* ドロップゾーン */
+        .drop-zone {
+            background: white;
+            padding: 60px;
+            border: 3px dashed #667eea;
+            border-radius: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 25px;
+        }
+
+        .drop-zone.dragover {
+            background: #f8f9ff;
+            border-color: #764ba2;
+            transform: scale(1.02);
+        }
+
+        .drop-zone-icon {
+            font-size: 4em;
+            margin-bottom: 20px;
+        }
+
+        .drop-zone-text {
+            font-size: 1.2em;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        /* 結果セクション - 🔥 Phase 7.7: 常時表示 */
+        .results-section {
+            display: block;    /* none → block に変更 */
+        }
+
+        .raw-prompt-box {
+            background: white;
+            border: 2px solid #667eea;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .raw-prompt-box h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .prompt-text {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            line-height: 1.6;
+            max-height: 200px;
+            overflow-y: auto;
+            margin-bottom: 12px;
+        }
+
+        /* カテゴリグリッド */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);  /* ✅ UI改善: 4列レイアウト - さらにコンパクト化 */
+            gap: 15px;  /* ✅ 縮小: 20px → 15px */
+            margin-bottom: 20px;  /* ✅ 縮小: 25px → 20px */
+        }
+
+        .category-box {
+            background: white;
+            border-radius: 10px;  /* ✅ 縮小: 12px → 10px */
+            padding: 14px;  /* ✅ 縮小: 20px → 14px */
+            box-shadow: 0 2px 6px rgba(0,0,0,0.06);  /* ✅ 軽量化 */
+            transition: all 0.3s;
+        }
+
+        .category-box:hover {
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+            transform: translateY(-2px);
+        }
+
+        .category-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .category-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .category-icon {
+            font-size: 1.4em;  /* ✅ 縮小: 1.8em → 1.4em */
+        }
+
+        .category-title {
+            font-size: 0.9em;  /* ✅ 縮小: 1.1em → 0.9em */
+            font-weight: bold;
+            color: #333;
+        }
+
+        .category-count {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+
+        .category-actions {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+
+        .category-action-btn {
+            flex: 1;
+            min-width: 70px;  /* ✅ 縮小: 80px → 70px */
+            padding: 6px 10px;  /* ✅ 縮小: 8px 12px → 6px 10px */
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            color: #495057;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;  /* ✅ 縮小: 6px → 5px */
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.75em;  /* ✅ 縮小: 0.85em → 0.75em */
+            font-weight: 500;
+        }
+
+        .category-action-btn:hover {
+            background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
+            transform: translateY(-1px);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            min-height: 50px;
+        }
+
+        .tag {
+            background: #f8f9ff;
+            border: 1px solid #667eea;
+            border-radius: 6px;
+            padding: 5px 10px;      /* 🔥 Phase 7.6: 縮小 (8px 14px → 5px 10px) */
+            font-size: 0.75em;      /* 🔥 Phase 7.6: 縮小 (0.95em → 0.75em) */
+            color: #764ba2;
+            transition: all 0.2s;
+        }
+
+        .tag:hover {
+            background: #e8e9ff;
+            transform: scale(1.05);
+        }
+
+        /* ボタングループ */
+        .button-group {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 14px 28px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+
+        /* Modal overlay */
+        .modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.45);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            padding: 16px;
+        }
+
+        .modal .modal-content {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            max-width: 95vw;
+            width: 95vw;
+            max-height: 90vh;
+            overflow: hidden;
+        }
+
+        /* Modal overlay */
+        .modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.45);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            padding: 16px;
+        }
+
+        .modal .modal-content {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            max-width: 95vw;
+            width: 95vw;
+            max-height: 90vh;
+            overflow: hidden;
+        }
+            background: #5a6268;
+            transform: translateY(-2px);
+        }
+
+        /* 🎭 Phase 6: ADDCOL複数キャラクター対応CSS */
+        /* 緑バッジ：単一モード表示 */
+        .single-mode-badge {
+            background: linear-gradient(135deg, #52c41a 0%, #389e0d 100%);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            margin-left: 8px;
+            font-weight: 600;
+        }
+
+        /* 2人モード選択ボタンコンテナ */
+        .dual-char-select-btns {
+            display: none;
+            gap: 10px;
+            margin-top: 8px;
+            margin-bottom: 12px;
+        }
+
+        /* キャラ1選択ボタン（青） */
+        .char1-select-btn {
+            flex: 1;
+            background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .char1-select-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 3px 10px rgba(74, 144, 226, 0.3);
+        }
+
+        /* キャラ2選択ボタン（緑） */
+        .char2-select-btn {
+            flex: 1;
+            background: linear-gradient(135deg, #52c41a 0%, #389e0d 100%);
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .char2-select-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 3px 10px rgba(82, 196, 26, 0.3);
+        }
+
+        /* 🔥 Phase 7: 横分割コンテナ（革新的レイアウト） */
+        .dual-char-tags {
+            display: none;
+            margin-top: 12px;
+        }
+
+        /* 横分割コンテナ */
+        .dual-char-horizontal-container {
+            display: flex;
+            flex-direction: row;
+            min-height: 120px;
+            max-height: 400px;     /* 🔥 Phase 7.6: 拡大 (350px → 400px) */
+            gap: 0;
+            margin-top: 8px;
+        }
+
+        /* 各キャラクター半分エリア */
+        .char-half {
+            flex: 1;
+            overflow-y: auto;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        /* キャラ1エリア（青・左側） */
+        .char1-area {
+            border-left: 4px solid #4a90e2;
+            background: linear-gradient(to right, rgba(74, 144, 226, 0.05) 0%, transparent 100%);
+            box-shadow: inset 4px 0 8px rgba(74, 144, 226, 0.1);
+        }
+
+        /* キャラ2エリア（オレンジ・右側） */
+        .char2-area {
+            border-right: 4px solid #ff9800;
+            background: linear-gradient(to left, rgba(255, 152, 0, 0.05) 0%, transparent 100%);
+            box-shadow: inset -4px 0 8px rgba(255, 152, 0, 0.1);
+        }
+
+        /* 中央分割線（グラデーション） */
+        .category-divider {
+            width: 3px;
+            background: linear-gradient(to bottom, #4a90e2 0%, #9e9e9e 50%, #ff9800 100%);
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+            flex-shrink: 0;
+        }
+
+        /* キャラクターラベル（改良版） */
+        .char-label {
+            font-weight: bold;
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 8px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        /* タグコンテナ（横分割用） */
+        .char1-tags, .char2-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        /* タグのカード深度効果 */
+        .char1-tags .tag {
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+            transition: all 0.25s ease;
+        }
+
+        .char1-tags .tag:hover {
+            border-color: #4a90e2;
+            box-shadow: 0 4px 12px rgba(74, 144, 226, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .char2-tags .tag {
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+            transition: all 0.25s ease;
+        }
+
+        .char2-tags .tag:hover {
+            border-color: #ff9800;
+            box-shadow: 0 4px 12px rgba(255, 152, 0, 0.25);
+            transform: translateY(-2px);
+        }
+
+        /* 旧CSS（後方互換性のため残す） */
+        .char1-tags-area, .char2-tags-area {
+            display: none;
+        }
+
+        /* キャラクターラベル */
+        .char-label {
+            font-weight: bold;
+            margin-right: 8px;
+            font-size: 14px;
+            color: #333;
+        }
+
+        /* 未選択ステータス */
+        .char-status {
+            color: #999;
+            font-size: 14px;
+        }
+
+        /* 単一プロンプト生成ボタン（青） */
+        .generate-btn-single {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s;
+        }
+
+        .generate-btn-single:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        /* 2人統合プロンプト生成ボタン（紫） */
+        .generate-btn-dual {
+            background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s;
+        }
+
+        .generate-btn-dual:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(168, 85, 247, 0.4);
+        }
+
+        /* プロンプト出力ボタン（緑） */
+        .output-btn {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s;
+        }
+
+        .output-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(16, 185, 129, 0.4);
+        }
+
+        /* レスポンシブ */
+        @media (max-width: 1024px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+            }
+
+            .categories-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* セット選択モーダル（Phase15）: 詳細スタイルは set-modal.css に移動 */
+
+        /* セット編集モーダル / 画像登録モーダル: 詳細スタイルは set-modal.css に移動 */
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- サイドバー -->
+        <div class="sidebar">
+            <h3>🎨 管理パネル</h3>
+
+            <div class="sidebar-section">
+                <h4>📁 基本操作</h4>
+                <div class="sidebar-section-content">
+                    <button class="sidebar-btn" id="clearAllBtn">
+                        <span>🗑️</span> 全削除
+                    </button>
+                    <button class="sidebar-btn" id="yamlGenerateBtn">
+                        <span>📄</span> YAML生成
+                    </button>
+                    <button class="sidebar-btn" id="storyPromptBtn">
+                        <span>📖</span> ストーリープロンプト
+                    </button>
+                </div>
+            </div>
+
+            <div class="sidebar-section collapsed">
+                <h4>🔄 辞書管理</h4>
+                <div class="sidebar-section-content">
+                    <div style="display:flex; gap:8px; align-items:stretch;">
+                        <button class="sidebar-btn" id="updateDictionaryBtn" style="flex:1;">
+                            <span>🌐</span> Danbooru辞書更新
+                        </button>
+                        <button class="sidebar-btn" id="updateCivitaiBtn" style="flex:1;">
+                            <span>🧩</span> Civitai辞書更新
+                        </button>
+                    </div>
+                    <div id="updateProgress" style="display:none; margin-top:10px; padding:10px; background: rgba(100,200,255,0.15); border-radius:6px; color:#7bbcff; font-size:12px;">
+                        <div id="updateStatus">準備中...</div>
+                        <pre id="updateDetails" style="margin:8px 0 0; white-space:pre-wrap; color:#aaddff;"></pre>
+                    </div>
+                    <div style="margin-top: 10px; padding: 10px; background: rgba(255,100,100,0.2); border-radius: 5px; color: #ffcccc; font-size: 0.75em; line-height: 1.4;">
+                        ⚠️ <strong>自動取り込み無効化</strong><br>
+                        Danbooruの分類体系とMetaCardが異なるため、自動分類は不可能です。<br>
+                        <strong>→ 辞書編集UI（手動管理）実装予定</strong>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 11: APIキー設定（配布対応） -->
+            <div class="sidebar-section collapsed">
+                <h4>🔑 Gemini API設定</h4>
+                <div class="sidebar-section-content">
+                    <button class="sidebar-btn" id="openApiKeyModalBtn">
+                        <span>⚙️</span> APIキー登録
+                    </button>
+                    <div id="apiKeyStatus" style="margin-top: 10px; padding: 10px; background: rgba(255,200,100,0.2); border-radius: 5px; color: #ffddaa; font-size: 0.75em; line-height: 1.4;">
+                        🔍 APIキー: <strong>未登録</strong><br>
+                        AI自動分類を使用するには、無料のGemini APIキーを登録してください。
+                    </div>
+                    <button class="sidebar-btn" id="getGeminiKeyBtn" style="margin-top: 10px; background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);">
+                        <span>📖</span> APIキー取得方法
+                    </button>
+                </div>
+            </div>
+
+            <!-- Phase 13.1: SD WebUIポート設定（配布対応） -->
+            <div class="sidebar-section collapsed">
+                <h4>🔌 SD WebUI設定</h4>
+                <div class="sidebar-section-content">
+                    <button class="sidebar-btn" id="openPortSettingModalBtn">
+                        <span>⚙️</span> ポート番号設定
+                    </button>
+                    <div id="portSettingStatus" style="margin-top: 10px; padding: 10px; background: rgba(100,200,255,0.2); border-radius: 5px; color: #aaddff; font-size: 0.75em; line-height: 1.4;">
+                        🔍 SD WebUIポート: <strong id="currentPortDisplay">8500</strong><br>
+                        将来の機能拡張に備えて設定できます。
+                    </div>
+                </div>
+            </div>
+
+            <!-- ライセンス管理（配布用パッケージのみ） -->
+            <div class="sidebar-section collapsed" id="licenseManagementSection" style="display: none;">
+                <h4>🔐 ライセンス管理</h4>
+                <div class="sidebar-section-content">
+                    <button class="sidebar-btn" id="openLicenseModalBtn" onclick="showLicenseModal()">
+                        <span>⚙️</span> ライセンス情報
+                    </button>
+                    <div id="licenseStatus" style="margin-top: 10px; padding: 10px; background: rgba(255,200,100,0.2); border-radius: 5px; color: #ffddaa; font-size: 0.75em; line-height: 1.4;">
+                        🔍 ライセンス: <strong id="licenseTypeDisplay">読み込み中...</strong><br>
+                        <span id="licenseExpiryDisplay"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 12: AI分類支援（無料枠） -->
+            <div class="sidebar-section">
+                <h4>🤖 AI分類支援</h4>
+                <div class="sidebar-section-content">
+                    <button class="sidebar-btn" id="aiClassifyBtn" style="background: linear-gradient(135deg, #a855f7 0%, #7c3aed 100%);">
+                        <span>✨</span> AI自動分類
+                    </button>
+                    <button class="sidebar-btn" id="learnAITagsBtn" onclick="learnAllTagsToDictionary()" style="margin-top: 10px; background: linear-gradient(135deg, #48c774 0%, #3b9d5e 100%);">
+                        <span>📚</span> AIタグを辞書に学習
+                    </button>
+                    <button class="sidebar-btn" id="sanitizeDictionaryBtn" onclick="sanitizeLearnedDictionaryManual()" style="margin-top: 10px; background: linear-gradient(135deg, #38bdf8 0%, #0ea5e9 100%);">
+                        <span>🧼</span> 学習辞書をクリーンアップ
+                    </button>
+                    <div id="aiClassifyStatus" style="margin-top: 10px; padding: 10px; background: rgba(168, 85, 247, 0.2); border-radius: 5px; color: #e0b3ff; font-size: 0.75em; line-height: 1.4; display: none;">
+                        ⏳ AI分類中...<br>
+                        Gemini APIで画像を解析しています
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 14: SD WebUI Reforge API操作 -->
+            <div class="sidebar-section">
+                <h4>🎨 SD WebUI API操作</h4>
+                <div class="sidebar-section-content">
+                    <button class="sidebar-btn" id="taggerAnalyzeBtn" onclick="analyzePulledImageWithTagger()" style="background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);">
+                        <span>🔍</span> Tagger解析
+                    </button>
+                    <button class="sidebar-btn" id="generateImageBtn" onclick="generateImageWithAPI()" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <span>🎨</span> 画像生成 (SD)
+                    </button>
+                    <button class="sidebar-btn" onclick="openApiSettingsModal()" style="background: linear-gradient(135deg, #48c774 0%, #3b9d5e 100%);">
+                        <span>⚙️</span> API設定
+                    </button>
+                    <div id="sdApiStatus" style="margin-top: 10px; padding: 10px; background: rgba(102, 126, 234, 0.2); border-radius: 5px; color: #aab5ff; font-size: 0.75em; line-height: 1.4;">
+                        🔗 SD WebUI Reforge連携<br>
+                        <strong>Tagger解析:</strong> ドロップ画像からタグ抽出<br>
+                        <strong>画像生成:</strong> 現在のタグから画像生成<br>
+                        <strong>API設定:</strong> 詳細パラメータ調整
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- メインコンテンツ -->
+        <div class="main-content">
+            <div class="header">
+                <h1>🎨 プロンプト分類ツール v3.0</h1>
+                <p>Stable Diffusion生成画像からプロンプトを完全抽出・自動分類</p>
+            </div>
+
+                <div class="drop-zone" id="dropZone">
+                    <div class="drop-zone-icon">📤</div>
+                    <div class="drop-zone-text">ここに画像をドラッグ&ドロップ<br>（PNG / JPEG対応）</div>
+                </div>
+
+                <!-- プレビュー表示領域 -->
+                <div id="previewPanel" style="margin-top: 12px; display: block;">
+                    <img id="previewImage" alt="プレビュー"
+                         style="width: 320px; height: 320px; object-fit: contain;
+                                border-radius: 8px; border: 1px solid #e5e7eb; display: none; background:#fff;" />
+                </div>
+
+            <div class="results-section" id="resultsSection">
+                <div class="raw-prompt-box">
+                    <h3>🔍 抽出されたプロンプト（分離済み）</h3>
+
+                    <!-- ✅ UI改善: Positive prompt - 常に展開 -->
+                    <div class="prompt-section" style="margin-bottom: 15px;">
+                        <strong style="color: #28a745; cursor: default;">✅ Positive prompt:</strong>
+                        <div class="prompt-text" id="positivePrompt" style="background: #e8f5e9; border-left: 3px solid #28a745;"></div>
+                    </div>
+
+                    <!-- ✅ UI改善: Negative prompt - デフォルト折りたたみ -->
+                    <div class="prompt-section collapsed" style="margin-bottom: 15px;">
+                        <strong style="color: #dc3545; cursor: pointer; display: flex; align-items: center; justify-content: space-between; padding: 4px 0;">
+                            <span>❌ Negative prompt:</span>
+                            <span class="collapse-indicator" style="font-size: 0.8em; transition: transform 0.3s;">►</span>
+                        </strong>
+                        <div class="prompt-section-content" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out, opacity 0.3s; opacity: 0;">
+                            <div class="prompt-text" id="negativePrompt" style="background: #ffebee; border-left: 3px solid #dc3545;"></div>
+                        </div>
+                    </div>
+
+                    <!-- ✅ UI改善: Settings - デフォルト折りたたみ -->
+                    <div class="prompt-section collapsed">
+                        <strong style="color: #667eea; cursor: pointer; display: flex; align-items: center; justify-content: space-between; padding: 4px 0;">
+                            <span>⚙️ Settings:</span>
+                            <span class="collapse-indicator" style="font-size: 0.8em; transition: transform 0.3s;">►</span>
+                        </strong>
+                        <div class="prompt-section-content" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out, opacity 0.3s; opacity: 0;">
+                            <div class="prompt-text" id="settingsPrompt" style="background: #e3f2fd; border-left: 3px solid #667eea;"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- プロンプト生成ボタンエリア -->
+                <div class="prompt-generation-area" style="margin: 20px 0; text-align: center; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+                    <!-- 青ボタン：単一プロンプト生成 -->
+                    <button id="generatePromptBtn" class="generate-btn-single" onclick="generatePrompt()">
+                        🎨 プロンプト生成
+                    </button>
+
+                    <!-- 緑ボタン：プロンプト出力 -->
+                    <button class="output-btn" onclick="outputPromptToFile()">
+                        💾 プロンプト出力
+                    </button>
+
+                    <!-- オレンジボタン：コンソールログ出力 -->
+                    <button class="output-btn" onclick="exportConsoleLogs()" style="background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);">
+                        📋 ログ出力
+                    </button>
+
+                    <!-- 紫ボタン：2人統合プロンプト生成 -->
+                    <button id="generateDualPromptBtn" class="generate-btn-dual" onclick="generateDualPrompt()">
+                        ✨ 2人統合プロンプト生成
+                    </button>
+                </div>
+
+                <!-- 下部ステータス表示 -->
+                <div class="bottom-status" style="text-align: center; margin-bottom: 20px; color: #666; font-size: 14px;">
+                    <span id="dualModeStatus">2人モード: 未選択</span>
+                </div>
+
+                <!-- プロンプト出力エリア -->
+                <div id="promptOutput" style="margin-bottom: 20px;"></div>
+
+                <!-- Tagger パリティ表示 -->
+                <div id="taggerParityPanel" style="display:none; margin: 12px 0; padding: 12px; background:#fff; border:1px solid #e5e7eb; border-radius:8px;">
+                    <h3 style="margin: 0 0 8px 0; color:#ff6b6b;">🔍 Taggerパリティ（検証）</h3>
+                    <div style="display:flex; gap:8px; margin-bottom:8px;">
+                        <button id="exportParityBtn" class="btn btn-secondary" style="padding:8px 12px;">
+                            📥 パリティJSONを書き出す
+                        </button>
+                    </div>
+                    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:10px;">
+                        <div>
+                            <strong>Raw（タグ＋スコア）</strong>
+                            <pre id="parityRaw" style="white-space:pre-wrap; background:#f9fafb; border:1px solid #eee; padding:8px; border-radius:6px; max-height:180px; overflow:auto;"></pre>
+                        </div>
+                        <div>
+                            <strong>閾値後</strong>
+                            <pre id="parityThresholded" style="white-space:pre-wrap; background:#f9fafb; border:1px solid #eee; padding:8px; border-radius:6px; max-height:180px; overflow:auto;"></pre>
+                        </div>
+                        <div>
+                            <strong>整形後（互換モードは最小整形）</strong>
+                            <pre id="parityCleaned" style="white-space:pre-wrap; background:#f9fafb; border:1px solid #eee; padding:8px; border-radius:6px; max-height:180px; overflow:auto;"></pre>
+                        </div>
+                        <div>
+                            <strong>分類後（カテゴリ別）</strong>
+                            <pre id="parityCategorized" style="white-space:pre-wrap; background:#f9fafb; border:1px solid #eee; padding:8px; border-radius:6px; max-height:180px; overflow:auto;"></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- セット一覧モーダル -->
+                <div id="setListModal" class="modal" style="display:none;">
+                    <div class="modal-content" style="max-width: 840px; max-height: 85vh; overflow-y: auto;">
+                        <h3>📦 セット選択</h3>
+                        <div style="display:flex; gap:8px; margin: 8px 0 12px;">
+                            <input id="setSearchInput" placeholder="検索（名称/ラベル/タグ）" style="flex:1; padding:8px; border:1px solid #ddd; border-radius:6px;">
+                            <button class="btn btn-secondary" id="importSetsBtn">インポート(JSON)</button>
+                            <button class="btn btn-secondary" id="exportSetsBtn">エクスポート(JSON)</button>
+                            <button class="btn" id="closeSetModalBtn">✕ 閉じる</button>
+                        </div>
+                        <div id="setListTargetHint" style="margin:6px 0; font-size:12px; color:#444;"></div>
+                        <div style="display:flex; gap:8px; margin: 4px 0 8px;">
+                            <button class="btn" id="createSetBtn">新規作成</button>
+                        </div>
+                        <div id="setGrid" style="display:grid; grid-template-columns: repeat(3, 1fr); gap:12px;"></div>
+                    </div>
+                </div>
+
+                <!-- セット保存モーダル -->
+                <div id="setSaveModal" class="modal" style="display:none;">
+                    <div class="modal-content" style="max-width: 640px;">
+                        <h3>💾 セット保存</h3>
+                        <div style="display:grid; grid-template-columns: 1fr 2fr; gap:10px;">
+                            <label>名称</label> <input id="setNameInput" />
+                            <label>説明</label> <input id="setDescInput" />
+                            <label>ラベル（カンマ区切り）</label> <input id="setLabelsInput" placeholder="face,school,kimono"/>
+                            <label>対象カテゴリ</label>
+                            <div>
+                                <label><input type="checkbox" class="set-cat" value="face" checked/> face</label>
+                                <label><input type="checkbox" class="set-cat" value="clothing" checked/> clothing</label>
+                                <label><input type="checkbox" class="set-cat" value="pose" checked/> pose</label>
+                                <label><input type="checkbox" class="set-cat" value="expression" checked/> expression</label>
+                                <label><input type="checkbox" class="set-cat" value="background" checked/> background</label>
+                                <label><input type="checkbox" class="set-cat" value="body" checked/> body</label>
+                                <label><input type="checkbox" class="set-cat" value="quality" checked/> quality</label>
+                                <label><input type="checkbox" class="set-cat" value="people" checked/> people</label>
+                                <label><input type="checkbox" class="set-cat" value="other" checked/> other</label>
+                            </div>
+                        </div>
+                        <div style="display:flex; gap:10px; margin-top:12px; justify-content:flex-end;">
+                            <button class="btn" id="confirmSaveSetBtn">保存</button>
+                            <button class="btn btn-secondary" id="cancelSaveSetBtn">キャンセル</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- カテゴリグリッド（単一キャラクターモード） -->
+                <!-- 🔥 Phase 7.9: カテゴリ並び順変更 - face→body→pose→clothing→expression→other→quality→background→people -->
+                <div id="singleCharacterGrid" class="categories-grid">
+                    <!-- face -->
+                    <div class="category-box" data-category="face">
+                        <div class="category-header">
+                            <div class="category-info">
+                                <span class="category-icon">👩</span>
+                                <span class="category-title">女性の顔</span>
+                            </div>
+                            <span class="category-count" id="face-count">0</span>
+                            <span class="single-mode-badge">👤→ 単一モード</span>
+                        </div>
+                        <div class="category-actions">
+                            <button class="category-action-btn" onclick="showCategoryModal('face')">🔍 セット選択</button>
+                            <button class="category-action-btn" onclick="saveCategoryAsSet('face')">💾 セット保存</button>
+                            <button class="category-action-btn" onclick="clearCategory('face')">🗑️ クリア</button>
+                        </div>
+
+                        <!-- 🎭 2人モード専用：キャラクター選択ボタン -->
+                        <div class="dual-char-select-btns" id="face-dual-select" style="display: none;">
+                            <button class="char1-select-btn">👤 キャラ1の女性の顔選択</button>
+                            <button class="char2-select-btn">👤 キャラ2の女性の顔選択</button>
+                        </div>
+
+                        <!-- 単一キャラクターモード：タグ表示 -->
+                        <div class="tag-container" id="face-tags"></div>
+
+                        <!-- 🔥 Phase 7: 横分割コンテナ（革新的レイアウト） -->
+                        <div class="dual-char-tags" id="face-dual-tags" style="display: none;">
+                            <div class="dual-char-horizontal-container">
+                                <!-- 左半分: キャラ1 -->
+                                <div class="char-half char1-area">
+                                    <div class="char-label">🔵 キャラクター1</div>
+                                    <div class="char1-tags" id="face-char1-tags"></div>
+                                </div>
+
+                                <!-- 中央分割線 -->
+                                <div class="category-divider"></div>
+
+                                <!-- 右半分: キャラ2 -->
+                                <div class="char-half char2-area">
+                                    <div class="char-label">🟠 キャラクター2</div>
+                                    <div class="char2-tags" id="face-char2-tags"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- body -->
+                    <div class="category-box" data-category="body">
+                        <div class="category-header">
+                            <div class="category-info">
+                                <span class="category-icon">💃</span>
+                                <span class="category-title">体</span>
+                            </div>
+                            <span class="category-count" id="body-count">0</span>
+                            <span class="single-mode-badge">👤→ 単一モード</span>
+                        </div>
+                        <div class="category-actions">
+                            <button class="category-action-btn" onclick="showCategoryModal('body')">🔍 セット選択</button>
+                            <button class="category-action-btn" onclick="saveCategoryAsSet('body')">💾 セット保存</button>
+                            <button class="category-action-btn" onclick="clearCategory('body')">🗑️ クリア</button>
+                        </div>
+
+                        <!-- 🎭 2人モード専用：キャラクター選択ボタン -->
+                        <div class="dual-char-select-btns" id="body-dual-select" style="display: none;">
+                            <button class="char1-select-btn">👤 キャラ1の体選択</button>
+                            <button class="char2-select-btn">👤 キャラ2の体選択</button>
+                        </div>
+
+                        <!-- 単一キャラクターモード：タグ表示 -->
+                        <div class="tag-container" id="body-tags"></div>
+
+                        <!-- 🔥 Phase 7: 横分割コンテナ（革新的レイアウト） -->
+                        <div class="dual-char-tags" id="body-dual-tags" style="display: none;">
+                            <div class="dual-char-horizontal-container">
+                                <!-- 左半分: キャラ1 -->
+                                <div class="char-half char1-area">
+                                    <div class="char-label">🔵 キャラクター1</div>
+                                    <div class="char1-tags" id="body-char1-tags"></div>
+                                </div>
+
+                                <!-- 中央分割線 -->
+                                <div class="category-divider"></div>
+
+                                <!-- 右半分: キャラ2 -->
+                                <div class="char-half char2-area">
+                                    <div class="char-label">🟠 キャラクター2</div>
+                                    <div class="char2-tags" id="body-char2-tags"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- pose -->
+                    <div class="category-box" data-category="pose">
+                        <div class="category-header">
+                            <div class="category-info">
+                                <span class="category-icon">🤸</span>
+                                <span class="category-title">ポーズ</span>
+                            </div>
+                            <span class="category-count" id="pose-count">0</span>
+                            <span class="single-mode-badge">👤→ 単一モード</span>
+                        </div>
+                        <div class="category-actions">
+                            <button class="category-action-btn" onclick="showCategoryModal('pose')">🔍 セット選択</button>
+                            <button class="category-action-btn" onclick="saveCategoryAsSet('pose')">💾 セット保存</button>
+                            <button class="category-action-btn" onclick="clearCategory('pose')">🗑️ クリア</button>
+                        </div>
+
+                        <!-- 🎭 2人モード専用：キャラクター選択ボタン -->
+                        <div class="dual-char-select-btns" id="pose-dual-select" style="display: none;">
+                            <button class="char1-select-btn">👤 キャラ1のポーズ選択</button>
+                            <button class="char2-select-btn">👤 キャラ2のポーズ選択</button>
+                        </div>
+
+                        <!-- 単一キャラクターモード：タグ表示 -->
+                        <div class="tag-container" id="pose-tags"></div>
+
+                        <!-- 🔥 Phase 7: 横分割コンテナ（革新的レイアウト） -->
+                        <div class="dual-char-tags" id="pose-dual-tags" style="display: none;">
+                            <div class="dual-char-horizontal-container">
+                                <!-- 左半分: キャラ1 -->
+                                <div class="char-half char1-area">
+                                    <div class="char-label">🔵 キャラクター1</div>
+                                    <div class="char1-tags" id="pose-char1-tags"></div>
+                                </div>
+
+                                <!-- 中央分割線 -->
+                                <div class="category-divider"></div>
+
+                                <!-- 右半分: キャラ2 -->
+                                <div class="char-half char2-area">
+                                    <div class="char-label">🟠 キャラクター2</div>
+                                    <div class="char2-tags" id="pose-char2-tags"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- clothing -->
+                    <div class="category-box" data-category="clothing">
+                        <div class="category-header">
+                            <div class="category-info">
+                                <span class="category-icon">👗</span>
+                                <span class="category-title">服装</span>
+                            </div>
+                            <span class="category-count" id="clothing-count">0</span>
+                            <span class="single-mode-badge">👤→ 単一モード</span>
+                        </div>
+                        <div class="category-actions">
+                            <button class="category-action-btn" onclick="showCategoryModal('clothing')">🔍 セット選択</button>
+                            <button class="category-action-btn" onclick="saveCategoryAsSet('clothing')">💾 セット保存</button>
+                            <button class="category-action-btn" onclick="clearCategory('clothing')">🗑️ クリア</button>
+                        </div>
+
+                        <!-- 🎭 2人モード専用：キャラクター選択ボタン -->
+                        <div class="dual-char-select-btns" id="clothing-dual-select" style="display: none;">
+                            <button class="char1-select-btn">👤 キャラ1の服装選択</button>
+                            <button class="char2-select-btn">👤 キャラ2の服装選択</button>
+                        </div>
+
+                        <!-- 単一キャラクターモード：タグ表示 -->
+                        <div class="tag-container" id="clothing-tags"></div>
+
+                        <!-- 🔥 Phase 7: 横分割コンテナ（革新的レイアウト） -->
+                        <div class="dual-char-tags" id="clothing-dual-tags" style="display: none;">
+                            <div class="dual-char-horizontal-container">
+                                <!-- 左半分: キャラ1 -->
+                                <div class="char-half char1-area">
+                                    <div class="char-label">🔵 キャラクター1</div>
+                                    <div class="char1-tags" id="clothing-char1-tags"></div>
+                                </div>
+
+                                <!-- 中央分割線 -->
+                                <div class="category-divider"></div>
+
+                                <!-- 右半分: キャラ2 -->
+                                <div class="char-half char2-area">
+                                    <div class="char-label">🟠 キャラクター2</div>
+                                    <div class="char2-tags" id="clothing-char2-tags"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- expression -->
+                    <div class="category-box" data-category="expression">
+                        <div class="category-header">
+                            <div class="category-info">
+                                <span class="category-icon">😊</span>
+                                <span class="category-title">表情</span>
+                            </div>
+                            <span class="category-count" id="expression-count">0</span>
+                            <span class="single-mode-badge">👤→ 単一モード</span>
+                        </div>
+                        <div class="category-actions">
+                            <button class="category-action-btn" onclick="showCategoryModal('expression')">🔍 セット選択</button>
+                            <button class="category-action-btn" onclick="saveCategoryAsSet('expression')">💾 セット保存</button>
+                            <button class="category-action-btn" onclick="clearCategory('expression')">🗑️ クリア</button>
+                        </div>
+
+                        <!-- 🎭 Phase 7.10: 2人モード専用：キャラクター選択ボタン -->
+                        <div class="dual-char-select-btns" id="expression-dual-select" style="display: none;">
+                            <button class="char1-select-btn">👤 キャラ1の表情選択</button>
+                            <button class="char2-select-btn">👤 キャラ2の表情選択</button>
+                        </div>
+
+                        <!-- 単一キャラクターモード：タグ表示 -->
+                        <div class="tag-container" id="expression-tags"></div>
+
+                        <!-- 🔥 Phase 7.10: 横分割コンテナ（革新的レイアウト） -->
+                        <div class="dual-char-tags" id="expression-dual-tags" style="display: none;">
+                            <div class="dual-char-horizontal-container">
+                                <!-- 左半分: キャラ1 -->
+                                <div class="char-half char1-area">
+                                    <div class="char-label">🔵 キャラクター1</div>
+                                    <div class="char1-tags" id="expression-char1-tags"></div>
+                                </div>
+
+                                <!-- 中央分割線 -->
+                                <div class="category-divider"></div>
+
+                                <!-- 右半分: キャラ2 -->
+                                <div class="char-half char2-area">
+                                    <div class="char-label">🟠 キャラクター2</div>
+                                    <div class="char2-tags" id="expression-char2-tags"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- other -->
+                    <div class="category-box" data-category="other">
+                        <div class="category-header">
+                            <div class="category-info">
+                                <span class="category-icon">🔧</span>
+                                <span class="category-title">その他</span>
+                            </div>
+                            <span class="category-count" id="other-count">0</span>
+                        </div>
+                        <div class="category-actions">
+                            <button class="category-action-btn" onclick="showCategoryModal('other')">🔍 セット選択</button>
+                            <button class="category-action-btn" onclick="saveCategoryAsSet('other')">💾 セット保存</button>
+                            <button class="category-action-btn" onclick="clearCategory('other')">🗑️ クリア</button>
+                        </div>
+                        <div class="tag-container" id="other-tags"></div>
+                    </div>
+
+                    <!-- quality -->
+                    <div class="category-box" data-category="quality">
+                        <div class="category-header">
+                            <div class="category-info">
+                                <span class="category-icon">⭐</span>
+                                <span class="category-title">品質</span>
+                            </div>
+                            <span class="category-count" id="quality-count">0</span>
+                        </div>
+                        <div class="category-actions">
+                            <button class="category-action-btn" onclick="showCategoryModal('quality')">🔍 セット選択</button>
+                            <button class="category-action-btn" onclick="saveCategoryAsSet('quality')">💾 セット保存</button>
+                            <button class="category-action-btn" onclick="clearCategory('quality')">🗑️ クリア</button>
+                        </div>
+                        <div class="tag-container" id="quality-tags"></div>
+                    </div>
+
+                    <!-- background -->
+                    <div class="category-box" data-category="background">
+                        <div class="category-header">
+                            <div class="category-info">
+                                <span class="category-icon">🏞️</span>
+                                <span class="category-title">背景</span>
+                            </div>
+                            <span class="category-count" id="background-count">0</span>
+                        </div>
+                        <div class="category-actions">
+                            <button class="category-action-btn" onclick="showCategoryModal('background')">🔍 セット選択</button>
+                            <button class="category-action-btn" onclick="saveCategoryAsSet('background')">💾 セット保存</button>
+                            <button class="category-action-btn" onclick="clearCategory('background')">🗑️ クリア</button>
+                        </div>
+                        <div class="tag-container" id="background-tags"></div>
+                    </div>
+
+                    <!-- people -->
+                    <div class="category-box" data-category="people">
+                        <div class="category-header">
+                            <div class="category-info">
+                                <span class="category-icon">👥</span>
+                                <span class="category-title">複数人・人数</span>
+                            </div>
+                            <span class="category-count" id="people-count">0</span>
+                        </div>
+                        <div class="category-actions">
+                            <button class="category-action-btn" onclick="showCategoryModal('people')">🔍 セット選択</button>
+                            <button class="category-action-btn" onclick="saveCategoryAsSet('people')">💾 セット保存</button>
+                            <button class="category-action-btn" onclick="clearCategory('people')">🗑️ クリア</button>
+                        </div>
+                        <div class="tag-container" id="people-tags"></div>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <button class="btn btn-primary" onclick="copyAllTags()">📋 全体コピー</button>
+                    <button class="btn btn-secondary" onclick="reset()">🔄 リセット</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Phase 11: APIキー設定モーダル -->
+    <div id="apiKeyModal" class="modal" style="display: none;">
+        <div class="modal-content" style="max-width: 500px;">
+            <h2>🔑 Gemini APIキー設定</h2>
+            <p style="color: #aaa; font-size: 0.9em; margin: 15px 0;">
+                無料のGemini APIを使用して、Danbooruタグを自動分類します。<br>
+                APIキーは暗号化されず、config.jsonに平文保存されます。
+            </p>
+
+            <div style="margin: 20px 0;">
+                <label style="display: block; margin-bottom: 10px; color: #fff; font-weight: bold;">
+                    Gemini API Key:
+                </label>
+                <input
+                    type="password"
+                    id="apiKeyInput"
+                    placeholder="AIzaSy...（40文字程度）"
+                    style="width: 100%; padding: 12px; border-radius: 5px; border: 1px solid #555; background: #2a2a2a; color: #fff; font-size: 1em; box-sizing: border-box;"
+                />
+                <button
+                    id="toggleApiKeyVisibility"
+                    style="margin-top: 10px; padding: 8px 15px; background: rgba(255,255,255,0.1); border: none; color: #fff; border-radius: 5px; cursor: pointer; font-size: 0.9em;"
+                >
+                    👁️ 表示/非表示
+                </button>
+            </div>
+
+            <div style="background: rgba(76,175,80,0.2); padding: 15px; border-radius: 5px; margin: 20px 0; border-left: 4px solid #4CAF50;">
+                <h4 style="margin: 0 0 10px 0; color: #4CAF50;">📖 APIキー取得方法</h4>
+                <ol style="margin: 10px 0; padding-left: 20px; color: #ccc; font-size: 0.9em; line-height: 1.8;">
+                    <li><a href="https://makersuite.google.com/app/apikey" target="_blank" style="color: #4CAF50;">Google AI Studio</a> にアクセス</li>
+                    <li>「Get API Key」ボタンをクリック</li>
+                    <li>「Create API key」で新しいキーを作成</li>
+                    <li>生成されたキーをコピーして上記に貼り付け</li>
+                </ol>
+                <p style="margin: 10px 0 0 0; color: #aaa; font-size: 0.85em;">
+                    ⚠️ <strong>完全無料</strong>（月15リクエスト/分）<br>
+                    クレジットカード登録不要
+                </p>
+            </div>
+
+            <div class="button-group" style="display: flex; gap: 10px; margin-top: 20px;">
+                <button class="btn btn-primary" id="saveApiKeyBtn" style="flex: 1;">
+                    💾 保存
+                </button>
+                <button class="btn btn-secondary" id="closeApiKeyModalBtn" style="flex: 1;">
+                    ✕ 閉じる
+                </button>
+            </div>
+
+            <button
+                id="deleteApiKeyBtn"
+                style="width: 100%; margin-top: 10px; padding: 10px; background: rgba(255,0,0,0.2); border: 1px solid #ff5555; color: #ff5555; border-radius: 5px; cursor: pointer; font-size: 0.9em;"
+            >
+                🗑️ APIキーを削除
+            </button>
+        </div>
+    </div>
+
+    <!-- Phase 13.1: SD WebUIポート設定モーダル -->
+    <div id="portSettingModal" class="modal" style="display: none;">
+        <div class="modal-content" style="max-width: 500px;">
+            <h2>🔌 SD WebUIポート番号設定</h2>
+            <p style="color: #aaa; font-size: 0.9em; margin: 15px 0;">
+                SD WebUI (Stable Diffusion WebUI Forge/A1111) のポート番号を入力してください。<br>
+                デフォルトは8500ですが、カスタムポートを使用している場合は変更してください。
+            </p>
+
+            <div style="margin: 20px 0;">
+                <label style="display: block; margin-bottom: 10px; color: #fff; font-weight: bold;">
+                    ポート番号:
+                </label>
+                <input
+                    type="number"
+                    id="portInput"
+                    placeholder="7860"
+                    min="1"
+                    max="65535"
+                    style="width: 100%; padding: 12px; border-radius: 5px; border: 1px solid #555; background: #2a2a2a; color: #fff; font-size: 1em; box-sizing: border-box;"
+                />
+            </div>
+
+            <div style="background: rgba(76,175,80,0.2); padding: 15px; border-radius: 5px; margin: 20px 0; border-left: 4px solid #4CAF50;">
+                <h4 style="margin: 0 0 10px 0; color: #4CAF50;">💡 ポート番号の確認方法</h4>
+                <ul style="margin: 10px 0; padding-left: 20px; color: #ccc; font-size: 0.9em; line-height: 1.8;">
+                    <li>SD WebUI起動時のコマンドライン出力を確認</li>
+                    <li>ブラウザのアドレスバーを確認（例: http://127.0.0.1:7860）</li>
+                    <li>デフォルトは7860（Automatic1111/Forge標準）</li>
+                    <li>カスタム設定の場合、起動オプションで指定したポート番号</li>
+                </ul>
+            </div>
+
+            <div style="display: flex; gap: 10px; margin-top: 20px;">
+                <button class="btn btn-primary" id="savePortBtn" style="flex: 1;">
+                    💾 保存
+                </button>
+                <button class="btn btn-secondary" id="closePortModalBtn" style="flex: 1;">
+                    ✕ 閉じる
+                </button>
+            </div>
+
+            <button
+                id="resetPortBtn"
+                style="width: 100%; margin-top: 10px; padding: 10px; background: rgba(255,165,0,0.2); border: 1px solid #ffa500; color: #ffa500; border-radius: 5px; cursor: pointer; font-size: 0.9em;"
+            >
+                🔄 デフォルト(7860)に戻す
+            </button>
+        </div>
+    </div>
+
+    <!-- ガイドラインモーダル -->
+    <div id="guideModal" class="modal" style="display: none;">
+        <div class="modal-content" style="max-width: 900px; max-height: 90vh; overflow-y: auto;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h2 id="guideModalTitle" style="color: #333; margin: 0;">ガイドライン</h2>
+                <button onclick="closeGuideModal()" style="background: #f44336; color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-size: 1.2em;">✕</button>
+            </div>
+            <div id="guideModalContent" style="color: #333; line-height: 1.8; white-space: pre-wrap; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
+                <!-- コンテンツはJavaScriptで動的に読み込む -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ライセンス管理モーダル -->
+    <div id="licenseModal" class="modal" style="display: none;">
+        <div class="modal-content" style="max-width: 600px;">
+            <h2>🔐 ライセンス管理</h2>
+            
+            <!-- ライセンス情報表示 -->
+            <div id="licenseInfoSection" style="margin: 20px 0; padding: 20px; background: rgba(102, 126, 234, 0.1); border-radius: 10px; border-left: 4px solid #667eea;">
+                <h3 style="margin: 0 0 15px 0; color: #667eea;">📋 現在のライセンス情報</h3>
+                <div id="licenseInfoDisplay" style="color: #fff; line-height: 1.8;">
+                    <div>ライセンスタイプ: <strong id="licenseTypeInfo">読み込み中...</strong></div>
+                    <div id="licenseExpiryInfo" style="margin-top: 10px;"></div>
+                    <div id="licenseTrialInfo" style="margin-top: 10px;"></div>
+                    <div id="licenseVerificationInfo" style="margin-top: 10px;"></div>
+                </div>
+            </div>
+
+            <!-- パスコード認証セクション -->
+            <div style="margin: 20px 0; padding: 20px; background: rgba(255, 200, 100, 0.1); border-radius: 10px; border-left: 4px solid #ffc864;">
+                <h3 style="margin: 0 0 15px 0; color: #ffc864;">🔑 ライセンスキー認証</h3>
+                <div style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 8px; color: #fff; font-weight: bold;">パスコード（ライセンスキー）:</label>
+                    <input type="text" id="licensePasscodeInput" placeholder="XXXX-XXXX-XXXX-XXXX" 
+                        style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #555; background: #2a2a2a; color: #fff; font-family: monospace; letter-spacing: 2px;"
+                        maxlength="19">
+                    <p style="color: #aaa; font-size: 0.85em; margin: 8px 0 0 0;">
+                        形式: XXXX-XXXX-XXXX-XXXX<br>
+                        買い切り型: ONET-XXXX-XXXX-XXXX<br>
+                        サブスク月額: SUBS-XXXX-XXXX-XXXX<br>
+                        サブスク年額: YEAR-XXXX-XXXX-XXXX
+                    </p>
+                </div>
+                <button class="btn btn-primary" id="verifyLicenseBtn" onclick="verifyLicensePasscode()" style="width: 100%;">
+                    ✅ 認証
+                </button>
+                <div id="licenseVerifyResult" style="margin-top: 15px; padding: 10px; border-radius: 5px; display: none;"></div>
+            </div>
+
+            <!-- 体験版セクション -->
+            <div id="trialSection" style="margin: 20px 0; padding: 20px; background: rgba(76, 175, 80, 0.1); border-radius: 10px; border-left: 4px solid #4CAF50; display: none;">
+                <h3 style="margin: 0 0 15px 0; color: #4CAF50;">🎁 体験版</h3>
+                <p style="color: #fff; margin-bottom: 15px;">
+                    7日間の体験版を利用できます。体験版では各カテゴリ3個までセットを登録できます。試用期間終了後はセットの保存・編集ができなくなります。
+                </p>
+                <button class="btn btn-primary" id="activateTrialBtn" onclick="activateTrialLicense()" style="width: 100%; background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);">
+                    🎁 体験版を有効化
+                </button>
+            </div>
+
+            <!-- 定期認証セクション（サブスクリプション型のみ） -->
+            <div id="verificationSection" style="margin: 20px 0; padding: 20px; background: rgba(255, 152, 0, 0.1); border-radius: 10px; border-left: 4px solid #ff9800; display: none;">
+                <h3 style="margin: 0 0 15px 0; color: #ff9800;">🔒 定期認証</h3>
+                <p style="color: #fff; margin-bottom: 15px;">
+                    サブスクリプション型では、定期的な認証が必要です。認証を完了してください。
+                </p>
+                <button class="btn btn-primary" id="completeVerificationBtn" onclick="completeLicenseVerification()" style="width: 100%; background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);">
+                    ✅ 認証を完了
+                </button>
+            </div>
+
+            <div style="display: flex; gap: 10px; margin-top: 20px;">
+                <button class="btn btn-secondary" onclick="closeLicenseModal()" style="flex: 1;">
+                    ✕ 閉じる
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Phase 14.2: API設定モーダル -->
+    <div id="apiSettingsModal" class="modal" style="display: none;">
+        <div class="modal-content" style="max-width: 700px; max-height: 85vh; overflow-y: auto;">
+            <h2>⚙️ SD WebUI API 詳細設定</h2>
+
+            <!-- Tagger設定セクション -->
+            <div style="margin: 25px 0; padding: 20px; background: rgba(255,107,107,0.1); border-radius: 10px; border-left: 4px solid #ff6b6b;">
+                <h3 style="margin: 0 0 15px 0; color: #ff6b6b;">🔍 Tagger API設定</h3>
+
+                <div style="margin: 15px 0;">
+                    <label style="display: block; margin-bottom: 8px; color: #fff; font-weight: bold;">Threshold (閾値):</label>
+                    <input type="range" id="taggerThreshold" min="0.1" max="0.9" step="0.05" value="0.35"
+                        style="width: 100%;"
+                        oninput="document.getElementById('taggerThresholdValue').textContent = this.value">
+                    <span id="taggerThresholdValue" style="color: #aab5ff; font-size: 0.9em;">0.35</span>
+                    <p style="color: #aaa; font-size: 0.85em; margin: 8px 0 0 0;">
+                        低い値 = タグ数増加（ノイズ多）、高い値 = タグ数減少（精度高）
+                    </p>
+                </div>
+
+                <div style="margin: 15px 0;">
+                    <label style="display: block; margin-bottom: 8px; color: #fff; font-weight: bold;">Tagger Model:</label>
+                    <select id="taggerModel" style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #555; background: #2a2a2a; color: #fff;">
+                        <option value="wd14-vit.v2">wd14-vit.v2 (推奨)</option>
+                        <option value="wd14-convnext.v2">wd14-convnext.v2</option>
+                        <option value="wd14-swinv2.v2">wd14-swinv2.v2</option>
+                        <option value="wd14-vit.v3">wd14-vit.v3</option>
+                    </select>
+                    <p style="color: #aaa; font-size: 0.85em; margin: 8px 0 0 0;">
+                        WD14シリーズはアニメ画像タグ付けに最適化
+                    </p>
+                </div>
+
+                <div style="margin: 15px 0;">
+                    <label style="display: flex; align-items: center; gap:10px; cursor: pointer;">
+                        <input type="checkbox" id="taggerCompatMode" style="width: 18px; height: 18px;">
+                        <span style="color: #fff; font-weight: bold;">WD14互換モード（後処理を最小化）</span>
+                    </label>
+                    <p style="color: #aaa; font-size: 0.85em; margin: 8px 0 0 0;">
+                        ノイズ除去のみ行い、タグの統合や競合解消を最小限にします（本家出力に近い結果）
+                    </p>
+                </div>
+            </div>
+
+            <!-- 画像生成設定セクション -->
+            <div style="margin: 25px 0; padding: 20px; background: rgba(102,126,234,0.1); border-radius: 10px; border-left: 4px solid #667eea;">
+                <h3 style="margin: 0 0 15px 0; color: #667eea;">🎨 txt2img API設定</h3>
+
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <div>
+                        <label style="display: block; margin-bottom: 8px; color: #fff; font-weight: bold;">Width:</label>
+                        <input type="number" id="imageWidth" value="512" min="64" max="2048" step="64"
+                            style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #555; background: #2a2a2a; color: #fff;">
+                    </div>
+                    <div>
+                        <label style="display: block; margin-bottom: 8px; color: #fff; font-weight: bold;">Height:</label>
+                        <input type="number" id="imageHeight" value="512" min="64" max="2048" step="64"
+                            style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #555; background: #2a2a2a; color: #fff;">
+                    </div>
+                </div>
+
+                <div style="margin: 15px 0;">
+                    <label style="display: block; margin-bottom: 8px; color: #fff; font-weight: bold;">Steps:</label>
+                    <input type="range" id="imageSteps" min="10" max="50" step="5" value="20"
+                        style="width: 100%;"
+                        oninput="document.getElementById('imageStepsValue').textContent = this.value">
+                    <span id="imageStepsValue" style="color: #aab5ff; font-size: 0.9em;">20</span>
+                    <p style="color: #aaa; font-size: 0.85em; margin: 8px 0 0 0;">
+                        高い値 = 品質向上・生成時間増加、低い値 = 高速生成
+                    </p>
+                </div>
+
+                <div style="margin: 15px 0;">
+                    <label style="display: block; margin-bottom: 8px; color: #fff; font-weight: bold;">CFG Scale:</label>
+                    <input type="range" id="imageCfgScale" min="1" max="20" step="0.5" value="7"
+                        style="width: 100%;"
+                        oninput="document.getElementById('imageCfgScaleValue').textContent = this.value">
+                    <span id="imageCfgScaleValue" style="color: #aab5ff; font-size: 0.9em;">7</span>
+                    <p style="color: #aaa; font-size: 0.85em; margin: 8px 0 0 0;">
+                        プロンプト忠実度（推奨: 7-12）
+                    </p>
+                </div>
+
+                <div style="margin: 15px 0;">
+                    <label style="display: block; margin-bottom: 8px; color: #fff; font-weight: bold;">Sampler:</label>
+                    <select id="imageSampler" style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #555; background: #2a2a2a; color: #fff;">
+                        <option value="DPM++ 2M">DPM++ 2M (推奨)</option>
+                        <option value="DPM++ 2M Karras">DPM++ 2M Karras</option>
+                        <option value="DPM++ SDE Karras">DPM++ SDE Karras</option>
+                        <option value="Euler a">Euler a</option>
+                        <option value="Euler">Euler</option>
+                        <option value="DDIM">DDIM</option>
+                        <option value="UniPC">UniPC</option>
+                    </select>
+                </div>
+
+                <div style="margin: 15px 0;">
+                    <label style="display: flex; align-items: center; cursor: pointer;">
+                        <input type="checkbox" id="restoreFaces" style="margin-right: 10px; width: 18px; height: 18px;">
+                        <span style="color: #fff; font-weight: bold;">Restore Faces (顔修復)</span>
+                    </label>
+                </div>
+
+                <!-- ✨ 新機能: Checkpoint（モデル）選択 -->
+                <div style="margin: 15px 0;">
+                    <label style="display: block; margin-bottom: 8px; color: #fff; font-weight: bold;">🎨 Checkpoint (Model):</label>
+                    <input type="text" id="sdModelCheckpoint" value="" placeholder="例: model_name.safetensors"
+                        style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #555; background: #2a2a2a; color: #fff;">
+                    <p style="color: #aaa; font-size: 0.85em; margin: 8px 0 0 0;">
+                        🔧 使用するSDモデルを指定（空欄=現在のモデル使用）<br>
+                        例: illustriousXL_v01.safetensors, animagineXLV3.safetensors
+                    </p>
+                </div>
+            </div>
+
+            <div style="display: flex; gap: 10px; margin-top: 25px;">
+                <button onclick="saveApiSettings()" style="flex: 1; padding: 15px; background: linear-gradient(135deg, #48c774 0%, #3b9d5e 100%); color: white; border: none; border-radius: 25px; cursor: pointer; font-size: 1em; font-weight: bold;">
+                    💾 設定を保存
+                </button>
+                <button onclick="document.getElementById('apiSettingsModal').style.display='none'" style="flex: 1; padding: 15px; background: linear-gradient(135deg, #636363 0%, #4a4a4a 100%); color: white; border: none; border-radius: 25px; cursor: pointer; font-size: 1em; font-weight: bold;">
+                    ✕ 閉じる
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- セット管理モーダル -->
+    <div id="categorySetModalOverlay" class="set-modal-overlay">
+        <div class="set-modal">
+            <div class="set-modal-header">
+                <div class="set-modal-title-group">
+                    <h2 id="categorySetModalTitle" class="set-modal-title">セット選択</h2>
+                    <p id="categorySetModalSubtitle" class="set-modal-subtitle"></p>
+                </div>
+                <button class="set-modal-close" onclick="window.categorySets?.closeCategorySetModal?.()">×</button>
+            </div>
+            <div class="set-modal-body" id="categorySetModalBody"></div>
+        </div>
+    </div>
+
+    <!-- セット編集モーダル -->
+    <div id="setEditOverlay" class="set-edit-overlay">
+        <div class="set-edit-modal">
+            <div class="set-edit-header">
+                <div>
+                    <h3>セット編集</h3>
+                    <p id="setEditSubtitle" class="set-edit-subtitle"></p>
+                </div>
+                <button class="set-edit-close" onclick="window.categorySets?.closeEditModal?.()">×</button>
+            </div>
+
+            <div class="set-edit-body">
+                <div class="set-managers-row">
+                    <div class="set-group-manager">
+                        <div class="set-section-row">
+                            <span class="set-section-label">現在のグループ</span>
+                            <span id="editCurrentGroup" class="set-section-chip">default</span>
+                        </div>
+                        <div class="set-section-row">
+                            <label class="set-section-label" for="editSetGroup">グループ変更</label>
+                            <select id="editSetGroup"></select>
+                        </div>
+                        <div class="set-group-actions">
+                            <input id="newGroupInput" type="text" placeholder="新しいグループ名" />
+                            <button id="createGroupBtn" class="set-action-button set-action-button--create">＋ 新規グループ</button>
+                        </div>
+                        <div class="set-group-actions">
+                            <input id="renameGroupInput" type="text" placeholder="現在のグループ名を変更" />
+                            <button id="renameGroupBtn" class="set-action-button set-action-button--rename">✏️ グループ名変更</button>
+                            <button id="deleteGroupBtn" class="set-action-button set-action-button--delete">🗑 グループ削除</button>
+                        </div>
+                    </div>
+
+                    <div class="set-section-manager">
+                        <div class="set-section-row">
+                            <span class="set-section-label">現在のセクション</span>
+                            <span id="editCurrentSection" class="set-section-chip">-</span>
+                        </div>
+                        <div class="set-section-row">
+                            <label class="set-section-label" for="editSetSection">セクション変更</label>
+                            <select id="editSetSection"></select>
+                        </div>
+                        <div class="set-section-actions">
+                            <input id="newSectionInput" type="text" placeholder="新しいセクション名" />
+                            <button id="createSectionBtn" class="set-action-button set-action-button--create">＋ 新規セクション</button>
+                        </div>
+                        <div class="set-section-actions">
+                            <input id="renameSectionInput" type="text" placeholder="セクション名を変更" />
+                            <button id="renameSectionBtn" class="set-action-button set-action-button--rename">✏️ セクション名変更</button>
+                            <button id="deleteSectionBtn" class="set-action-button set-action-button--delete">🗑 セクション削除</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="set-edit-fields">
+                    <div class="form-field form-field--full">
+                        <label for="editSetName">セット名</label>
+                        <input id="editSetName" type="text" placeholder="例: 正面ポーズ A">
+                    </div>
+
+                    <div class="form-field form-field--full">
+                        <label for="editSetTags">タグ（カンマ区切り）</label>
+                        <textarea id="editSetTags" rows="5" placeholder="tag1, tag2, tag3"></textarea>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="editMetaType">タイプ</label>
+                        <input id="editMetaType" type="text" placeholder="例: portrait, pose" />
+                    </div>
+
+                    <div class="form-field form-field--small">
+                        <label for="editMetaRating">属性</label>
+                        <select id="editMetaRating">
+                            <option value="normal">normal</option>
+                            <option value="nsfw">nsfw</option>
+                            <option value="mature">mature</option>
+                            <option value="sfw">sfw</option>
+                            <option value="restricted">restricted</option>
+                        </select>
+                    </div>
+
+                    <div class="form-field form-field--full">
+                        <label for="editMetaTags">メタタグ（カンマ区切り）</label>
+                        <input id="editMetaTags" type="text" placeholder="例: face, 3d, cosplay" />
+                    </div>
+
+                    <div class="form-field form-field--full">
+                        <label for="editMetaNotes">メモ</label>
+                        <textarea id="editMetaNotes" rows="3" placeholder="補足情報や注意点を入力"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="set-edit-footer">
+                <button class="set-edit-cancel" onclick="window.categorySets?.closeEditModal?.()">キャンセル</button>
+                <button class="set-edit-save" onclick="window.categorySets?.saveEditedSet?.()">セット更新</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- セクション名変更モーダル -->
+    <div id="sectionRenameOverlay" class="section-rename-overlay">
+        <div class="section-rename-dialog">
+            <h3>セクション名の変更</h3>
+            <p class="section-rename-caption">新しいセクション名を入力してください。</p>
+            <input id="sectionRenameDialogInput" type="text" placeholder="例: 基本セット" />
+            <p id="sectionRenameDialogError" class="section-rename-error" style="display:none;"></p>
+            <div class="section-rename-actions">
+                <button id="sectionRenameCancelBtn" class="section-rename-cancel">キャンセル</button>
+                <button id="sectionRenameConfirmBtn" class="section-rename-confirm">変更を保存</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 画像登録モーダル -->
+    <div id="setImageOverlay" class="set-image-overlay">
+        <div class="set-image-modal-box">
+            <div class="set-image-header">
+                <h3 id="imageModalTitle">画像を登録</h3>
+                <p id="setImageSavePath" class="set-image-subtitle">保存先: data/sets/images/thumbnails/</p>
+                <button class="set-image-close" onclick="window.categorySets?.closeImageModal?.()">×</button>
+            </div>
+
+            <div id="imageDropZone" class="image-drop-zone">
+                <div class="image-drop-inner">
+                    <span class="image-drop-icon">📂</span>
+                    <p>画像をドラッグ&ドロップ<br>またはクリックしてファイルを選択</p>
+                    <small>対応形式: PNG / JPG / JPEG / WEBP</small>
+                </div>
+            </div>
+            <input id="imageFileInput" type="file" accept="image/png,image/jpeg,image/jpg,image/webp" style="display: none;">
+
+            <div id="currentImageContainer" class="current-image-container" style="display:none;">
+                <div class="current-image-card">
+                    <img id="setImagePreview" alt="現在の登録画像">
+                    <div class="current-image-meta">
+                        <span id="currentImageName"></span>
+                        <button id="removeImageBtn" class="current-image-delete">🗑 登録画像を削除</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="image-actions">
+                <button class="image-cancel" onclick="window.categorySets?.closeImageModal?.()">キャンセル</button>
+                <button class="image-save" onclick="window.categorySets?.saveSetImage?.()">保存</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    // Phase 14.2: API設定保存関数
+    function saveApiSettings() {
+        const taggerSettings = {
+            model: document.getElementById('taggerModel').value,
+            threshold: parseFloat(document.getElementById('taggerThreshold').value),
+            compatMode: document.getElementById('taggerCompatMode').checked
+        };
+
+        const txt2imgSettings = {
+            width: parseInt(document.getElementById('imageWidth').value),
+            height: parseInt(document.getElementById('imageHeight').value),
+            steps: parseInt(document.getElementById('imageSteps').value),
+            sampler_name: document.getElementById('imageSampler').value,
+            cfg_scale: parseFloat(document.getElementById('imageCfgScale').value),
+            restore_faces: document.getElementById('restoreFaces').checked,
+            sd_model_checkpoint: document.getElementById('sdModelCheckpoint').value.trim()
+        };
+
+        updateTaggerSettings(taggerSettings);
+        updateTxt2ImgSettings(txt2imgSettings);
+
+        // JSONに永続化（Electron経由）
+        if (window.electronAPI && window.electronAPI.saveApiSettings) {
+            window.electronAPI.saveApiSettings({ tagger: taggerSettings, txt2img: txt2imgSettings })
+                .then(res => {
+                    if (res && res.success) {
+                        console.log('✅ SD API設定をconfig.jsonに保存');
+                    } else {
+                        console.warn('⚠️ SD API設定の保存に失敗:', res && res.error);
+                    }
+                })
+                .catch(err => console.warn('⚠️ SD API設定の保存エラー:', err));
+        }
+
+        document.getElementById('apiSettingsModal').style.display = 'none';
+    }
+
+    // モーダルを開いて現在の設定を読み込む
+    function openApiSettingsModal() {
+        // classifier.jsからSD_API_SETTINGSを取得
+        if (typeof SD_API_SETTINGS !== 'undefined') {
+            // Tagger設定
+            document.getElementById('taggerModel').value = SD_API_SETTINGS.tagger.model || 'wd14-vit.v2';
+            const thr = SD_API_SETTINGS.tagger.threshold || 0.35;
+            document.getElementById('taggerThreshold').value = thr;
+            const thrView = document.getElementById('taggerThresholdValue');
+            if (thrView) thrView.textContent = String(thr);
+            document.getElementById('taggerCompatMode').checked = !!SD_API_SETTINGS.tagger.compatMode;
+
+            // txt2img設定
+            document.getElementById('imageWidth').value = SD_API_SETTINGS.txt2img.width || 512;
+            document.getElementById('imageHeight').value = SD_API_SETTINGS.txt2img.height || 512;
+            document.getElementById('imageSteps').value = SD_API_SETTINGS.txt2img.steps || 20;
+            document.getElementById('imageSampler').value = SD_API_SETTINGS.txt2img.sampler_name || 'DPM++ 2M';
+            document.getElementById('imageCfgScale').value = SD_API_SETTINGS.txt2img.cfg_scale || 7;
+            document.getElementById('restoreFaces').checked = SD_API_SETTINGS.txt2img.restore_faces || false;
+            document.getElementById('sdModelCheckpoint').value = SD_API_SETTINGS.txt2img.sd_model_checkpoint || '';
+        }
+
+        // さらにファイル保存値があれば優先読込
+        if (window.electronAPI && window.electronAPI.loadApiSettings) {
+            window.electronAPI.loadApiSettings().then(res => {
+                if (res && res.success && res.settings) {
+                    const s = res.settings;
+                    if (s.tagger) {
+                        if (s.tagger.model) document.getElementById('taggerModel').value = s.tagger.model;
+                        if (typeof s.tagger.threshold === 'number') document.getElementById('taggerThreshold').value = s.tagger.threshold;
+                    }
+                    if (s.txt2img) {
+                        if (s.txt2img.width) document.getElementById('imageWidth').value = s.txt2img.width;
+                        if (s.txt2img.height) document.getElementById('imageHeight').value = s.txt2img.height;
+                        if (s.txt2img.steps) document.getElementById('imageSteps').value = s.txt2img.steps;
+                        if (s.txt2img.sampler_name) document.getElementById('imageSampler').value = s.txt2img.sampler_name;
+                        if (typeof s.txt2img.cfg_scale === 'number') document.getElementById('imageCfgScale').value = s.txt2img.cfg_scale;
+                        document.getElementById('restoreFaces').checked = !!s.txt2img.restore_faces;
+                        document.getElementById('sdModelCheckpoint').value = s.txt2img.sd_model_checkpoint || '';
+                    }
+                }
+            }).catch(() => {});
+        }
+
+        // モーダルを表示
+        document.getElementById('apiSettingsModal').style.display = 'block';
+    }
+
+    // モーダル起動時に現在の設定をロード
+    document.getElementById('apiSettingsModal').addEventListener('click', function(e) {
+        if (e.target.id === 'apiSettingsModal') {
+            this.style.display = 'none';
+        }
+    });
+
+    // パリティJSON書き出し
+    (function(){
+      const exportBtn = document.getElementById('exportParityBtn');
+      if (exportBtn && window.electronAPI && window.electronAPI.saveDebugJson) {
+          exportBtn.addEventListener('click', async () => {
+              try {
+                  const payload = {
+                      image: (window.currentImageFile && window.currentImageFile.name) || null,
+                      settings: { tagger: SD_API_SETTINGS.tagger },
+                      parity: window.lastTaggerParity || null
+                  };
+                  const res = await window.electronAPI.saveDebugJson(payload);
+                  if (res && res.success) {
+                      alert(`✅ パリティを書き出しました\n${res.file}`);
+                  } else {
+                      alert(`❌ 書き出しに失敗しました\n${(res && res.error) || ''}`);
+                  }
+              } catch (e) {
+                  alert(`❌ 書き出しエラー: ${e.message}`);
+              }
+          });
+      }
+    })();
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pako/2.0.4/pako_inflate.min.js"></script>
+    <script src="CharacterSeparator.js"></script>
+    <script src="MultiCharacterManager.js"></script>
+    <script src="learn-all.js"></script>
+    <!-- YAML生成システムのスクリプト（classifier.jsより前に読み込む） -->
+    <script src="yaml_generator_system/modules/keyword-database.js"></script>
+    <script src="yaml_generator_system/modules/classifier.js"></script>
+    <script src="yaml_generator_system/modules/yaml-generator.js"></script>
+    <script src="yaml_generator_system/modules/text-extractor.js"></script>
+    <script src="yaml_generator_system/modules/file-handler.js"></script>
+    <script src="yaml_generator_system/modules/ui-renderer.js"></script>
+    <script src="yaml_generator_system/yaml-generator.js"></script>
+    <script src="classifier.js"></script>
+    <script src="category-sets.js"></script>
+    <!-- ストーリープロンプトモーダル -->
+    <div id="storyPromptModal" class="modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 10000; align-items: center; justify-content: center;">
+        <div class="modal-content" style="width: 95%; height: 95vh; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 16px; position: relative; display: flex; flex-direction: column; box-shadow: 0 20px 60px rgba(0,0,0,0.5);">
+            <div class="modal-header" style="padding: 20px 25px; background: rgba(255,255,255,0.15); backdrop-filter: blur(10px); border-bottom: 2px solid rgba(255,255,255,0.2); flex-shrink: 0; border-radius: 16px 16px 0 0;">
+                <h2 style="margin: 0; color: white; font-size: 28px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">📖 ストーリープロンプトシステム v2.0</h2>
+                <button class="close-btn" onclick="closeStoryPrompt()" style="position: absolute; top: 20px; right: 25px; font-size: 32px; background: rgba(255,255,255,0.2); border: none; cursor: pointer; color: white; width: 40px; height: 40px; border-radius: 50%; transition: all 0.3s;" onmouseover="this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.2)'">×</button>
+            </div>
+            <div class="modal-body" style="display: flex; gap: 20px; padding: 20px; height: 100%; overflow: hidden;">
+                <!-- 左側：設定エリア -->
+                <div style="width: 320px; flex-shrink: 0; overflow-y: auto; background: rgba(255,255,255,0.95); border-radius: 12px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                    <h3 style="margin-top: 0; color: #667eea; font-size: 20px; border-bottom: 3px solid #667eea; padding-bottom: 10px;">🌐 共通設定</h3>
+                    <div style="margin-bottom: 15px; padding: 12px; background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%); border-radius: 8px; border: 2px solid #fdcb6e;">
+                        <label style="font-weight: bold; display: flex; align-items: center; gap: 8px; color: #2d3436; font-size: 14px; cursor: pointer;">
+                            <input type="checkbox" id="storyMultiGirlMode" style="width: 18px; height: 18px; cursor: pointer;" onchange="toggleMultiGirlMode()">
+                            <span>👥 複数人女性モード（レズシーン・複数人女性生成）</span>
+                        </label>
+                    </div>
+                    <div id="storySingleGirlArea" style="margin-bottom: 15px;">
+                        <label style="font-weight: bold; display: block; margin-bottom: 8px; color: #333; font-size: 14px;">😊 女性の顔</label>
+                        <select id="storyFaceSelect" style="width: 100%; padding: 10px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 14px; background: white; transition: all 0.3s;" onfocus="this.style.borderColor='#667eea'" onblur="this.style.borderColor='#e0e0e0'">
+                            <option value="">選択...</option>
+                        </select>
+                    </div>
+                    <div id="storyMultiGirlArea" style="margin-bottom: 15px; display: none;">
+                        <label style="font-weight: bold; display: block; margin-bottom: 8px; color: #333; font-size: 14px;">👥 複数人女性の顔（最大5人）</label>
+                        <div id="storyMultiGirlFacesContainer" style="display: flex; flex-direction: column; gap: 10px;">
+                            <!-- 動的に生成される（最大5人分のドロップダウン） -->
+                        </div>
+                        <button onclick="addMultiGirlFace()" style="width: 100%; margin-top: 10px; padding: 8px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: bold; transition: all 0.3s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform='translateY(0)'">➕ 女性を追加</button>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <label style="font-weight: bold; display: block; margin-bottom: 8px; color: #333; font-size: 14px;">💃 体</label>
+                        <select id="storyBodySelect" style="width: 100%; padding: 10px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 14px; background: white; transition: all 0.3s;" onfocus="this.style.borderColor='#667eea'" onblur="this.style.borderColor='#e0e0e0'">
+                            <option value="">選択...</option>
+                        </select>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <label style="font-weight: bold; display: block; margin-bottom: 8px; color: #333; font-size: 14px;">🏞️ 背景</label>
+                        <select id="storyBackgroundSelect" style="width: 100%; padding: 10px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 14px; background: white; transition: all 0.3s;" onfocus="this.style.borderColor='#667eea'" onblur="this.style.borderColor='#e0e0e0'">
+                            <option value="">選択...</option>
+                        </select>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <label style="font-weight: bold; display: block; margin-bottom: 8px; color: #333; font-size: 14px;">👗 服装</label>
+                        <select id="storyClothingSelect" style="width: 100%; padding: 10px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 14px; background: white; transition: all 0.3s;" onfocus="this.style.borderColor='#667eea'" onblur="this.style.borderColor='#e0e0e0'">
+                            <option value="">選択...</option>
+                        </select>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <label style="font-weight: bold; display: block; margin-bottom: 8px; color: #333; font-size: 14px;">👨 竿役男性</label>
+                        <select id="storyMaleCharacterSelect" style="width: 100%; padding: 10px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 14px; background: white; transition: all 0.3s;" onfocus="this.style.borderColor='#667eea'" onblur="this.style.borderColor='#e0e0e0'">
+                            <option value="">選択なし（一人用）</option>
+                        </select>
+                    </div>
+                    <div id="storyMaleClothingStateArea" style="margin-bottom: 15px; display: none;">
+                        <label style="font-weight: bold; display: block; margin-bottom: 8px; color: #333; font-size: 14px;">👔 男性服装状態</label>
+                        <select id="storyMaleClothingStateSelect" style="width: 100%; padding: 10px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 14px; background: white; transition: all 0.3s;" onfocus="this.style.borderColor='#667eea'" onblur="this.style.borderColor='#e0e0e0'">
+                            <option value="">通常</option>
+                            <!-- 動的に生成される（体カテゴリの「服装状態」グループから取得） -->
+                        </select>
+                    </div>
+                    
+                    <div style="height: 2px; background: linear-gradient(to right, #667eea, #764ba2); margin: 25px 0;"></div>
+                    
+                    <h3 style="color: #764ba2; font-size: 20px; border-bottom: 3px solid #764ba2; padding-bottom: 10px; margin-bottom: 15px;">🤸 ポーズ選択</h3>
+                    <div style="margin-bottom: 15px;">
+                        <label style="font-weight: bold; display: block; margin-bottom: 8px; color: #333; font-size: 14px;">📂 グループ</label>
+                        <select id="storyPoseGroupSelect" style="width: 100%; padding: 10px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 14px; background: white; transition: all 0.3s;" onfocus="this.style.borderColor='#764ba2'" onblur="this.style.borderColor='#e0e0e0'">
+                            <option value="default">🎨 default</option>
+                            <option value="nsfw">🔞 nsfw</option>
+                        </select>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <label style="font-weight: bold; display: block; margin-bottom: 8px; color: #333; font-size: 14px;">📑 セクション</label>
+                        <select id="storyPoseSectionSelect" style="width: 100%; padding: 10px; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 14px; background: white; transition: all 0.3s;" onfocus="this.style.borderColor='#764ba2'" onblur="this.style.borderColor='#e0e0e0'">
+                            <option value="">選択...</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- 中央：ポーズカード表示 -->
+                <div style="flex: 1; display: flex; flex-direction: column; overflow: hidden; background: rgba(255,255,255,0.95); border-radius: 12px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                    <div id="storyPoseCardsArea" style="flex: 1; overflow-y: auto; display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 15px; align-content: start; padding: 15px; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); border-radius: 12px;">
+                        <div style="grid-column: 1/-1; text-align: center; color: #666; padding: 60px; font-size: 18px; font-weight: bold;">🎭 ポーズセクションを選択してください</div>
+                    </div>
+                    
+                    <!-- 個別設定エリア -->
+                    <div id="storyIndividualSettings" style="display: none; margin-top: 20px; max-height: 40vh; overflow-y: auto; padding: 20px; background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%); border-radius: 12px; border: 3px solid #fdcb6e; box-shadow: 0 4px 15px rgba(253, 203, 110, 0.3);">
+                        <h4 style="margin: 0 0 15px 0; color: #2d3436; font-size: 18px;">💎 個別設定: <span id="currentSceneName" style="color: #d63031;"></span></h4>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                            <div>
+                                <label style="font-size: 13px; font-weight: bold; color: #2d3436; display: block; margin-bottom: 5px;">🏞️ 背景</label>
+                                <select id="sceneBackgroundSelect" style="width: 100%; padding: 8px; font-size: 13px; border: 2px solid #dfe6e9; border-radius: 6px; background: white;">
+                                    <option value="">共通設定を使用</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label style="font-size: 13px; font-weight: bold; color: #2d3436; display: block; margin-bottom: 5px;">😊 表情</label>
+                                <select id="sceneExpressionSelect" style="width: 100%; padding: 8px; font-size: 13px; border: 2px solid #dfe6e9; border-radius: 6px; background: white;">
+                                    <option value="">選択...</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label style="font-size: 13px; font-weight: bold; color: #2d3436; display: block; margin-bottom: 5px;">👗 服装</label>
+                                <select id="sceneClothingSelect" style="width: 100%; padding: 8px; font-size: 13px; border: 2px solid #dfe6e9; border-radius: 6px; background: white;">
+                                    <option value="">共通設定を使用</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label style="font-size: 13px; font-weight: bold; color: #2d3436; display: block; margin-bottom: 5px;">👔 服装状態</label>
+                                <select id="sceneClothingStateSelect" style="width: 100%; padding: 8px; font-size: 13px; border: 2px solid #dfe6e9; border-radius: 6px; background: white;">
+                                    <!-- 動的に生成される（体カテゴリの「服装状態」グループから取得） -->
+                                </select>
+                            </div>
+                            <div id="sceneUnderwearArea" style="display: none;">
+                                <label style="font-size: 13px; font-weight: bold; color: #2d3436; display: block; margin-bottom: 5px;">👙 下着セット</label>
+                                <select id="sceneUnderwearSelect" style="width: 100%; padding: 8px; font-size: 13px; border: 2px solid #dfe6e9; border-radius: 6px; background: white;">
+                                    <option value="">選択なし</option>
+                                    <!-- 動的に生成される（服装カテゴリの「下着」セクションから取得） -->
+                                </select>
+                            </div>
+                            <div>
+                                <label style="font-size: 13px; font-weight: bold; color: #2d3436; display: block; margin-bottom: 5px;">👨 竿役男性</label>
+                                <select id="sceneMaleCharacterSelect" style="width: 100%; padding: 8px; font-size: 13px; border: 2px solid #dfe6e9; border-radius: 6px; background: white;">
+                                    <option value="">共通設定を使用</option>
+                                    <option value="none">なし（一人用）</option>
+                                    <!-- 動的に生成される（faceカテゴリの「男性」グループから取得） -->
+                                </select>
+                            </div>
+                            <div id="sceneMaleClothingStateArea" style="display: none;">
+                                <label style="font-size: 13px; font-weight: bold; color: #2d3436; display: block; margin-bottom: 5px;">👔 男性服装状態</label>
+                                <select id="sceneMaleClothingStateSelect" style="width: 100%; padding: 8px; font-size: 13px; border: 2px solid #dfe6e9; border-radius: 6px; background: white;">
+                                    <option value="">通常</option>
+                                    <!-- 動的に生成される（体カテゴリの「服装状態」グループから取得） -->
+                                </select>
+                            </div>
+                            <div style="grid-column: 1 / -1;">
+                                <label style="font-size: 13px; font-weight: bold; color: #2d3436; display: block; margin-bottom: 5px;">📝 ストーリーメモ（参考用）</label>
+                                <textarea id="sceneStoryMemoInput" rows="3" style="width: 100%; padding: 8px; font-size: 13px; border: 2px solid #dfe6e9; border-radius: 6px; background: white; resize: vertical; font-family: inherit;" placeholder="このシーンのストーリー展開のメモ（参考用）"></textarea>
+                            </div>
+                        </div>
+                        <!-- 複数人女性モードの場合の個別設定 -->
+                        <div id="sceneMultiGirlSettingsArea" style="display: none; margin-top: 20px; padding: 15px; background: rgba(255,255,255,0.7); border-radius: 10px; border: 2px solid #fdcb6e;">
+                            <h5 style="margin: 0 0 15px 0; color: #2d3436; font-size: 16px; font-weight: bold;">👥 各女性の個別設定（このシーン専用）</h5>
+                            <div id="sceneMultiGirlSettingsContainer"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 右側：シーン一覧とプレビュー -->
+                <div style="width: 420px; flex-shrink: 0; display: flex; flex-direction: column; overflow: hidden; background: rgba(255,255,255,0.95); border-radius: 12px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 3px solid #e74c3c;">
+                        <h3 style="margin: 0; color: #e74c3c; font-size: 20px;">📋 選択中のシーン</h3>
+                        <div style="display: flex; gap: 8px;">
+                            <button onclick="saveStoryToFavorites()" style="padding: 8px 14px; background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%); color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: bold; box-shadow: 0 3px 10px rgba(255, 193, 7, 0.3); transition: all 0.3s;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 5px 15px rgba(255, 193, 7, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 3px 10px rgba(255, 193, 7, 0.3)'" title="お気に入りに保存">⭐ 保存</button>
+                            <button onclick="loadStoryFromFavorites()" style="padding: 8px 14px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: bold; box-shadow: 0 3px 10px rgba(23, 162, 184, 0.3); transition: all 0.3s;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 5px 15px rgba(23, 162, 184, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 3px 10px rgba(23, 162, 184, 0.3)'" title="お気に入りから読み込み">📁 読込</button>
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 10px; display: flex; gap: 8px; flex-wrap: wrap;">
+                        <button onclick="showAIStoryGenerator()" style="flex: 1; min-width: 120px; padding: 10px; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: bold; box-shadow: 0 3px 10px rgba(245, 87, 108, 0.3); transition: all 0.3s;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 5px 15px rgba(245, 87, 108, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 3px 10px rgba(245, 87, 108, 0.3)'" title="AIでストーリーを自動生成">🤖 AI生成</button>
+                        <button onclick="showSNSPostGenerator()" style="flex: 1; min-width: 120px; padding: 10px; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: bold; box-shadow: 0 3px 10px rgba(79, 172, 254, 0.3); transition: all 0.3s;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 5px 15px rgba(79, 172, 254, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 3px 10px rgba(79, 172, 254, 0.3)'" title="SNS投稿用の単発イラストをAI生成">📱 SNS投稿用</button>
+                        <button onclick="addSceneDivider()" style="flex: 1; min-width: 120px; padding: 10px; background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 100%); color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: bold; box-shadow: 0 3px 10px rgba(108, 92, 231, 0.3); transition: all 0.3s;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 5px 15px rgba(108, 92, 231, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 3px 10px rgba(108, 92, 231, 0.3)'" title="目次的な区切りを追加">📌 区切りを追加</button>
+                    </div>
+                    <div id="storyScenesListArea" style="flex: 1; overflow-y: auto; background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%); border-radius: 12px; padding: 15px; margin-bottom: 15px; box-shadow: inset 0 2px 10px rgba(0,0,0,0.05);">
+                        <div style="text-align: center; color: #666; padding: 40px; font-size: 16px; font-weight: bold;">🎬 ポーズを選択してください</div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 3px solid #27ae60;">
+                        <h3 style="margin: 0; color: #27ae60; font-size: 20px;">📄 プロンプトプレビュー</h3>
+                        <button onclick="copyStoryPromptToClipboard()" style="padding: 8px 14px; background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%); color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: bold; box-shadow: 0 3px 10px rgba(40, 167, 69, 0.3); transition: all 0.3s;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 5px 15px rgba(40, 167, 69, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 3px 10px rgba(40, 167, 69, 0.3)'" title="クリップボードにコピー">📋 コピー</button>
+                    </div>
+                    <textarea id="storyPreview" readonly style="flex: 1; font-family: 'Consolas', 'Monaco', monospace; padding: 15px; border: 2px solid #dfe6e9; border-radius: 8px; resize: none; background: #2d3436; color: #00ff00; font-size: 13px; line-height: 1.6;"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- YAML生成モーダル -->
+    <div id="yamlGeneratorModal" class="yaml-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 10000; align-items: center; justify-content: center;">
+        <div class="yaml-modal-content" style="width: 95%; height: 95vh; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 16px; position: relative; display: flex; flex-direction: column; box-shadow: 0 20px 60px rgba(0,0,0,0.5);">
+            <!-- ヘッダー -->
+            <div class="yaml-modal-header">
+                <h2>📄 YAML生成システム v1.0</h2>
+                <button class="yaml-close-btn" onclick="closeYAMLGenerator()">×</button>
+            </div>
+            
+            <!-- モード切替 -->
+            <div class="yaml-mode-switch">
+                <button id="yamlModeBtn" class="yaml-mode-btn active" onclick="switchYAMLMode('yaml')">📄 YAML生成</button>
+                <button id="extractModeBtn" class="yaml-mode-btn" onclick="switchYAMLMode('extract')">📋 テキスト抽出</button>
+            </div>
+            
+            <!-- メインコンテンツ -->
+            <div class="yaml-modal-body">
+                <!-- 左側: カテゴリタブ・設定パネル -->
+                <div class="yaml-left-panel">
+                    <!-- YAML生成モード -->
+                    <div id="yamlModePanel" class="yaml-mode-panel">
+                        <h3>🌐 設定</h3>
+                        <button class="yaml-action-btn" onclick="YAMLGeneratorSystem.selectAndClassifyFile()">📁 ファイル選択</button>
+                        <div class="yaml-stats-section">
+                            <h4>📊 統計</h4>
+                            <div id="yamlFileStats" class="yaml-stats">
+                                <div>総行数: <strong>0</strong></div>
+                                <div>分類済み: <strong>0</strong></div>
+                            </div>
+                        </div>
+                        <div class="yaml-category-tabs-section">
+                            <h4>📑 カテゴリ</h4>
+                            <div id="yamlCategoryTabs" class="yaml-category-tabs"></div>
+                        </div>
+                        <div id="yamlGroupSectionFilter" class="yaml-group-section-filter" style="display: none; margin-top: 15px;">
+                            <h4>🔍 フィルター</h4>
+                            <div style="display: flex; flex-direction: column; gap: 10px;">
+                                <div>
+                                    <label style="display: block; margin-bottom: 5px; font-size: 13px; color: #2d3436;">グループ:</label>
+                                    <select id="yamlGroupSelect" class="yaml-filter-select" onchange="YAMLGeneratorSystem.onGroupChange()">
+                                        <option value="">全てのグループ</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label style="display: block; margin-bottom: 5px; font-size: 13px; color: #2d3436;">セッション:</label>
+                                    <select id="yamlSectionSelect" class="yaml-filter-select" onchange="YAMLGeneratorSystem.onSectionChange()">
+                                        <option value="">全てのセッション</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- テキスト抽出モード -->
+                    <div id="extractModePanel" class="yaml-mode-panel" style="display: none;">
+                        <h3>🌐 設定</h3>
+                        <button class="yaml-action-btn" onclick="selectExtractFolder()">📁 フォルダ選択</button>
+                        <div class="yaml-stats-section">
+                            <h4>📊 統計</h4>
+                            <div id="extractFileStats" class="yaml-stats">
+                                <div>ファイル数: <strong>0</strong></div>
+                                <div>総行数: <strong>0</strong></div>
+                            </div>
+                        </div>
+                        <div class="yaml-category-checkboxes">
+                            <h4>抽出カテゴリ選択</h4>
+                            <label><input type="checkbox" value="characterface" onchange="toggleExtractCategory('characterface')"> 😊 顔</label>
+                            <label><input type="checkbox" value="clothing" onchange="toggleExtractCategory('clothing')"> 👗 服装</label>
+                            <label><input type="checkbox" value="poseemotion" onchange="toggleExtractCategory('poseemotion')"> 🤸 ポーズ</label>
+                            <label><input type="checkbox" value="backgrounds" onchange="toggleExtractCategory('backgrounds')"> 🏞️ 背景</label>
+                            <label><input type="checkbox" value="characterbody" onchange="toggleExtractCategory('characterbody')"> 💃 体</label>
+                            <label><input type="checkbox" value="uncategorized" onchange="toggleExtractCategory('uncategorized')"> 📦 その他</label>
+                            <label><input type="checkbox" onchange="toggleAllExtractCategories()"> ☑ 全て選択</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 中央: カードグリッド -->
+                <div class="yaml-center-panel">
+                    <div id="yamlCardsArea" class="yaml-cards-grid">
+                        <div style="grid-column: 1/-1; text-align: center; color: #999; padding: 60px; font-size: 18px; font-weight: bold;">ファイルを選択して分類を実行してください</div>
+                    </div>
+                </div>
+                
+                <!-- 右側: 選択結果・プレビュー・出力パネル -->
+                <div class="yaml-right-panel">
+                    <h3>📋 結果</h3>
+                    <div id="yamlStatistics" class="yaml-statistics"></div>
+                    <div class="yaml-selection-buttons" style="display: flex; gap: 10px; margin-bottom: 15px;">
+                        <button class="yaml-action-btn" onclick="YAMLGeneratorSystem.selectAllCards()" style="flex: 1;">✅ 全選択</button>
+                        <button class="yaml-action-btn" onclick="YAMLGeneratorSystem.deselectAllCards()" style="flex: 1;">❌ 全解除</button>
+                    </div>
+                    <div class="yaml-favorite-buttons">
+                        <button class="yaml-favorite-btn" onclick="saveYAMLToFavorites()">⭐ 保存</button>
+                        <button class="yaml-favorite-btn" onclick="loadYAMLFromFavorites()">📁 読込</button>
+                    </div>
+                    <div id="yamlOutputButtons" class="yaml-output-buttons">
+                        <button class="yaml-output-btn" onclick="YAMLGeneratorSystem.generateAndSaveYAML()">📄 YAML生成</button>
+                        <button class="yaml-output-btn" onclick="YAMLGeneratorSystem.copyYAMLToClipboard()">📋 クリップボード</button>
+                    </div>
+                    <div id="extractOutputButtons" class="yaml-output-buttons" style="display: none;">
+                        <button class="yaml-output-btn" onclick="extractAndShowText()">📋 テキスト抽出</button>
+                        <button class="yaml-output-btn" onclick="copyExtractedText()">📋 クリップボード</button>
+                    </div>
+                    <div id="yamlPreviewSection" class="yaml-preview-section">
+                        <h4>📄 YAMLプレビュー</h4>
+                        <textarea id="yamlPreview" class="yaml-preview" readonly></textarea>
+                    </div>
+                    <div id="extractPreviewSection" class="yaml-preview-section" style="display: none; flex: 1; flex-direction: column; min-height: 400px; max-height: 500px;">
+                        <h4>📋 抽出結果プレビュー</h4>
+                        <textarea id="extractPreview" class="yaml-preview" readonly style="flex: 1; width: 100%; min-height: 400px; max-height: 500px; overflow-y: auto;"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

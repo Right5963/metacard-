@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Console Log Capture</title>
+    <style>
+        body { font-family: monospace; padding: 20px; background: #1e1e1e; color: #d4d4d4; }
+        pre { white-space: pre-wrap; word-wrap: break-word; }
+        .error { color: #f48771; }
+        .warn { color: #dcdcaa; }
+        .log { color: #d4d4d4; }
+    </style>
+</head>
+<body>
+    <h1>Console Log Capture</h1>
+    <div id="output"></div>
+    <script>
+        const output = document.getElementById('output');
+        const logs = [];
+        
+        const originalLog = console.log;
+        const originalError = console.error;
+        const originalWarn = console.warn;
+        
+        function addLog(type, args) {
+            const time = new Date().toISOString();
+            const msg = Array.from(args).map(arg => {
+                if (typeof arg === 'object') {
+                    try {
+                        return JSON.stringify(arg, null, 2);
+                    } catch (e) {
+                        return String(arg);
+                    }
+                }
+                return String(arg);
+            }).join(' ');
+            
+            logs.push({ type, time, msg });
+            
+            const div = document.createElement('div');
+            div.className = type;
+            div.innerHTML = `<strong>[${time}] [${type.toUpperCase()}]</strong> ${msg}`;
+            output.appendChild(div);
+        }
+        
+        console.log = function(...args) {
+            addLog('log', args);
+            originalLog.apply(console, args);
+        };
+        
+        console.error = function(...args) {
+            addLog('error', args);
+            originalError.apply(console, args);
+        };
+        
+        console.warn = function(...args) {
+            addLog('warn', args);
+            originalWarn.apply(console, args);
+        };
+        
+        // ストーリープロンプトシステムを iframe で読み込み
+        const iframe = document.createElement('iframe');
+        iframe.src = 'index.html';
+        iframe.style.width = '100%';
+        iframe.style.height = '800px';
+        iframe.style.border = '2px solid #444';
+        iframe.style.marginTop = '20px';
+        
+        // iframe のコンソールもキャプチャ
+        iframe.onload = function() {
+            try {
+                const iframeWindow = iframe.contentWindow;
+                const iframeConsole = iframeWindow.console;
+                
+                iframeWindow.console.log = function(...args) {
+                    addLog('log', ['[IFRAME]', ...args]);
+                    originalLog.apply(console, ['[IFRAME]', ...args]);
+                };
+                
+                iframeWindow.console.error = function(...args) {
+                    addLog('error', ['[IFRAME]', ...args]);
+                    originalError.apply(console, ['[IFRAME]', ...args]);
+                };
+                
+                iframeWindow.console.warn = function(...args) {
+                    addLog('warn', ['[IFRAME]', ...args]);
+                    originalWarn.apply(console, ['[IFRAME]', ...args]);
+                };
+            } catch (e) {
+                console.error('iframe console capture failed:', e);
+            }
+        };
+        
+        document.body.appendChild(iframe);
+        
+        // 10秒後にログをファイルに保存
+        setTimeout(() => {
+            const logText = logs.map(l => `[${l.time}] [${l.type.toUpperCase()}] ${l.msg}`).join('\n');
+            const blob = new Blob([logText], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'console-log.txt';
+            a.click();
+            console.log('Log file saved!');
+        }, 10000);
+    </script>
+</body>
+</html>
+

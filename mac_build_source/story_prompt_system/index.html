@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>📗 ストーリープロンプトシステム v2.0</title>
+    <link rel="stylesheet" href="story-prompt.css">
+</head>
+<body>
+    <!-- メインシェル -->
+    <div class="story-shell">
+        <!-- ツールバー -->
+        <div class="story-toolbar">
+            <div class="story-toolbar-left">
+                <h1>📗 ストーリープロンプトシステム v2.0</h1>
+                <p>ポーズ・衣装・アクションを組み合わせてプロンプトを組み立てる</p>
+            </div>
+            <div class="story-toolbar-actions">
+                <button class="toolbar-btn secondary" id="filterBtn">🔍 フィルター</button>
+                <button class="toolbar-btn secondary" id="libraryBtn">📚 ライブラリ</button>
+                <button class="toolbar-btn secondary" id="clearSelectionBtn">🧹 選択クリア</button>
+                <button class="toolbar-btn secondary" id="exportBtn">📂 エクスポート</button>
+                <button class="toolbar-btn primary" id="returnBtn">🟢 メイン画面に戻る</button>
+            </div>
+        </div>
+
+        <!-- コンテンツエリア -->
+        <div class="story-content">
+            <!-- 左カラム -->
+            <div class="story-left-column">
+                <!-- ポーズ選択画面 -->
+                <div class="pose-selection-view" id="poseSelectionView">
+                    <!-- 全シーン共通設定 -->
+                    <section class="global-settings-card">
+                        <h3>🌐 全シーン共通設定（顔・体・背景・服装）</h3>
+                        
+                        <div class="setting-row">
+                            <label>😊 女性の顔:</label>
+                            <select id="globalFaceSelect">
+                                <option value="">セットを選択...</option>
+                            </select>
+                        </div>
+                        
+                        <div class="setting-row">
+                            <label>💃 体:</label>
+                            <select id="globalBodySelect">
+                                <option value="">セットを選択...</option>
+                            </select>
+                        </div>
+                        
+                        <div class="setting-row">
+                            <label>🏞️ 背景:</label>
+                            <select id="globalBackgroundSelect">
+                                <option value="">セットを選択...</option>
+                            </select>
+                        </div>
+                        
+                        <div class="setting-row">
+                            <label>👗 服装:</label>
+                            <select id="globalClothingSelect">
+                                <option value="">セットを選択...</option>
+                            </select>
+                        </div>
+                    </section>
+
+                    <!-- シーンタイプ選択 -->
+                    <section class="scene-type-card">
+                        <h3>🎯 シーンタイプ選択</h3>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="sceneType" value="normal" checked>
+                                🔥 普通のSEX（男女）
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="sceneType" value="lesbian">
+                                💕 レズビアン（女性同士）
+                            </label>
+                        </div>
+                    </section>
+
+                    <!-- ポーズセット選択 -->
+                    <section class="pose-selection-card">
+                        <h3>🤸 ポーズセット選択</h3>
+                        
+                        <div class="pose-section-selector">
+                            <label>グループ:</label>
+                            <select id="poseGroupSelect">
+                                <option value="default">🎨 default</option>
+                                <option value="nsfw">🔞 nsfw</option>
+                            </select>
+                            
+                            <label>セッション:</label>
+                            <select id="poseSectionSelect">
+                                <option value="">セッションを選択...</option>
+                            </select>
+                        </div>
+                        
+                        <!-- ポーズカード表示エリア -->
+                        <div id="poseCardsContainer" class="pose-cards-grid"></div>
+                    </section>
+
+                    <!-- 個別シーン設定 -->
+                    <section class="individual-scene-card" id="individualSceneCard" style="display: none;">
+                        <h3>💎 <span id="currentSceneTitle">シーン詳細</span></h3>
+                        
+                        <div class="setting-row">
+                            <label>🏞️ 背景:</label>
+                            <select id="sceneBackgroundSelect">
+                                <option value="">背景セットを選択...</option>
+                            </select>
+                        </div>
+                        
+                        <div class="setting-row">
+                            <label>😊 表情:</label>
+                            <select id="sceneExpressionSelect">
+                                <option value="">表情セットを選択...</option>
+                            </select>
+                        </div>
+                        
+                        <div class="setting-row">
+                            <label>👗 服装:</label>
+                            <select id="sceneClothingSelect">
+                                <option value="">服装セットを選択...</option>
+                            </select>
+                        </div>
+                        
+                        <div class="clothing-state-row">
+                            <label>👔 服装状態:</label>
+                            <div class="state-buttons">
+                                <button class="state-btn active" data-value="normal">通常</button>
+                                <button class="state-btn" data-value="nude">全裸</button>
+                                <button class="state-btn" data-value="topless">上半身</button>
+                                <button class="state-btn" data-value="bottomless">下着のみ</button>
+                            </div>
+                        </div>
+                        
+                        <div class="setting-row">
+                            <label>📝 メモ:</label>
+                            <textarea id="sceneNotesInput" placeholder="シーン固有のメモ"></textarea>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- シーン編集画面（非表示） -->
+                <div class="scene-edit-view" id="sceneEditView" style="display: none;">
+                    <!-- シーンカード（横スクロール） -->
+                    <div class="scene-cards-strip" id="sceneCardsStrip"></div>
+
+                    <!-- 全シーン共通設定 -->
+                    <section class="common-settings">
+                        <h3>🌐 全シーン共通設定（顔・体・背景・服装）</h3>
+                        <div class="setting-row">
+                            <label>😊 女性の顔:</label>
+                            <select id="globalFaceSelect">
+                                <option value="">セットを選択...</option>
+                            </select>
+                            <button class="manage-btn" data-category="face">…</button>
+                        </div>
+                        <div class="setting-row">
+                            <label>💃 体:</label>
+                            <select id="globalBodySelect">
+                                <option value="">セットを選択...</option>
+                            </select>
+                            <button class="manage-btn" data-category="body">…</button>
+                        </div>
+                        <div class="setting-row">
+                            <label>🏞️ 背景:</label>
+                            <select id="globalBackgroundSelect">
+                                <option value="">セットを選択...</option>
+                            </select>
+                            <button class="manage-btn" data-category="background">…</button>
+                        </div>
+                        <div class="setting-row">
+                            <label>👗 服装:</label>
+                            <select id="globalClothingSelect">
+                                <option value="">セットを選択...</option>
+                            </select>
+                            <button class="manage-btn" data-category="clothing">…</button>
+                        </div>
+                    </section>
+
+                    <!-- シーンタイプ選択 -->
+                    <section class="scene-type-section">
+                        <h3>🎯 シーンタイプ選択</h3>
+                        <div class="radio-group">
+                            <label>
+                                <input type="radio" name="sceneType" value="normal" checked>
+                                🔥 普通のSEX（男女）
+                            </label>
+                            <label>
+                                <input type="radio" name="sceneType" value="lesbian">
+                                💕 レズビアン（女性同士）
+                            </label>
+                        </div>
+                    </section>
+
+                    <!-- シーン選択エリア -->
+                    <section class="scene-selection-section">
+                        <h3>📹 シーン選択</h3>
+                        <div class="scene-action-btns">
+                            <button class="scene-action-btn success" id="selectAllBtn">✅ 全選択</button>
+                            <button class="scene-action-btn danger" id="deselectAllBtn">❌ 全解除</button>
+                            <button class="scene-action-btn danger" id="clearAllBtn">🗑 全クリア</button>
+                            <button class="scene-action-btn primary" id="reloadPosesBtn">🔄 ポーズ再読込</button>
+                        </div>
+                        <div class="scene-status" id="sceneStatus">undefined</div>
+                    </section>
+
+                    <!-- 個別シーン詳細 -->
+                    <section class="scene-detail-section" id="sceneDetailSection">
+                        <h3 id="sceneDetailTitle">💎 シーン1: 腰舐め</h3>
+                        <div class="setting-row">
+                            <label>🏞️ 背景:</label>
+                            <select id="sceneBackgroundSelect">
+                                <option value="">背景セットを選択...</option>
+                            </select>
+                            <button class="manage-btn" data-category="background">…</button>
+                        </div>
+                        <div class="setting-row">
+                            <label>😊 表情:</label>
+                            <select id="sceneExpressionSelect">
+                                <option value="">表情セットを選択...</option>
+                            </select>
+                            <button class="manage-btn" data-category="expression">…</button>
+                        </div>
+                        <div class="setting-row">
+                            <label>👗 服装:</label>
+                            <select id="sceneClothingSelect">
+                                <option value="">服装セットを選択...</option>
+                            </select>
+                            <button class="manage-btn" data-category="clothing">…</button>
+                        </div>
+                        <div class="clothing-state-row">
+                            <label>服装状態:</label>
+                            <div class="state-btns">
+                                <button class="state-btn active" data-state="normal">🔵 通常</button>
+                                <button class="state-btn" data-state="nude">🔴 全裸</button>
+                                <button class="state-btn" data-state="topless">🟡 上半身</button>
+                                <button class="state-btn" data-state="bottomless">🟢 下着のみ</button>
+                            </div>
+                        </div>
+                        <details class="detail-settings">
+                            <summary>▶ 詳細半構築定 (8種類)</summary>
+                            <div class="detail-content">
+                                <p>詳細設定はここに表示されます（将来実装）</p>
+                            </div>
+                        </details>
+                    </section>
+                </div>
+            </div>
+
+            <!-- 右カラム -->
+            <div class="story-right-column">
+                <!-- シーン一覧 -->
+                <section class="scene-list-card">
+                    <h3>📹 選択中のシーン</h3>
+                    <div id="sceneCardsList" class="scene-cards-list"></div>
+                </section>
+
+                <!-- 選択統計 -->
+                <section class="stats-card">
+                    <h3>📊 選択統計</h3>
+                    <div class="stat-row">
+                        <span>選択シーン:</span>
+                        <strong id="sceneCount">0個</strong>
+                    </div>
+                    <div class="stat-row">
+                        <span>シーンタイプ:</span>
+                        <strong id="sceneTypeDisplay">-</strong>
+                    </div>
+                </section>
+
+                <!-- ストーリープレビュー -->
+                <section class="preview-card">
+                    <h3>📄 ストーリープレビュー</h3>
+                    <label class="preview-toggle">
+                        <input type="checkbox" id="showExplanationToggle" checked>
+                        解説表示
+                    </label>
+                    <textarea id="previewText" class="preview-area" readonly></textarea>
+                </section>
+
+                <!-- シーン一覧 -->
+                <section class="scene-list-card" id="sceneListCard" style="display: none;">
+                    <h3>🎬 シーン一覧</h3>
+                    <div id="sceneList" class="scene-list"></div>
+                </section>
+
+                <!-- 操作ボタン -->
+                <div class="action-buttons">
+                    <button class="action-btn primary" id="copyPromptBtn">📋 プロンプトのみコピー</button>
+                    <button class="action-btn success" id="saveStoryBtn">💾 保存</button>
+                </div>
+
+                <!-- ステータス -->
+                <div class="status-message" id="statusMessage">準備完了</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ライブラリパネル（サイドパネル） -->
+    <div class="library-mask" id="libraryMask" style="display: none;"></div>
+    <aside class="library-panel" id="libraryPanel" style="display: none;">
+        <div class="library-header">
+            <h3>📚 ストーリーライブラリ</h3>
+            <button class="library-close" id="libraryCloseBtn">×</button>
+        </div>
+        <div class="library-controls">
+            <button class="library-btn" id="refreshLibraryBtn">🔄 一覧更新</button>
+        </div>
+        <div class="library-create">
+            <label>
+                <span>新規ストーリータイトル</span>
+                <input id="newStoryTitleInput" type="text" placeholder="例: 夜のオフィスでの密会">
+            </label>
+            <button class="library-btn accent" id="createStoryBtn">➕ 新規作成</button>
+        </div>
+        <ul id="storyListUl" class="story-list"></ul>
+        <div id="storyListEmpty" class="story-list-empty">ストーリーがまだありません。タイトルを入力して「新規作成」を押してください。</div>
+    </aside>
+
+    <!-- デバッグロガー -->
+    <script src="debug-logger.js"></script>
+    
+    <!-- モジュール読み込み -->
+    <script src="modules/state-manager.js"></script>
+    <script src="modules/set-loader.js"></script>
+    <script src="modules/scene-manager.js"></script>
+    <script src="modules/preview-generator.js"></script>
+    <script src="modules/storage-manager.js"></script>
+    <script src="modules/ui-renderer.js"></script>
+    
+    <!-- メインロジック -->
+    <script src="story-prompt.js"></script>
+</body>
+</html>

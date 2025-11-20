@@ -1,0 +1,20 @@
+appId: com.promptclassifier.v3
+productName: Prompt Classifier v3
+directories:
+  output: dist
+  buildResources: build
+files:
+  - "**/*"
+  - "!**/*.ts"
+  - "!*.map"
+  - "!package-lock.json"
+  - "!node_modules/.bin"
+  - "!src/*"
+mac:
+  target:
+    - target: zip
+      arch:
+        - x64
+        - arm64
+  identity: null
+  category: public.app-category.utilities

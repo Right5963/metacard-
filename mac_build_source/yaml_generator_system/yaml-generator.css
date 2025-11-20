@@ -1,0 +1,379 @@
+/* YAML生成システム CSS */
+
+/* モーダル基本スタイル */
+.yaml-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.yaml-modal-content {
+    width: 95%;
+    height: 95vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 16px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.yaml-modal-header {
+    padding: 20px 25px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    flex-shrink: 0;
+    border-radius: 16px 16px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.yaml-modal-header h2 {
+    margin: 0;
+    color: white;
+    font-size: 28px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.yaml-close-btn {
+    font-size: 32px;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    cursor: pointer;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: all 0.3s;
+}
+
+.yaml-close-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* モード切替 */
+.yaml-mode-switch {
+    padding: 15px 25px;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.yaml-mode-btn {
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.yaml-mode-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.yaml-mode-btn.active {
+    background: rgba(255, 255, 255, 0.9);
+    color: #667eea;
+    border-color: white;
+}
+
+/* モーダルボディ */
+.yaml-modal-body {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    height: 100%;
+    overflow: hidden;
+    flex: 1;
+}
+
+/* 左側パネル */
+.yaml-left-panel {
+    width: 320px;
+    flex-shrink: 0;
+    overflow-y: auto;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.yaml-left-panel h3 {
+    margin-top: 0;
+    color: #667eea;
+    font-size: 20px;
+    border-bottom: 3px solid #667eea;
+    padding-bottom: 10px;
+}
+
+.yaml-mode-panel {
+    display: block;
+}
+
+.yaml-action-btn {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.yaml-action-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.yaml-stats-section {
+    margin-top: 20px;
+    padding: 15px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 8px;
+}
+
+.yaml-stats-section h4 {
+    margin: 0 0 10px 0;
+    color: #2d3436;
+    font-size: 16px;
+}
+
+.yaml-stats {
+    font-size: 13px;
+    color: #495057;
+    line-height: 1.8;
+}
+
+.yaml-category-tabs-section {
+    margin-top: 20px;
+}
+
+.yaml-category-tabs-section h4 {
+    margin: 0 0 10px 0;
+    color: #2d3436;
+    font-size: 16px;
+}
+
+.yaml-category-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.yaml-category-checkboxes {
+    margin-top: 20px;
+    padding: 15px;
+    background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+    border-radius: 8px;
+}
+
+.yaml-category-checkboxes h4 {
+    margin: 0 0 10px 0;
+    color: #2d3436;
+    font-size: 16px;
+}
+
+.yaml-category-checkboxes label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 13px;
+    color: #2d3436;
+    cursor: pointer;
+}
+
+.yaml-category-checkboxes input[type="checkbox"] {
+    margin-right: 8px;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+/* グループ/セッションフィルター */
+.yaml-group-section-filter {
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    margin-top: 15px;
+}
+
+.yaml-group-section-filter h4 {
+    margin: 0 0 10px 0;
+    color: #2d3436;
+    font-size: 14px;
+}
+
+.yaml-filter-select {
+    width: 100%;
+    padding: 8px 12px;
+    border: 2px solid #dfe6e9;
+    border-radius: 6px;
+    font-size: 13px;
+    background: white;
+    color: #2d3436;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.yaml-filter-select:hover {
+    border-color: #667eea;
+}
+
+.yaml-filter-select:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* 中央パネル */
+.yaml-center-panel {
+    flex: 1;
+    overflow-y: auto;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.yaml-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); /* 自動調整 */
+    gap: 15px;
+    align-content: start;
+    padding: 15px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border-radius: 12px;
+    min-height: 100%;
+    justify-content: start;
+    overflow-x: auto; /* 横スクロール可能 */
+    overflow-y: auto; /* 縦スクロール可能 */
+    max-height: calc(100vh - 300px); /* 画面高さに応じて調整 */
+}
+
+.yaml-cards-grid > div {
+    width: 160px;
+    height: 200px; /* 画像140px + タグ60px */
+    position: relative;
+}
+
+/* 右側パネル */
+.yaml-right-panel {
+    width: 420px;
+    flex-shrink: 0;
+    overflow-y: auto;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.yaml-right-panel h3 {
+    margin-top: 0;
+    color: #667eea;
+    font-size: 20px;
+    border-bottom: 3px solid #667eea;
+    padding-bottom: 10px;
+}
+
+.yaml-statistics {
+    margin-bottom: 20px;
+}
+
+.yaml-favorite-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.yaml-favorite-btn {
+    flex: 1;
+    padding: 10px;
+    background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.yaml-favorite-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255, 193, 7, 0.4);
+}
+
+.yaml-output-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.yaml-output-btn {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.yaml-output-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(40, 167, 69, 0.4);
+}
+
+.yaml-preview-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 400px;
+    max-height: 500px;
+}
+
+.yaml-preview-section h4 {
+    margin: 0 0 10px 0;
+    color: #2d3436;
+    font-size: 16px;
+}
+
+.yaml-preview {
+    flex: 1;
+    width: 100%;
+    min-height: 400px;
+    max-height: 500px;
+    font-family: 'Consolas', 'Monaco', monospace;
+    padding: 15px;
+    border: 2px solid #dfe6e9;
+    border-radius: 8px;
+    resize: none;
+    background: #2d3436;
+    color: #00ff00;
+    font-size: 13px;
+    line-height: 1.6;
+    overflow-y: auto;
+}
+

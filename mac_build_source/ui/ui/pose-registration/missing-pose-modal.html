@@ -1,0 +1,148 @@
+<!-- 🎨 欠落ポーズ登録モーダル（Phase 2 - Missing Pose Registration UI） -->
+<div id="missing-pose-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-dialog">
+        <!-- ヘッダー -->
+        <div class="modal-header">
+            <h2 class="modal-title">
+                <span class="modal-icon">🎨</span>
+                AI プロンプト提案
+                <span class="modal-progress" id="pose-modal-progress">(1/50)</span>
+            </h2>
+            <button class="modal-close-btn" id="pose-modal-close" title="閉じる">×</button>
+        </div>
+
+        <!-- コンテンツ -->
+        <div class="modal-body">
+            <!-- ポーズ情報セクション -->
+            <div class="pose-info-section">
+                <div class="pose-info-row">
+                    <span class="pose-info-label">ポーズ名:</span>
+                    <span class="pose-info-value" id="pose-name-display">騎乗位での愛撫</span>
+                </div>
+                <div class="pose-info-row">
+                    <span class="pose-info-label">カテゴリ:</span>
+                    <span class="pose-info-value">
+                        <span id="pose-category-display">レズ</span>
+                        <span class="pose-info-separator">/</span>
+                        <span id="pose-section-display">倉庫</span>
+                    </span>
+                </div>
+            </div>
+
+            <!-- プログレスバー -->
+            <div class="progress-bar-container">
+                <div class="progress-bar-fill" id="pose-progress-bar" style="width: 2%;"></div>
+            </div>
+
+            <!-- AI提案プロンプトセクション -->
+            <div class="prompt-suggestion-section">
+                <div class="section-header">
+                    <span class="section-icon">📝</span>
+                    <span class="section-title">提案プロンプト:</span>
+                </div>
+                <textarea
+                    id="pose-prompt-textarea"
+                    class="prompt-textarea"
+                    rows="6"
+                    placeholder="AIがプロンプトを生成中..."
+                    readonly
+                >2girls, lesbian, cowgirl position, nude, intimate, caressing, warehouse, dim lighting, passionate, closeup</textarea>
+            </div>
+
+            <!-- 提案理由セクション -->
+            <div class="explanation-section">
+                <div class="section-header">
+                    <span class="section-icon">💡</span>
+                    <span class="section-title">提案理由:</span>
+                </div>
+                <p class="explanation-text" id="pose-explanation-text">
+                    レズビアンのシーンで騎乗位のポーズ。親密な愛撫を表現するタグを含めました。
+                </p>
+            </div>
+
+            <!-- 信頼度表示 -->
+            <div class="confidence-section">
+                <span class="confidence-label">信頼度:</span>
+                <div class="confidence-bar-container">
+                    <div class="confidence-bar-fill" id="pose-confidence-bar" style="width: 85%;"></div>
+                </div>
+                <span class="confidence-value" id="pose-confidence-value">85%</span>
+            </div>
+        </div>
+
+        <!-- フッター（アクションボタン） -->
+        <div class="modal-footer">
+            <!-- 主要アクション -->
+            <div class="primary-actions">
+                <button class="btn btn-primary" id="pose-register-btn" title="プロンプトをそのまま登録">
+                    <span class="btn-icon">✅</span>
+                    このまま登録
+                </button>
+                <button class="btn btn-secondary" id="pose-edit-btn" title="プロンプトを編集してから登録">
+                    <span class="btn-icon">✏️</span>
+                    編集
+                </button>
+                <button class="btn btn-tertiary" id="pose-skip-btn" title="このポーズをスキップ">
+                    <span class="btn-icon">⏭️</span>
+                    スキップ
+                </button>
+            </div>
+
+            <!-- ナビゲーション -->
+            <div class="navigation-actions">
+                <button class="btn btn-nav" id="pose-prev-btn" title="前のポーズへ">
+                    <span class="btn-icon">←</span>
+                    前へ
+                </button>
+                <button class="btn btn-nav" id="pose-next-btn" title="次のポーズへ">
+                    <span class="btn-icon">→</span>
+                    次へ
+                </button>
+                <button class="btn btn-cancel" id="pose-cancel-btn" title="登録作業をキャンセル">
+                    <span class="btn-icon">✖️</span>
+                    キャンセル
+                </button>
+            </div>
+        </div>
+
+        <!-- ローディングオーバーレイ -->
+        <div class="loading-overlay" id="pose-loading-overlay" style="display: none;">
+            <div class="loading-spinner"></div>
+            <p class="loading-text" id="pose-loading-text">AIがプロンプトを生成中...</p>
+        </div>
+    </div>
+</div>
+
+<!-- 初回通知モーダル（欠落ポーズ発見時） -->
+<div id="missing-pose-notification-modal" class="modal-overlay" style="display: none;">
+    <div class="modal-dialog modal-dialog-small">
+        <div class="modal-header">
+            <h2 class="modal-title">
+                <span class="modal-icon">⚠️</span>
+                ストーリー生成完了
+            </h2>
+        </div>
+
+        <div class="modal-body">
+            <p class="notification-message">
+                以下の<strong id="missing-pose-count">50</strong>個のポーズが見つかりませんでした。<br>
+                AIがプロンプトを提案します。確認して登録できます。
+            </p>
+
+            <div class="missing-pose-summary" id="missing-pose-summary">
+                <!-- JavaScript で動的生成 -->
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <button class="btn btn-primary" id="start-registration-btn">
+                <span class="btn-icon">🚀</span>
+                全て確認して登録
+            </button>
+            <button class="btn btn-secondary" id="skip-registration-btn">
+                <span class="btn-icon">⏭️</span>
+                後で手動登録
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,502 @@
+/* 🎨 欠落ポーズ登録モーダルCSS（Phase 2 - Missing Pose Registration UI） */
+
+/* ===== モーダルオーバーレイ ===== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* ===== モーダルダイアログ ===== */
+.modal-dialog {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    max-width: 800px;
+    width: 90%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    animation: slideUp 0.3s ease-out;
+}
+
+.modal-dialog-small {
+    max-width: 500px;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* ===== モーダルヘッダー ===== */
+.modal-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 20px 24px;
+    border-radius: 12px 12px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-title {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.modal-icon {
+    font-size: 24px;
+}
+
+.modal-progress {
+    font-size: 16px;
+    opacity: 0.9;
+    margin-left: 8px;
+}
+
+.modal-close-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    font-size: 28px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s;
+}
+
+.modal-close-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* ===== モーダルボディ ===== */
+.modal-body {
+    padding: 24px;
+    background-color: #f8f9fa;
+}
+
+/* ポーズ情報セクション */
+.pose-info-section {
+    background-color: white;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.pose-info-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.pose-info-row:last-child {
+    margin-bottom: 0;
+}
+
+.pose-info-label {
+    font-weight: 600;
+    color: #495057;
+    min-width: 100px;
+    font-size: 14px;
+}
+
+.pose-info-value {
+    color: #212529;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.pose-info-separator {
+    margin: 0 8px;
+    color: #adb5bd;
+}
+
+/* プログレスバー */
+.progress-bar-container {
+    width: 100%;
+    height: 8px;
+    background-color: #e9ecef;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 16px;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    transition: width 0.3s ease-out;
+}
+
+/* セクション共通スタイル */
+.prompt-suggestion-section,
+.explanation-section,
+.confidence-section {
+    background-color: white;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+}
+
+.section-icon {
+    font-size: 18px;
+}
+
+.section-title {
+    font-weight: 600;
+    color: #495057;
+    font-size: 14px;
+}
+
+/* プロンプトテキストエリア */
+.prompt-textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #dee2e6;
+    border-radius: 6px;
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    resize: vertical;
+    transition: border-color 0.2s;
+}
+
+.prompt-textarea:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.prompt-textarea[readonly] {
+    background-color: #f8f9fa;
+    cursor: default;
+}
+
+/* 提案理由テキスト */
+.explanation-text {
+    margin: 0;
+    color: #495057;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* 信頼度セクション */
+.confidence-section {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.confidence-label {
+    font-weight: 600;
+    color: #495057;
+    font-size: 14px;
+    min-width: 80px;
+}
+
+.confidence-bar-container {
+    flex: 1;
+    height: 20px;
+    background-color: #e9ecef;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.confidence-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #51cf66 0%, #37b24d 100%);
+    transition: width 0.3s ease-out;
+}
+
+.confidence-value {
+    font-weight: 600;
+    color: #37b24d;
+    font-size: 16px;
+    min-width: 50px;
+    text-align: right;
+}
+
+/* ===== モーダルフッター ===== */
+.modal-footer {
+    padding: 20px 24px;
+    background-color: white;
+    border-radius: 0 0 12px 12px;
+    border-top: 1px solid #dee2e6;
+}
+
+.primary-actions {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+
+.navigation-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+/* ボタン共通スタイル */
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn-icon {
+    font-size: 16px;
+}
+
+/* ボタンバリエーション */
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #5568d3 0%, #63408a 100%);
+}
+
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+}
+
+.btn-tertiary {
+    background-color: #ffc107;
+    color: #212529;
+}
+
+.btn-tertiary:hover {
+    background-color: #e0a800;
+}
+
+.btn-nav {
+    background-color: #e9ecef;
+    color: #495057;
+    flex: 1;
+}
+
+.btn-nav:hover {
+    background-color: #dee2e6;
+}
+
+.btn-cancel {
+    background-color: #dc3545;
+    color: white;
+    flex: 1;
+}
+
+.btn-cancel:hover {
+    background-color: #c82333;
+}
+
+/* ===== ローディングオーバーレイ ===== */
+.loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    z-index: 10;
+}
+
+.loading-spinner {
+    width: 60px;
+    height: 60px;
+    border: 4px solid #e9ecef;
+    border-top-color: #667eea;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loading-text {
+    margin-top: 16px;
+    color: #495057;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* ===== 通知モーダル固有スタイル ===== */
+.notification-message {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #495057;
+    margin-bottom: 16px;
+}
+
+.notification-message strong {
+    color: #dc3545;
+    font-weight: 700;
+}
+
+.missing-pose-summary {
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    padding: 12px;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.missing-pose-group {
+    margin-bottom: 12px;
+}
+
+.missing-pose-group:last-child {
+    margin-bottom: 0;
+}
+
+.missing-pose-group-title {
+    font-weight: 600;
+    color: #495057;
+    margin-bottom: 4px;
+    font-size: 14px;
+}
+
+.missing-pose-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.missing-pose-item {
+    padding: 4px 8px;
+    font-size: 13px;
+    color: #6c757d;
+}
+
+/* ===== レスポンシブデザイン ===== */
+@media (max-width: 768px) {
+    .modal-dialog {
+        width: 95%;
+        max-height: 95vh;
+    }
+
+    .modal-header {
+        padding: 16px;
+    }
+
+    .modal-title {
+        font-size: 18px;
+    }
+
+    .modal-body {
+        padding: 16px;
+    }
+
+    .modal-footer {
+        padding: 16px;
+    }
+
+    .primary-actions,
+    .navigation-actions {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .btn-nav,
+    .btn-cancel {
+        flex: none;
+    }
+}
+
+/* ===== スクロールバーのカスタマイズ ===== */
+.modal-dialog::-webkit-scrollbar,
+.missing-pose-summary::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-dialog::-webkit-scrollbar-track,
+.missing-pose-summary::-webkit-scrollbar-track {
+    background: #f1f3f5;
+}
+
+.modal-dialog::-webkit-scrollbar-thumb,
+.missing-pose-summary::-webkit-scrollbar-thumb {
+    background: #adb5bd;
+    border-radius: 4px;
+}
+
+.modal-dialog::-webkit-scrollbar-thumb:hover,
+.missing-pose-summary::-webkit-scrollbar-thumb:hover {
+    background: #868e96;
+}
