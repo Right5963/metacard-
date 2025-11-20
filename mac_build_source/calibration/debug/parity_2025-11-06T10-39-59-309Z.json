@@ -1,0 +1,473 @@
+{
+  "image": "スクリーンショット 2025-11-05 060827.png",
+  "settings": {
+    "tagger": {
+      "model": "wd14-vit.v2",
+      "threshold": 0.2,
+      "compatMode": true
+    }
+  },
+  "parity": {
+    "raw": [
+      {
+        "tag": "1girl",
+        "score": 0.9963158369064331
+      },
+      {
+        "tag": "breasts",
+        "score": 0.9643683433532715
+      },
+      {
+        "tag": "brown_hair",
+        "score": 0.945522665977478
+      },
+      {
+        "tag": "japanese_clothes",
+        "score": 0.9416424036026001
+      },
+      {
+        "tag": "solo",
+        "score": 0.9359204769134521
+      },
+      {
+        "tag": "finger_to_mouth",
+        "score": 0.8974594473838806
+      },
+      {
+        "tag": "kimono",
+        "score": 0.8968806266784668
+      },
+      {
+        "tag": "cleavage",
+        "score": 0.8749372959136963
+      },
+      {
+        "tag": "large_breasts",
+        "score": 0.8627346754074097
+      },
+      {
+        "tag": "smile",
+        "score": 0.8461240530014038
+      },
+      {
+        "tag": "brown_eyes",
+        "score": 0.8040575981140137
+      },
+      {
+        "tag": "looking_at_viewer",
+        "score": 0.745256781578064
+      },
+      {
+        "tag": "sash",
+        "score": 0.7398119568824768
+      },
+      {
+        "tag": "cover",
+        "score": 0.7258148789405823
+      },
+      {
+        "tag": "obi",
+        "score": 0.638157069683075
+      },
+      {
+        "tag": "blush",
+        "score": 0.6140698194503784
+      },
+      {
+        "tag": "pink_kimono",
+        "score": 0.6068187355995178
+      },
+      {
+        "tag": "sitting",
+        "score": 0.5970973372459412
+      },
+      {
+        "tag": "shushing",
+        "score": 0.5805240273475647
+      },
+      {
+        "tag": "tabi",
+        "score": 0.5560555458068848
+      },
+      {
+        "tag": "collarbone",
+        "score": 0.5552495718002319
+      },
+      {
+        "tag": "bangs",
+        "score": 0.5341694951057434
+      },
+      {
+        "tag": "night",
+        "score": 0.514717161655426
+      },
+      {
+        "tag": "yokozuwari",
+        "score": 0.5026443004608154
+      },
+      {
+        "tag": "cover_page",
+        "score": 0.49754202365875244
+      },
+      {
+        "tag": "socks",
+        "score": 0.4803220331668854
+      },
+      {
+        "tag": "index_finger_raised",
+        "score": 0.4440634250640869
+      },
+      {
+        "tag": "thighs",
+        "score": 0.4158276915550232
+      },
+      {
+        "tag": "indoors",
+        "score": 0.4151182770729065
+      },
+      {
+        "tag": "arm_support",
+        "score": 0.3986697793006897
+      },
+      {
+        "tag": "short_hair",
+        "score": 0.30718156695365906
+      },
+      {
+        "tag": "hair_bun",
+        "score": 0.2893129587173462
+      },
+      {
+        "tag": "white_socks",
+        "score": 0.2531335949897766
+      },
+      {
+        "tag": "long_sleeves",
+        "score": 0.24652251601219177
+      },
+      {
+        "tag": "closed_mouth",
+        "score": 0.22576004266738892
+      },
+      {
+        "tag": "wide_sleeves",
+        "score": 0.22005584836006165
+      },
+      {
+        "tag": "lantern",
+        "score": 0.2190718948841095
+      }
+    ],
+    "thresholded": [
+      {
+        "tag": "1girl",
+        "score": 0.9963158369064331
+      },
+      {
+        "tag": "breasts",
+        "score": 0.9643683433532715
+      },
+      {
+        "tag": "brown_hair",
+        "score": 0.945522665977478
+      },
+      {
+        "tag": "japanese_clothes",
+        "score": 0.9416424036026001
+      },
+      {
+        "tag": "solo",
+        "score": 0.9359204769134521
+      },
+      {
+        "tag": "finger_to_mouth",
+        "score": 0.8974594473838806
+      },
+      {
+        "tag": "kimono",
+        "score": 0.8968806266784668
+      },
+      {
+        "tag": "cleavage",
+        "score": 0.8749372959136963
+      },
+      {
+        "tag": "large_breasts",
+        "score": 0.8627346754074097
+      },
+      {
+        "tag": "smile",
+        "score": 0.8461240530014038
+      },
+      {
+        "tag": "brown_eyes",
+        "score": 0.8040575981140137
+      },
+      {
+        "tag": "looking_at_viewer",
+        "score": 0.745256781578064
+      },
+      {
+        "tag": "sash",
+        "score": 0.7398119568824768
+      },
+      {
+        "tag": "cover",
+        "score": 0.7258148789405823
+      },
+      {
+        "tag": "obi",
+        "score": 0.638157069683075
+      },
+      {
+        "tag": "blush",
+        "score": 0.6140698194503784
+      },
+      {
+        "tag": "pink_kimono",
+        "score": 0.6068187355995178
+      },
+      {
+        "tag": "sitting",
+        "score": 0.5970973372459412
+      },
+      {
+        "tag": "shushing",
+        "score": 0.5805240273475647
+      },
+      {
+        "tag": "tabi",
+        "score": 0.5560555458068848
+      },
+      {
+        "tag": "collarbone",
+        "score": 0.5552495718002319
+      },
+      {
+        "tag": "bangs",
+        "score": 0.5341694951057434
+      },
+      {
+        "tag": "night",
+        "score": 0.514717161655426
+      },
+      {
+        "tag": "yokozuwari",
+        "score": 0.5026443004608154
+      },
+      {
+        "tag": "cover_page",
+        "score": 0.49754202365875244
+      },
+      {
+        "tag": "socks",
+        "score": 0.4803220331668854
+      },
+      {
+        "tag": "index_finger_raised",
+        "score": 0.4440634250640869
+      },
+      {
+        "tag": "thighs",
+        "score": 0.4158276915550232
+      },
+      {
+        "tag": "indoors",
+        "score": 0.4151182770729065
+      },
+      {
+        "tag": "arm_support",
+        "score": 0.3986697793006897
+      },
+      {
+        "tag": "short_hair",
+        "score": 0.30718156695365906
+      },
+      {
+        "tag": "hair_bun",
+        "score": 0.2893129587173462
+      },
+      {
+        "tag": "white_socks",
+        "score": 0.2531335949897766
+      },
+      {
+        "tag": "long_sleeves",
+        "score": 0.24652251601219177
+      },
+      {
+        "tag": "closed_mouth",
+        "score": 0.22576004266738892
+      },
+      {
+        "tag": "wide_sleeves",
+        "score": 0.22005584836006165
+      },
+      {
+        "tag": "lantern",
+        "score": 0.2190718948841095
+      }
+    ],
+    "cleaned": [
+      {
+        "tag": "1girl",
+        "score": 0.9963158369064331
+      },
+      {
+        "tag": "breasts",
+        "score": 0.9643683433532715
+      },
+      {
+        "tag": "brown_hair",
+        "score": 0.945522665977478
+      },
+      {
+        "tag": "japanese_clothes",
+        "score": 0.9416424036026001
+      },
+      {
+        "tag": "solo",
+        "score": 0.9359204769134521
+      },
+      {
+        "tag": "finger_to_mouth",
+        "score": 0.8974594473838806
+      },
+      {
+        "tag": "kimono",
+        "score": 0.8968806266784668
+      },
+      {
+        "tag": "cleavage",
+        "score": 0.8749372959136963
+      },
+      {
+        "tag": "large_breasts",
+        "score": 0.8627346754074097
+      },
+      {
+        "tag": "smile",
+        "score": 0.8461240530014038
+      },
+      {
+        "tag": "brown_eyes",
+        "score": 0.8040575981140137
+      },
+      {
+        "tag": "looking_at_viewer",
+        "score": 0.745256781578064
+      },
+      {
+        "tag": "sash",
+        "score": 0.7398119568824768
+      },
+      {
+        "tag": "cover",
+        "score": 0.7258148789405823
+      },
+      {
+        "tag": "obi",
+        "score": 0.638157069683075
+      },
+      {
+        "tag": "blush",
+        "score": 0.6140698194503784
+      },
+      {
+        "tag": "pink_kimono",
+        "score": 0.6068187355995178
+      },
+      {
+        "tag": "sitting",
+        "score": 0.5970973372459412
+      },
+      {
+        "tag": "shushing",
+        "score": 0.5805240273475647
+      },
+      {
+        "tag": "tabi",
+        "score": 0.5560555458068848
+      },
+      {
+        "tag": "collarbone",
+        "score": 0.5552495718002319
+      },
+      {
+        "tag": "bangs",
+        "score": 0.5341694951057434
+      },
+      {
+        "tag": "night",
+        "score": 0.514717161655426
+      },
+      {
+        "tag": "yokozuwari",
+        "score": 0.5026443004608154
+      },
+      {
+        "tag": "cover_page",
+        "score": 0.49754202365875244
+      },
+      {
+        "tag": "socks",
+        "score": 0.4803220331668854
+      },
+      {
+        "tag": "index_finger_raised",
+        "score": 0.4440634250640869
+      },
+      {
+        "tag": "thighs",
+        "score": 0.4158276915550232
+      },
+      {
+        "tag": "indoors",
+        "score": 0.4151182770729065
+      },
+      {
+        "tag": "arm_support",
+        "score": 0.3986697793006897
+      },
+      {
+        "tag": "short_hair",
+        "score": 0.30718156695365906
+      },
+      {
+        "tag": "hair_bun",
+        "score": 0.2893129587173462
+      },
+      {
+        "tag": "white_socks",
+        "score": 0.2531335949897766
+      },
+      {
+        "tag": "long_sleeves",
+        "score": 0.24652251601219177
+      },
+      {
+        "tag": "closed_mouth",
+        "score": 0.22576004266738892
+      },
+      {
+        "tag": "wide_sleeves",
+        "score": 0.22005584836006165
+      },
+      {
+        "tag": "lantern",
+        "score": 0.2190718948841095
+      }
+    ],
+    "categorized": {
+      "people": [],
+      "face": [],
+      "body": [],
+      "pose": [],
+      "expression": [],
+      "background": [],
+      "clothing": [],
+      "quality": [],
+      "other": []
+    }
+  }
+}

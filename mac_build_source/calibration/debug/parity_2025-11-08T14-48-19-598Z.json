@@ -1,0 +1,1152 @@
+{
+  "timestamp": "2025-11-08T14:48:19.597Z",
+  "lastClassification": {
+    "timestamp": "2025-11-08T14:47:30.326Z",
+    "source": "ai-text",
+    "promptText": "masterpiece,best quality,(amazing quality),newest,absurdres,highres,<lora:Kano_Chinatsu-78:0.5>,(tareme:1.5),\n1girl,huge breasts,brown hair,bangs,braid,short hair,medium hair,hair between eyes,hair ornament,hairclip,pink eyes,purple eyes,breasts,large breasts,\n1girl,thighs,thighhighs,maid_headdress,indoors,looking_at_viewer,solo,pantyshot,underwear,wrist_cuffs,indoors,smile,solo,large_breasts,white_thighhighs,breasts,window,blush,panties,squatting,closed_mouth,shoes,squatting,mary_janes,black_footwear,maid,maid_apron,apron,thighs,waist_apron,dress,large_breasts,chalkboard,pink_dress,full_body,white_apron,short_sleeves,hands_up,picture_frame,blue_panties,hands_up,black_bowtie,bow,medium_breasts,bowtie,black_bow,frills,puffy_sleeves,white_panties,short_dress,high_heels,puffy_short_sleeves,ribbon,dutch_angle,buttons,dutch_angle,",
+    "tagCount": 68,
+    "categorized": {
+      "people": [
+        {
+          "text": "1girl",
+          "originalIndex": 0,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "<lora:Kano_Chinatsu-78:0.5>",
+          "originalIndex": 1,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "solo",
+          "originalIndex": 2,
+          "className": "tag-item ai-suggested"
+        }
+      ],
+      "face": [
+        {
+          "text": "(tareme:1.5)",
+          "originalIndex": 0,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "brown hair",
+          "originalIndex": 1,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "bangs",
+          "originalIndex": 2,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "braid",
+          "originalIndex": 3,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "short hair",
+          "originalIndex": 4,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "medium hair",
+          "originalIndex": 5,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "hair between eyes",
+          "originalIndex": 6,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "pink eyes",
+          "originalIndex": 7,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "purple eyes",
+          "originalIndex": 8,
+          "className": "tag-item ai-suggested"
+        }
+      ],
+      "body": [
+        {
+          "text": "huge breasts",
+          "originalIndex": 0,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "breasts",
+          "originalIndex": 1,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "large breasts",
+          "originalIndex": 2,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "thighs",
+          "originalIndex": 3,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "medium_breasts",
+          "originalIndex": 4,
+          "className": "tag-item ai-suggested"
+        }
+      ],
+      "pose": [
+        {
+          "text": "looking_at_viewer",
+          "originalIndex": 0,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "pantyshot",
+          "originalIndex": 1,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "squatting",
+          "originalIndex": 2,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "full_body",
+          "originalIndex": 3,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "hands_up",
+          "originalIndex": 4,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "dutch_angle",
+          "originalIndex": 5,
+          "className": "tag-item ai-suggested"
+        }
+      ],
+      "background": [
+        {
+          "text": "indoors",
+          "originalIndex": 0,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "window",
+          "originalIndex": 1,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "chalkboard",
+          "originalIndex": 2,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "picture_frame",
+          "originalIndex": 3,
+          "className": "tag-item ai-suggested"
+        }
+      ],
+      "clothing": [
+        {
+          "text": "hair ornament",
+          "originalIndex": 0,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "hairclip",
+          "originalIndex": 1,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "thighhighs",
+          "originalIndex": 2,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "maid_headdress",
+          "originalIndex": 3,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "underwear",
+          "originalIndex": 4,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "wrist_cuffs",
+          "originalIndex": 5,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "white_thighhighs",
+          "originalIndex": 6,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "panties",
+          "originalIndex": 7,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "shoes",
+          "originalIndex": 8,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "mary_janes",
+          "originalIndex": 9,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "black_footwear",
+          "originalIndex": 10,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "maid",
+          "originalIndex": 11,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "maid_apron",
+          "originalIndex": 12,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "apron",
+          "originalIndex": 13,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "waist_apron",
+          "originalIndex": 14,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "dress",
+          "originalIndex": 15,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "pink_dress",
+          "originalIndex": 16,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "white_apron",
+          "originalIndex": 17,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "short_sleeves",
+          "originalIndex": 18,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "blue_panties",
+          "originalIndex": 19,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "black_bowtie",
+          "originalIndex": 20,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "bow",
+          "originalIndex": 21,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "bowtie",
+          "originalIndex": 22,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "black_bow",
+          "originalIndex": 23,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "frills",
+          "originalIndex": 24,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "puffy_sleeves",
+          "originalIndex": 25,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "white_panties",
+          "originalIndex": 26,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "short_dress",
+          "originalIndex": 27,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "high_heels",
+          "originalIndex": 28,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "puffy_short_sleeves",
+          "originalIndex": 29,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "ribbon",
+          "originalIndex": 30,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "buttons",
+          "originalIndex": 31,
+          "className": "tag-item ai-suggested"
+        }
+      ],
+      "expression": [
+        {
+          "text": "smile",
+          "originalIndex": 0,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "blush",
+          "originalIndex": 1,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "closed_mouth",
+          "originalIndex": 2,
+          "className": "tag-item ai-suggested"
+        }
+      ],
+      "quality": [
+        {
+          "text": "masterpiece",
+          "originalIndex": 0,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "best quality",
+          "originalIndex": 1,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "(amazing quality)",
+          "originalIndex": 2,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "newest",
+          "originalIndex": 3,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "absurdres",
+          "originalIndex": 4,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "highres",
+          "originalIndex": 5,
+          "className": "tag-item ai-suggested"
+        }
+      ],
+      "other": []
+    },
+    "categoryCounts": {
+      "people": 3,
+      "face": 9,
+      "body": 5,
+      "pose": 6,
+      "background": 4,
+      "clothing": 32,
+      "expression": 3,
+      "quality": 6,
+      "other": 0
+    },
+    "options": {
+      "mode": "ai-text",
+      "inputText": "masterpiece,best quality,(amazing quality),newest,absurdres,highres,<lora:Kano_Chinatsu-78:0.5>,(tareme:1.5),\n1girl,huge breasts,brown hair,bangs,braid,short hair,medium hair,hair between eyes,hair ornament,hairclip,pink eyes,purple eyes,breasts,large breasts,\n1girl,thighs,thighhighs,maid_headdress,indoors,looking_at_viewer,solo,pantyshot,underwear,wrist_cuffs,indoors,smile,solo,large_breasts,white_thighhighs,breasts,window,blush,panties,squatting,closed_mouth,shoes,squatting,mary_janes,black_footwear,maid,maid_apron,apron,thighs,waist_apron,dress,large_breasts,chalkboard,pink_dress,full_body,white_apron,short_sleeves,hands_up,picture_frame,blue_panties,hands_up,black_bowtie,bow,medium_breasts,bowtie,black_bow,frills,puffy_sleeves,white_panties,short_dress,high_heels,puffy_short_sleeves,ribbon,dutch_angle,buttons,dutch_angle,",
+      "rawResult": {
+        "success": true,
+        "categories": {
+          "people": [
+            "1girl",
+            "<lora:Kano_Chinatsu-78:0.5>",
+            "solo"
+          ],
+          "face": [
+            "(tareme:1.5)",
+            "brown hair",
+            "bangs",
+            "braid",
+            "short hair",
+            "medium hair",
+            "hair between eyes",
+            "pink eyes",
+            "purple eyes"
+          ],
+          "body": [
+            "huge breasts",
+            "breasts",
+            "large breasts",
+            "thighs",
+            "medium_breasts"
+          ],
+          "pose": [
+            "looking_at_viewer",
+            "pantyshot",
+            "squatting",
+            "full_body",
+            "hands_up",
+            "dutch_angle"
+          ],
+          "background": [
+            "indoors",
+            "window",
+            "chalkboard",
+            "picture_frame"
+          ],
+          "clothing": [
+            "hair ornament",
+            "hairclip",
+            "thighhighs",
+            "maid_headdress",
+            "underwear",
+            "wrist_cuffs",
+            "white_thighhighs",
+            "panties",
+            "shoes",
+            "mary_janes",
+            "black_footwear",
+            "maid",
+            "maid_apron",
+            "apron",
+            "waist_apron",
+            "dress",
+            "pink_dress",
+            "white_apron",
+            "short_sleeves",
+            "blue_panties",
+            "black_bowtie",
+            "bow",
+            "bowtie",
+            "black_bow",
+            "frills",
+            "puffy_sleeves",
+            "white_panties",
+            "short_dress",
+            "high_heels",
+            "puffy_short_sleeves",
+            "ribbon",
+            "buttons"
+          ],
+          "expression": [
+            "smile",
+            "blush",
+            "closed_mouth"
+          ],
+          "quality": [
+            "masterpiece",
+            "best quality",
+            "(amazing quality)",
+            "newest",
+            "absurdres",
+            "highres"
+          ]
+        },
+        "rawResponse": "people: 1girl, <lora:Kano_Chinatsu-78:0.5>, solo\nface: (tareme:1.5), brown hair, bangs, braid, short hair, medium hair, hair between eyes, pink eyes, purple eyes\nbody: huge breasts, breasts, large breasts, thighs, medium_breasts\npose: looking_at_viewer, pantyshot, squatting, full_body, hands_up, dutch_angle\nbackground: indoors, window, chalkboard, picture_frame\nclothing: hair ornament, hairclip, thighhighs, maid_headdress, underwear, wrist_cuffs, white_thighhighs, panties, shoes, mary_janes, black_footwear, maid, maid_apron, apron, waist_apron, dress, pink_dress, white_apron, short_sleeves, blue_panties, black_bowtie, bow, bowtie, black_bow, frills, puffy_sleeves, white_panties, short_dress, high_heels, puffy_short_sleeves, ribbon, buttons\nexpression: smile, blush, closed_mouth\nquality: masterpiece, best quality, (amazing quality), newest, absurdres, highres"
+      }
+    }
+  },
+  "lastTaggerParity": null,
+  "uiTags": {
+    "people": [
+      {
+        "text": "1girl",
+        "className": "tag-item learned-overlay"
+      },
+      {
+        "text": "<lora:Kano_Chinatsu-78:0.5>",
+        "className": "tag-item learned-overlay"
+      },
+      {
+        "text": "solo",
+        "className": "tag-item learned-overlay"
+      }
+    ],
+    "face": [
+      {
+        "text": "(tareme:1.5)",
+        "className": "tag-item learned-overlay"
+      },
+      {
+        "text": "brown hair",
+        "className": "tag-item learned-overlay"
+      },
+      {
+        "text": "bangs",
+        "className": "tag-item learned-overlay"
+      },
+      {
+        "text": "braid",
+        "className": "tag-item learned-overlay"
+      },
+      {
+        "text": "short hair",
+        "className": "tag-item learned-overlay"
+      },
+      {
+        "text": "medium hair",
+        "className": "tag-item learned-overlay"
+      },
+      {
+        "text": "hair between eyes",
+        "className": "tag-item learned-overlay"
+      },
+      {
+        "text": "pink eyes",
+        "className": "tag-item learned-overlay"
+      },
+      {
+        "text": "purple eyes",
+        "className": "tag-item learned-overlay"
+      }
+    ],
+    "body": [
+      {
+        "text": "huge breasts",
+        "className": "tag-item learned-overlay"
+      },
+      {
+        "text": "breasts",
+        "className": "tag-item learned-overlay"
+      },
+      {
+        "text": "large breasts",
+        "className": "tag-item learned-overlay"
+      },
+      {
+        "text": "thighs",
+        "className": "tag-item learned-overlay"
+      },
+      {
+        "text": "medium_breasts",
+        "className": "tag-item learned-overlay"
+      }
+    ],
+    "pose": [
+      {
+        "text": "looking_at_viewer",
+        "className": "tag-item learned-overlay"
+      },
+      {
+        "text": "pantyshot",
+        "className": "tag-item learned-overlay"
+      },
+      {
+        "text": "squatting",
+        "className": "tag-item learned-overlay"
+      },
+      {
+        "text": "full_body",
+        "className": "tag-item learned-overlay"
+      },
+      {
+        "text": "hands_up",
+        "className": "tag-item learned-overlay"
+      },
+      {
+        "text": "dutch_angle",
+        "className": "tag-item learned-overlay"
+      }
+    ],
+    "expression": [
+      {
+        "text": "smile",
+        "className": "tag-item learned-overlay"
+      },
+      {
+        "text": "blush",
+        "className": "tag-item learned-overlay"
+      },
+      {
+        "text": "closed_mouth",
+        "className": "tag-item learned-overlay"
+      }
+    ],
+    "background": [
+      {
+        "text": "indoors",
+        "className": "tag-item learned-overlay"
+      },
+      {
+        "text": "window",
+        "className": "tag-item learned-overlay"
+      },
+      {
+        "text": "chalkboard",
+        "className": "tag-item learned-overlay"
+      },
+      {
+        "text": "picture_frame",
+        "className": "tag-item learned-overlay"
+      }
+    ],
+    "clothing": [
+      {
+        "text": "hair ornament",
+        "className": "tag-item learned-overlay"
+      },
+      {
+        "text": "hairclip",
+        "className": "tag-item learned-overlay"
+      },
+      {
+        "text": "thighhighs",
+        "className": "tag-item learned-overlay"
+      },
+      {
+        "text": "maid_headdress",
+        "className": "tag-item learned-overlay"
+      },
+      {
+        "text": "underwear",
+        "className": "tag-item learned-overlay"
+      },
+      {
+        "text": "wrist_cuffs",
+        "className": "tag-item learned-overlay"
+      },
+      {
+        "text": "white_thighhighs",
+        "className": "tag-item learned-overlay"
+      },
+      {
+        "text": "panties",
+        "className": "tag-item learned-overlay"
+      },
+      {
+        "text": "shoes",
+        "className": "tag-item learned-overlay"
+      },
+      {
+        "text": "mary_janes",
+        "className": "tag-item learned-overlay"
+      },
+      {
+        "text": "black_footwear",
+        "className": "tag-item learned-overlay"
+      },
+      {
+        "text": "maid",
+        "className": "tag-item learned-overlay"
+      },
+      {
+        "text": "maid_apron",
+        "className": "tag-item learned-overlay"
+      },
+      {
+        "text": "apron",
+        "className": "tag-item learned-overlay"
+      },
+      {
+        "text": "waist_apron",
+        "className": "tag-item learned-overlay"
+      },
+      {
+        "text": "dress",
+        "className": "tag-item learned-overlay"
+      },
+      {
+        "text": "pink_dress",
+        "className": "tag-item learned-overlay"
+      },
+      {
+        "text": "white_apron",
+        "className": "tag-item learned-overlay"
+      },
+      {
+        "text": "short_sleeves",
+        "className": "tag-item learned-overlay"
+      },
+      {
+        "text": "blue_panties",
+        "className": "tag-item learned-overlay"
+      },
+      {
+        "text": "black_bowtie",
+        "className": "tag-item learned-overlay"
+      },
+      {
+        "text": "bow",
+        "className": "tag-item learned-overlay"
+      },
+      {
+        "text": "bowtie",
+        "className": "tag-item learned-overlay"
+      },
+      {
+        "text": "black_bow",
+        "className": "tag-item learned-overlay"
+      },
+      {
+        "text": "frills",
+        "className": "tag-item learned-overlay"
+      },
+      {
+        "text": "puffy_sleeves",
+        "className": "tag-item learned-overlay"
+      },
+      {
+        "text": "white_panties",
+        "className": "tag-item learned-overlay"
+      },
+      {
+        "text": "short_dress",
+        "className": "tag-item learned-overlay"
+      },
+      {
+        "text": "high_heels",
+        "className": "tag-item learned-overlay"
+      },
+      {
+        "text": "puffy_short_sleeves",
+        "className": "tag-item learned-overlay"
+      },
+      {
+        "text": "ribbon",
+        "className": "tag-item learned-overlay"
+      },
+      {
+        "text": "buttons",
+        "className": "tag-item learned-overlay"
+      }
+    ],
+    "quality": [
+      {
+        "text": "masterpiece",
+        "className": "tag-item learned-overlay"
+      },
+      {
+        "text": "best quality",
+        "className": "tag-item learned-overlay"
+      },
+      {
+        "text": "(amazing quality)",
+        "className": "tag-item learned-overlay"
+      },
+      {
+        "text": "newest",
+        "className": "tag-item learned-overlay"
+      },
+      {
+        "text": "absurdres",
+        "className": "tag-item learned-overlay"
+      },
+      {
+        "text": "highres",
+        "className": "tag-item learned-overlay"
+      }
+    ],
+    "other": [
+      {
+        "text": "looking_at_viewer",
+        "className": "tag"
+      },
+      {
+        "text": "smile",
+        "className": "tag"
+      },
+      {
+        "text": "blush",
+        "className": "tag"
+      },
+      {
+        "text": "closed_mouth",
+        "className": "tag"
+      }
+    ]
+  },
+  "currentPromptData": null,
+  "sdApiSettings": {
+    "tagger": {
+      "model": "wd14-vit.v2",
+      "threshold": 0.2,
+      "compatMode": true
+    },
+    "txt2img": {
+      "width": 1000,
+      "height": 1600,
+      "steps": 50,
+      "sampler_name": "Euler a",
+      "cfg_scale": 7,
+      "restore_faces": true,
+      "sd_model_checkpoint": "novaAnimeXL_ilV55"
+    }
+  },
+  "learnedTags": {
+    "success": true,
+    "tags": {
+      "face": [
+        "hairclip",
+        "brown hair",
+        "bangs",
+        "braid",
+        "short hair",
+        "medium hair",
+        "hair between eyes",
+        "hair ornament",
+        "pink eyes",
+        "purple eyes",
+        "(tareme:1.5)",
+        "blonde hair",
+        "blue eyes",
+        "(one side up)",
+        "french braid",
+        "sidelocks",
+        "teeth",
+        "tareme",
+        "single_braid",
+        "side_braid",
+        "hair_bow",
+        "1girl",
+        "brown_hair",
+        "brown_hair",
+        "looking_at_viewer",
+        "smile",
+        "blush",
+        "hair_ornament",
+        "closed_mouth",
+        "short_hair",
+        "short_hair",
+        "from_below",
+        "medium_hair",
+        "pink_eyes",
+        "purple_eyes",
+        "red_eyes",
+        "closed mouth"
+      ],
+      "body": [
+        "cameltoe",
+        "breasts",
+        "large breasts",
+        "thighs",
+        "ass",
+        "skindentation",
+        "huge breasts",
+        "cleavage",
+        "barefoot",
+        "soles",
+        "navel",
+        "collarbone",
+        "shiny skin",
+        "dark skin",
+        "midriff",
+        "stomach",
+        "armpits",
+        "bare shoulders",
+        "bare arms",
+        "nipples",
+        "thigh gap",
+        "groin",
+        "ass visible through thighs",
+        "bare legs",
+        "shiny",
+        "wet",
+        "sweat",
+        "thigh_gap",
+        "ass_visible_through_thighs",
+        "medium_breasts",
+        "large_breasts",
+        "fingering",
+        "fingering_through_clothes",
+        "through_clothes",
+        "assisted_exposure"
+      ],
+      "pose": [
+        "looking at viewer",
+        "sitting",
+        "lying",
+        "on stomach",
+        "hands on own face",
+        "hands on own cheeks",
+        "head tilt",
+        "head rest",
+        "legs up",
+        "hands up",
+        "the pose",
+        "spread legs",
+        "from_above",
+        "presenting",
+        "arms up",
+        "standing",
+        "frontview",
+        "dynamic_angle",
+        "cowboy shot",
+        "clothes lift",
+        "shirt lift",
+        "clothes pull",
+        "hand up",
+        "dutch angle",
+        "arm support",
+        "kneeling",
+        "leaning forward",
+        "looking_at_viewer",
+        "hand_in_own_hair",
+        "cowboy_shot",
+        "solo_focus",
+        "lifted_by_another",
+        "fingering",
+        "fingering_through_clothes",
+        "pov",
+        "pov_hands",
+        "arm_support",
+        "skirt_lift",
+        "clothes_lift",
+        "squatting",
+        "full_body",
+        "hands_up",
+        "dutch_angle",
+        "breasts",
+        "large_breasts",
+        "thighs",
+        "from_below",
+        "ass",
+        "pantyshot"
+      ],
+      "clothing": [
+        "underwear",
+        "panties",
+        "thighhighs",
+        "skirt",
+        "shirt",
+        "black thighhighs",
+        "white shirt",
+        "black skirt",
+        "collared shirt",
+        "open clothes",
+        "miniskirt",
+        "dress shirt",
+        "bra",
+        "jacket",
+        "bra visible through clothes",
+        "long sleeves",
+        "shirt tucked in",
+        "plaid",
+        "tennis uniform",
+        "sportswear",
+        "white skirt",
+        "two-tone skirt",
+        "pleated skirt",
+        "sleeveless",
+        "sleeveless shirt",
+        "two-tone shirt",
+        "shoes",
+        "sneakers",
+        "white footwear",
+        "socks",
+        "white socks",
+        "wristband",
+        "hair ornament",
+        "hairclip",
+        "school uniform",
+        "bow bra",
+        "short sleeves",
+        "jewelry",
+        "crop top",
+        "open shirt",
+        "clothes pull",
+        "blue bra",
+        "bra lift",
+        "blue panties",
+        "bow panties",
+        "underwear only",
+        "lace-trimmed bra",
+        "lace-trimmed panties",
+        "front-tie top",
+        "halterneck",
+        "o-ring",
+        "gym uniform",
+        "gym shirt",
+        "black bra",
+        "black panties",
+        "see-through",
+        "floral print",
+        "flower",
+        "lingerie",
+        "cleavage",
+        "lace trim",
+        "highleg",
+        "barefoot",
+        "swimsuit",
+        "bikini",
+        "wet",
+        "string bikini",
+        "side-tie bikini bottom",
+        "pantyhose",
+        "sweater",
+        "dress",
+        "shiny",
+        "black pantyhose",
+        "frills",
+        "wet clothes",
+        "clothing cutout",
+        "white_thighhighs",
+        "pink_panties",
+        "pink_bra",
+        "pleated_skirt",
+        "white_skirt",
+        "collared_shirt",
+        "short_sleeves",
+        "bra_visible_through_clothes",
+        "bow",
+        "white_shirt",
+        "tennis_uniform",
+        "plaid_skirt",
+        "pink_bow",
+        "pink_bowtie",
+        "through_clothes",
+        "school_uniform",
+        "bowtie",
+        "wet_clothes",
+        "blue_skirt",
+        "dress_shirt",
+        "shirt_tucked_in",
+        "wet_shirt",
+        "maid_headdress",
+        "pantyshot",
+        "wrist_cuffs",
+        "mary_janes",
+        "black_footwear",
+        "maid",
+        "maid_apron",
+        "apron",
+        "waist_apron",
+        "pink_dress",
+        "white_apron",
+        "blue_panties",
+        "black_bowtie",
+        "black_bow",
+        "puffy_sleeves",
+        "white_panties",
+        "short_dress",
+        "high_heels",
+        "puffy_short_sleeves",
+        "ribbon",
+        "buttons",
+        "pink_shirt",
+        "upskirt",
+        "black_skirt"
+      ],
+      "expression": [
+        "parted lips",
+        "embarrassed",
+        "blushing",
+        "shy",
+        "nervous",
+        "smile",
+        "closed mouth",
+        "blush",
+        "open mouth",
+        ":d",
+        "teeth",
+        "upper teeth only",
+        "closed_mouth",
+        "surprised"
+      ],
+      "quality": [
+        "masterpiece",
+        "best quality",
+        "(amazing quality)",
+        "newest",
+        "absurdres",
+        "highres",
+        "<lora:Kano_Chinatsu-78:0.5>",
+        "blurry",
+        "depth of field",
+        "transparent",
+        "amazing quality",
+        "<lora:hotarutoneup_v100:1>",
+        "<lora:USNR STYLE_XL_loha:0.3>",
+        "<lora:Schizowave:0.5>",
+        "<lora:iLLMythAn1m3Style:0.1>",
+        "lora:Kano_Chinatsu-78:0.5",
+        "depth_of_field",
+        "shiny",
+        "assisted_exposure",
+        "border"
+      ],
+      "background": [
+        "indoors",
+        "curtains",
+        "window",
+        "on bed",
+        "sunlight",
+        "day",
+        "blurry background",
+        "backlighting",
+        "outdoors",
+        "sky",
+        "blue sky",
+        "temple",
+        "architecture",
+        "east asian architecture",
+        "night",
+        "bed",
+        "night sky",
+        "bed sheet",
+        "bedroom",
+        "plant",
+        "cloud",
+        "flower",
+        "blurry",
+        "beach",
+        "tree",
+        "water",
+        "ocean",
+        "sand",
+        "blurry_background",
+        "desk",
+        "classroom",
+        "school_desk",
+        "on_desk",
+        "chalkboard",
+        "picture_frame",
+        "border"
+      ],
+      "people": [
+        "1girl",
+        "solo",
+        "(<lora:Kano_Chinatsu-78:0.5>)",
+        "character:",
+        "<lora:Kano_Chinatsu-78:0.5>",
+        "dark-skinned male",
+        "1boy",
+        "1other",
+        "hetero"
+      ],
+      "other": [
+        "looking_at_viewer",
+        "smile",
+        "blush",
+        "closed_mouth"
+      ]
+    },
+    "metadata": {
+      "lastUpdated": "2025-11-08T14:47:37.556Z",
+      "totalTags": 326
+    }
+  }
+}

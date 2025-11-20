@@ -1,0 +1,1106 @@
+{
+  "timestamp": "2025-11-08T14:26:40.370Z",
+  "lastClassification": {
+    "timestamp": "2025-11-08T14:26:40.370Z",
+    "source": "ui-fallback",
+    "promptText": "1girl, 1boy, 1other, hetero, (tareme:1.5), blonde hair, blue eyes, bangs, medium hair, huge breasts, breasts, large breasts, large_breasts, thighs, solo_focus, looking_at_viewer, sitting, lifted_by_another, fingering, fingering_through_clothes, pov, cowboy_shot, pov_hands, on_desk, arm_support, skirt_lift, clothes_lift, looking at viewer, (one side up), surprised, blush, closed mouth, indoors, window, desk, classroom, school_desk, underwear, skirt, plaid_skirt, pink_bow, shirt, pink_bowtie, panties, bow, white_shirt, through_clothes, plaid, bra, school_uniform, bowtie, short_sleeves, pink_panties, pink_bra, pleated_skirt, collared_shirt, wet_clothes, see-through, wet, blue_skirt, dress_shirt, bra_visible_through_clothes, shirt_tucked_in, wet_shirt, miniskirt, masterpiece, best quality, (amazing quality), newest, absurdres, highres, <lora:Kano_Chinatsu-78:0.5>, ^^^, border, assisted_exposure",
+    "tagCount": 75,
+    "categorized": {
+      "people": [
+        {
+          "text": "1girl",
+          "originalIndex": 0,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "1boy",
+          "originalIndex": 1,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "1other",
+          "originalIndex": 2,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "hetero",
+          "originalIndex": 3,
+          "className": "tag-item ai-suggested"
+        }
+      ],
+      "face": [
+        {
+          "text": "(tareme:1.5)",
+          "originalIndex": 4,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "blonde hair",
+          "originalIndex": 5,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "blue eyes",
+          "originalIndex": 6,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "bangs",
+          "originalIndex": 7,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "medium hair",
+          "originalIndex": 8,
+          "className": "tag-item ai-suggested"
+        }
+      ],
+      "body": [
+        {
+          "text": "huge breasts",
+          "originalIndex": 9,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "breasts",
+          "originalIndex": 10,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "large breasts",
+          "originalIndex": 11,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "large_breasts",
+          "originalIndex": 12,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "thighs",
+          "originalIndex": 13,
+          "className": "tag-item ai-suggested"
+        }
+      ],
+      "pose": [
+        {
+          "text": "solo_focus",
+          "originalIndex": 14,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "looking_at_viewer",
+          "originalIndex": 15,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "sitting",
+          "originalIndex": 16,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "lifted_by_another",
+          "originalIndex": 17,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "fingering",
+          "originalIndex": 18,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "fingering_through_clothes",
+          "originalIndex": 19,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "pov",
+          "originalIndex": 20,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "cowboy_shot",
+          "originalIndex": 21,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "pov_hands",
+          "originalIndex": 22,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "on_desk",
+          "originalIndex": 23,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "arm_support",
+          "originalIndex": 24,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "skirt_lift",
+          "originalIndex": 25,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "clothes_lift",
+          "originalIndex": 26,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "looking at viewer",
+          "originalIndex": 27,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "(one side up)",
+          "originalIndex": 28,
+          "className": "tag-item ai-suggested"
+        }
+      ],
+      "expression": [
+        {
+          "text": "surprised",
+          "originalIndex": 29,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "blush",
+          "originalIndex": 30,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "closed mouth",
+          "originalIndex": 31,
+          "className": "tag-item ai-suggested"
+        }
+      ],
+      "background": [
+        {
+          "text": "indoors",
+          "originalIndex": 32,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "window",
+          "originalIndex": 33,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "desk",
+          "originalIndex": 34,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "classroom",
+          "originalIndex": 35,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "school_desk",
+          "originalIndex": 36,
+          "className": "tag-item ai-suggested"
+        }
+      ],
+      "clothing": [
+        {
+          "text": "underwear",
+          "originalIndex": 37,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "skirt",
+          "originalIndex": 38,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "plaid_skirt",
+          "originalIndex": 39,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "pink_bow",
+          "originalIndex": 40,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "shirt",
+          "originalIndex": 41,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "pink_bowtie",
+          "originalIndex": 42,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "panties",
+          "originalIndex": 43,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "bow",
+          "originalIndex": 44,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "white_shirt",
+          "originalIndex": 45,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "through_clothes",
+          "originalIndex": 46,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "plaid",
+          "originalIndex": 47,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "bra",
+          "originalIndex": 48,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "school_uniform",
+          "originalIndex": 49,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "bowtie",
+          "originalIndex": 50,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "short_sleeves",
+          "originalIndex": 51,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "pink_panties",
+          "originalIndex": 52,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "pink_bra",
+          "originalIndex": 53,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "pleated_skirt",
+          "originalIndex": 54,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "collared_shirt",
+          "originalIndex": 55,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "wet_clothes",
+          "originalIndex": 56,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "see-through",
+          "originalIndex": 57,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "wet",
+          "originalIndex": 58,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "blue_skirt",
+          "originalIndex": 59,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "dress_shirt",
+          "originalIndex": 60,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "bra_visible_through_clothes",
+          "originalIndex": 61,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "shirt_tucked_in",
+          "originalIndex": 62,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "wet_shirt",
+          "originalIndex": 63,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "miniskirt",
+          "originalIndex": 64,
+          "className": "tag-item ai-suggested"
+        }
+      ],
+      "quality": [
+        {
+          "text": "masterpiece",
+          "originalIndex": 65,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "best quality",
+          "originalIndex": 66,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "(amazing quality)",
+          "originalIndex": 67,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "newest",
+          "originalIndex": 68,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "absurdres",
+          "originalIndex": 69,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "highres",
+          "originalIndex": 70,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "<lora:Kano_Chinatsu-78:0.5>",
+          "originalIndex": 71,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "^^^",
+          "originalIndex": 72,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "border",
+          "originalIndex": 73,
+          "className": "tag-item ai-suggested"
+        },
+        {
+          "text": "assisted_exposure",
+          "originalIndex": 74,
+          "className": "tag-item ai-suggested"
+        }
+      ],
+      "other": []
+    },
+    "categoryCounts": {
+      "people": 4,
+      "face": 5,
+      "body": 5,
+      "pose": 15,
+      "expression": 3,
+      "background": 5,
+      "clothing": 28,
+      "quality": 10,
+      "other": 0
+    },
+    "options": {
+      "note": "exportClassificationLog fallback - lastClassificationSnapshot was null"
+    }
+  },
+  "lastTaggerParity": null,
+  "uiTags": {
+    "people": [
+      {
+        "text": "1girl",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "1boy",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "1other",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "hetero",
+        "className": "tag-item ai-suggested"
+      }
+    ],
+    "face": [
+      {
+        "text": "(tareme:1.5)",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "blonde hair",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "blue eyes",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "bangs",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "medium hair",
+        "className": "tag-item ai-suggested"
+      }
+    ],
+    "body": [
+      {
+        "text": "huge breasts",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "breasts",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "large breasts",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "large_breasts",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "thighs",
+        "className": "tag-item ai-suggested"
+      }
+    ],
+    "pose": [
+      {
+        "text": "solo_focus",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "looking_at_viewer",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "sitting",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "lifted_by_another",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "fingering",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "fingering_through_clothes",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "pov",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "cowboy_shot",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "pov_hands",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "on_desk",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "arm_support",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "skirt_lift",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "clothes_lift",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "looking at viewer",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "(one side up)",
+        "className": "tag-item ai-suggested"
+      }
+    ],
+    "expression": [
+      {
+        "text": "surprised",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "blush",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "closed mouth",
+        "className": "tag-item ai-suggested"
+      }
+    ],
+    "background": [
+      {
+        "text": "indoors",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "window",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "desk",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "classroom",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "school_desk",
+        "className": "tag-item ai-suggested"
+      }
+    ],
+    "clothing": [
+      {
+        "text": "underwear",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "skirt",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "plaid_skirt",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "pink_bow",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "shirt",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "pink_bowtie",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "panties",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "bow",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "white_shirt",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "through_clothes",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "plaid",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "bra",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "school_uniform",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "bowtie",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "short_sleeves",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "pink_panties",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "pink_bra",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "pleated_skirt",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "collared_shirt",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "wet_clothes",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "see-through",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "wet",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "blue_skirt",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "dress_shirt",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "bra_visible_through_clothes",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "shirt_tucked_in",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "wet_shirt",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "miniskirt",
+        "className": "tag-item ai-suggested"
+      }
+    ],
+    "quality": [
+      {
+        "text": "masterpiece",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "best quality",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "(amazing quality)",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "newest",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "absurdres",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "highres",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "<lora:Kano_Chinatsu-78:0.5>",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "^^^",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "border",
+        "className": "tag-item ai-suggested"
+      },
+      {
+        "text": "assisted_exposure",
+        "className": "tag-item ai-suggested"
+      }
+    ],
+    "other": []
+  },
+  "currentPromptData": null,
+  "sdApiSettings": {
+    "tagger": {
+      "model": "wd14-vit.v2",
+      "threshold": 0.2,
+      "compatMode": true
+    },
+    "txt2img": {
+      "width": 1000,
+      "height": 1600,
+      "steps": 50,
+      "sampler_name": "Euler a",
+      "cfg_scale": 7,
+      "restore_faces": true,
+      "sd_model_checkpoint": "novaAnimeXL_ilV55"
+    }
+  },
+  "learnedTags": {
+    "success": true,
+    "tags": {
+      "face": [
+        "hairclip",
+        "brown hair",
+        "bangs",
+        "braid",
+        "short hair",
+        "medium hair",
+        "hair between eyes",
+        "hair ornament",
+        "pink eyes",
+        "purple eyes",
+        "(tareme:1.5)",
+        "blonde hair",
+        "blue eyes",
+        "(one side up)",
+        "french braid",
+        "sidelocks",
+        "teeth",
+        "tareme",
+        "single_braid",
+        "side_braid",
+        "hair_bow",
+        "1girl",
+        "brown_hair",
+        "brown_hair",
+        "looking_at_viewer",
+        "smile",
+        "blush",
+        "hair_ornament",
+        "closed_mouth",
+        "short_hair",
+        "short_hair",
+        "from_below",
+        "medium_hair",
+        "pink_eyes",
+        "purple_eyes",
+        "red_eyes",
+        "closed mouth"
+      ],
+      "body": [
+        "cameltoe",
+        "breasts",
+        "large breasts",
+        "thighs",
+        "ass",
+        "skindentation",
+        "huge breasts",
+        "cleavage",
+        "barefoot",
+        "soles",
+        "navel",
+        "collarbone",
+        "shiny skin",
+        "dark skin",
+        "midriff",
+        "stomach",
+        "armpits",
+        "bare shoulders",
+        "bare arms",
+        "nipples",
+        "thigh gap",
+        "groin",
+        "ass visible through thighs",
+        "bare legs",
+        "shiny",
+        "wet",
+        "sweat",
+        "thigh_gap",
+        "ass_visible_through_thighs",
+        "medium_breasts",
+        "large_breasts",
+        "fingering",
+        "fingering_through_clothes",
+        "through_clothes",
+        "assisted_exposure"
+      ],
+      "pose": [
+        "looking at viewer",
+        "sitting",
+        "lying",
+        "on stomach",
+        "hands on own face",
+        "hands on own cheeks",
+        "head tilt",
+        "head rest",
+        "legs up",
+        "hands up",
+        "the pose",
+        "spread legs",
+        "from_above",
+        "presenting",
+        "arms up",
+        "standing",
+        "frontview",
+        "dynamic_angle",
+        "cowboy shot",
+        "clothes lift",
+        "shirt lift",
+        "clothes pull",
+        "hand up",
+        "dutch angle",
+        "arm support",
+        "kneeling",
+        "leaning forward",
+        "looking_at_viewer",
+        "hand_in_own_hair",
+        "cowboy_shot",
+        "solo_focus",
+        "lifted_by_another",
+        "fingering",
+        "fingering_through_clothes",
+        "pov",
+        "pov_hands",
+        "arm_support",
+        "skirt_lift",
+        "clothes_lift",
+        "squatting",
+        "full_body",
+        "hands_up",
+        "dutch_angle",
+        "breasts",
+        "large_breasts",
+        "thighs",
+        "from_below",
+        "ass"
+      ],
+      "clothing": [
+        "underwear",
+        "panties",
+        "thighhighs",
+        "skirt",
+        "shirt",
+        "black thighhighs",
+        "white shirt",
+        "black skirt",
+        "collared shirt",
+        "open clothes",
+        "miniskirt",
+        "dress shirt",
+        "bra",
+        "jacket",
+        "bra visible through clothes",
+        "long sleeves",
+        "shirt tucked in",
+        "plaid",
+        "tennis uniform",
+        "sportswear",
+        "white skirt",
+        "two-tone skirt",
+        "pleated skirt",
+        "sleeveless",
+        "sleeveless shirt",
+        "two-tone shirt",
+        "shoes",
+        "sneakers",
+        "white footwear",
+        "socks",
+        "white socks",
+        "wristband",
+        "hair ornament",
+        "hairclip",
+        "school uniform",
+        "bow bra",
+        "short sleeves",
+        "jewelry",
+        "crop top",
+        "open shirt",
+        "clothes pull",
+        "blue bra",
+        "bra lift",
+        "blue panties",
+        "bow panties",
+        "underwear only",
+        "lace-trimmed bra",
+        "lace-trimmed panties",
+        "front-tie top",
+        "halterneck",
+        "o-ring",
+        "gym uniform",
+        "gym shirt",
+        "black bra",
+        "black panties",
+        "see-through",
+        "floral print",
+        "flower",
+        "lingerie",
+        "cleavage",
+        "lace trim",
+        "highleg",
+        "barefoot",
+        "swimsuit",
+        "bikini",
+        "wet",
+        "string bikini",
+        "side-tie bikini bottom",
+        "pantyhose",
+        "sweater",
+        "dress",
+        "shiny",
+        "black pantyhose",
+        "frills",
+        "wet clothes",
+        "clothing cutout",
+        "white_thighhighs",
+        "pink_panties",
+        "pink_bra",
+        "pleated_skirt",
+        "white_skirt",
+        "collared_shirt",
+        "short_sleeves",
+        "bra_visible_through_clothes",
+        "bow",
+        "white_shirt",
+        "tennis_uniform",
+        "plaid_skirt",
+        "pink_bow",
+        "pink_bowtie",
+        "through_clothes",
+        "school_uniform",
+        "bowtie",
+        "wet_clothes",
+        "blue_skirt",
+        "dress_shirt",
+        "shirt_tucked_in",
+        "wet_shirt",
+        "maid_headdress",
+        "pantyshot",
+        "wrist_cuffs",
+        "mary_janes",
+        "black_footwear",
+        "maid",
+        "maid_apron",
+        "apron",
+        "waist_apron",
+        "pink_dress",
+        "white_apron",
+        "blue_panties",
+        "black_bowtie",
+        "black_bow",
+        "puffy_sleeves",
+        "white_panties",
+        "short_dress",
+        "high_heels",
+        "puffy_short_sleeves",
+        "ribbon",
+        "buttons",
+        "pink_shirt",
+        "upskirt",
+        "black_skirt"
+      ],
+      "expression": [
+        "parted lips",
+        "embarrassed",
+        "blushing",
+        "shy",
+        "nervous",
+        "smile",
+        "closed mouth",
+        "blush",
+        "open mouth",
+        ":d",
+        "teeth",
+        "upper teeth only",
+        "closed_mouth",
+        "surprised"
+      ],
+      "quality": [
+        "masterpiece",
+        "best quality",
+        "(amazing quality)",
+        "newest",
+        "absurdres",
+        "highres",
+        "<lora:Kano_Chinatsu-78:0.5>",
+        "blurry",
+        "depth of field",
+        "transparent",
+        "amazing quality",
+        "<lora:hotarutoneup_v100:1>",
+        "<lora:USNR STYLE_XL_loha:0.3>",
+        "<lora:Schizowave:0.5>",
+        "<lora:iLLMythAn1m3Style:0.1>",
+        "lora:Kano_Chinatsu-78:0.5",
+        "depth_of_field",
+        "shiny",
+        "assisted_exposure",
+        "border"
+      ],
+      "background": [
+        "indoors",
+        "curtains",
+        "window",
+        "on bed",
+        "sunlight",
+        "day",
+        "blurry background",
+        "backlighting",
+        "outdoors",
+        "sky",
+        "blue sky",
+        "temple",
+        "architecture",
+        "east asian architecture",
+        "night",
+        "bed",
+        "night sky",
+        "bed sheet",
+        "bedroom",
+        "plant",
+        "cloud",
+        "flower",
+        "blurry",
+        "beach",
+        "tree",
+        "water",
+        "ocean",
+        "sand",
+        "blurry_background",
+        "desk",
+        "classroom",
+        "school_desk",
+        "on_desk",
+        "chalkboard",
+        "picture_frame",
+        "border"
+      ],
+      "people": [
+        "1girl",
+        "solo",
+        "(<lora:Kano_Chinatsu-78:0.5>)",
+        "character:",
+        "<lora:Kano_Chinatsu-78:0.5>",
+        "dark-skinned male",
+        "1boy",
+        "1other",
+        "hetero"
+      ],
+      "other": [
+        "looking_at_viewer",
+        "smile",
+        "blush",
+        "closed_mouth"
+      ]
+    },
+    "metadata": {
+      "lastUpdated": "2025-11-08T14:12:58.417Z",
+      "totalTags": 325
+    }
+  }
+}

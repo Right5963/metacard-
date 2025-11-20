@@ -1,0 +1,11 @@
+{
+  "image": "スクリーンショット 2025-11-05 060827.png",
+  "settings": {
+    "tagger": {
+      "model": "wd14-vit.v2",
+      "threshold": 0.2,
+      "compatMode": true
+    }
+  },
+  "parity": null
+}

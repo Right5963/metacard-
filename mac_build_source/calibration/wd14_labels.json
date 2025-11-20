@@ -1,0 +1,42 @@
+{
+  "poseemotion": [
+    "standing", "sitting", "lying", "lying on back", "lying on side", "kneeling",
+    "squatting", "crouching", "leaning", "leaning forward", "walking", "running",
+    "jumping", "dancing", "stretching", "bending over", "all fours", "on one knee",
+    "seiza", "bent over", "yokozuwari", "arm support", "hands on hips", "hand on hip",
+    "hands up", "peace sign", "v sign", "finger to mouth", "index finger raised",
+    "shushing", "pointing", "waving", "from above", "from below", "front view",
+    "rear view", "cowboy shot", "dutch angle"
+  ],
+  "background": [
+    "outdoors", "indoors", "night", "night sky", "sky", "moon", "day", "room",
+    "bedroom", "sliding doors", "sliding door", "shouji", "tatami", "forest",
+    "city", "beach", "ocean", "sea", "classroom", "lantern"
+  ],
+  "clothing": [
+    "kimono", "pink kimono", "japanese clothes", "uniform", "school uniform",
+    "obi", "sash", "wide sleeves", "long sleeves", "tabi", "socks", "white socks",
+    "jacket", "coat", "pants", "skirt", "shirt", "blouse", "hoodie", "sweater"
+  ],
+  "face": [
+    "1girl", "brown hair", "black hair", "blonde hair", "white hair", "grey hair",
+    "blue hair", "green hair", "pink hair", "purple hair", "short hair", "long hair",
+    "bangs", "sidelocks", "hair bun", "single hair bun",
+    "brown eyes", "blue eyes", "green eyes", "grey eyes"
+  ],
+  "body": [
+    "breasts", "large breasts", "small breasts", "cleavage", "thighs", "collarbone",
+    "bare legs"
+  ],
+  "quality": [
+    "artist name"
+  ],
+  "people": [
+    "solo", "multiple girls", "multiple boys", "1boy", "2girls"
+  ],
+  "other": [
+    "cover", "cover page", "looking at viewer", "smile", "closed mouth", "blush",
+    "index finger raised", "shushing"
+  ]
+}
+
