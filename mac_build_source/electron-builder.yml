@@ -17,4 +17,5 @@ mac:
         - x64
         - arm64
   identity: null
+  forceCodeSigning: false
   category: public.app-category.utilities
