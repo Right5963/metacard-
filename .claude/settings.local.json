@@ -1,0 +1,39 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__serena__get_current_config",
+      "mcp__serena__list_dir",
+      "Bash(dir:*)",
+      "Read(//c/Users/user/Downloads/新しいフォルダー (4)/**)",
+      "Read(//c/Users/user/Downloads/新しいフォルダー (5)/**)",
+      "Read(//c/Users/user/Downloads/みなみ/**)",
+      "Bash(python:*)",
+      "WebFetch(domain:tips.jp)",
+      "mcp__obsidian__obsidian_get_file_contents",
+      "Read(//c/Claude Code/tool/Obsidian Vault/Clippings/**)",
+      "Read(//c/Users/user/AppData/Roaming/StabilityMatrix/Packages/Stable Diffusion WebUI reForge/extensions/sd-dynamic-prompts/wildcards/yahoo/**)",
+      "Bash(copy:*)",
+      "Bash(cmd /c copy:*)",
+      "Bash(test:*)",
+      "mcp__serena__write_memory",
+      "mcp__serena__activate_project",
+      "Read(//c/Users/user/Downloads/**)",
+      "mcp__memory__add_observations",
+      "mcp__memory__create_entities",
+      "mcp__serena__find_symbol",
+      "mcp__filesystem__read_text_file",
+      "mcp__filesystem__edit_file",
+      "Bash(taskkill:*)",
+      "mcp__filesystem__write_file",
+      "Read(//c/mnt/c/**)",
+      "Bash(pip install:*)",
+      "Bash(pyinstaller:*)",
+      "Bash(mkdir:*)",
+      "Bash(cp:*)",
+      "Bash(powershell -Command:*)",
+      "WebSearch"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

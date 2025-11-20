@@ -1,0 +1,6 @@
+# Ignore SpecStory derived-cursor-rules.mdc backup files
+.specstory/cursor_rules_backups/*
+# Ignore SpecStory derived-cursor-rules.mdc backup files
+.specstory/rules_backups/*
+# SpecStory derived-cursor-rules.mdc backup files
+.specstory/ai_rules_backups/*

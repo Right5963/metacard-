@@ -1,0 +1,205 @@
+YOUR_TOPLEVEL_KEY:  # ←例: 0330_orikyara_final など
+
+  # ============================================================
+  # 1) Runa
+  # ============================================================
+  runa:
+    # ----------------------------------------------------------------
+    # fixed: キャラのベースタグ（衣装は含めない）
+    # ----------------------------------------------------------------
+    fixed: "D|fujimiya_runa, ...(キャラ固有の見た目や髪色など)"
+
+    # ----------------------------------------------------------------
+    # fixed_clothes: 凝った固定衣装のみ
+    # ----------------------------------------------------------------
+    fixed_clothes:
+      - "衣装パターンAのタグたち..."
+      - "衣装パターンBのタグたち..."
+      - "衣装パターンCのタグたち..."
+
+    prefix_ero:
+      - "R-18向け追加タグ(例: civit_nsfw, ...)"
+
+    prefix_ultra_ero:
+      - "更に過激なR-18向けタグ(例: extremely_explicit,...)"
+
+    # =========================
+    # Normal
+    # =========================
+    scenario_pose_normal_withclothes:
+      - "通常シチュ: 服ありポーズ例A..."
+      - "通常シチュ: 服ありポーズ例B..."
+
+    scenario_pose_normal_noclothes:
+      - "通常シチュ: 服なしポーズ例A..."
+      - "通常シチュ: 服なしポーズ例B..."
+
+    scenario_pose_normal_withcostume:
+      - "通常シチュ: コスチューム例A..."
+      - "通常シチュ: コスチューム例B..."
+
+    # =========================
+    # Ero
+    # =========================
+    scenario_pose_ero_withclothes:
+      - "R-18シチュ: 服ありポーズ例A..."
+      - "R-18シチュ: 服ありポーズ例B..."
+
+    scenario_pose_ero_noclothes:
+      - "R-18シチュ: 服なしポーズ例A..."
+      - "R-18シチュ: 服なしポーズ例B..."
+
+    scenario_pose_ero_withcostume:
+      - "R-18シチュ: コスチューム例A..."
+      - "R-18シチュ: コスチューム例B..."
+
+    # =========================
+    # UltraEro
+    # =========================
+    scenario_pose_ultraero_withclothes:
+      - "{__YOUR_TOPLEVEL_KEY/runa/prefix_ultra_ero__}, 超過激シチュ: 服ありA..."
+      - "{__YOUR_TOPLEVEL_KEY/runa/prefix_ultra_ero__}, 超過激シチュ: 服ありB..."
+
+    scenario_pose_ultraero_noclothes:
+      - "{__YOUR_TOPLEVEL_KEY/runa/prefix_ultra_ero__}, 超過激シチュ: 服なしA..."
+      - "{__YOUR_TOPLEVEL_KEY/runa/prefix_ultra_ero__}, 超過激シチュ: 服なしB..."
+      # yuri linesなど、さらに続けたい場合はここに追加
+
+    card_runa:
+      - "{__YOUR_TOPLEVEL_KEY/runa/fixed__}, {__YOUR_TOPLEVEL_KEY/runa/fixed_clothes__}, {__YOUR_TOPLEVEL_KEY/runa/scenario_pose_normal_withclothes__}"
+      - "{__YOUR_TOPLEVEL_KEY/runa/fixed__}, {__YOUR_TOPLEVEL_KEY/runa/scenario_pose_normal_noclothes__}"
+      - "{__YOUR_TOPLEVEL_KEY/runa/fixed__}, {__YOUR_TOPLEVEL_KEY/runa/fixed_clothes__}, {__YOUR_TOPLEVEL_KEY/runa/scenario_pose_normal_withcostume__}"
+      - "{__YOUR_TOPLEVEL_KEY/runa/fixed__}, {__YOUR_TOPLEVEL_KEY/runa/fixed_clothes__}, {__YOUR_TOPLEVEL_KEY/runa/scenario_pose_ero_withclothes__}"
+      - "{__YOUR_TOPLEVEL_KEY/runa/fixed__}, {__YOUR_TOPLEVEL_KEY/runa/scenario_pose_ero_noclothes__}"
+      - "{__YOUR_TOPLEVEL_KEY/runa/fixed__}, {__YOUR_TOPLEVEL_KEY/runa/fixed_clothes__}, {__YOUR_TOPLEVEL_KEY/runa/scenario_pose_ero_withcostume__}"
+      - "{__YOUR_TOPLEVEL_KEY/runa/fixed__}, {__YOUR_TOPLEVEL_KEY/runa/fixed_clothes__}, {__YOUR_TOPLEVEL_KEY/runa/scenario_pose_ultraero_withclothes__}"
+      #- "{__YOUR_TOPLEVEL_KEY/runa/fixed__}, {__YOUR_TOPLEVEL_KEY/runa/scenario_pose_ultraero_noclothes__}"
+
+
+  # ============================================================
+  # 2) Rinka
+  # ============================================================
+  rinka:
+    fixed: "D|tsukisima_rinka, ...(キャラ固有見た目)"
+
+    fixed_clothes:
+      - "衣装パターンA..."
+      - "衣装パターンB..."
+
+    prefix_ero:
+      - "R-18向け追加タグ..."
+
+    prefix_ultra_ero:
+      - "更に過激なR-18タグ..."
+
+    scenario_pose_normal_withclothes:
+      - "通常シチュ服ありA..."
+      - "通常シチュ服ありB..."
+
+    scenario_pose_normal_noclothes:
+      - "通常シチュ服なしA..."
+      - "通常シチュ服なしB..."
+
+    scenario_pose_normal_withcostume:
+      - "通常シチュコスチュームA..."
+      - "通常シチュコスチュームB..."
+
+    scenario_pose_ero_withclothes:
+      - "R-18服ありポーズA..."
+      - "R-18服ありポーズB..."
+
+    scenario_pose_ero_noclothes:
+      - "R-18服なしポーズA..."
+      - "R-18服なしポーズB..."
+
+    scenario_pose_ero_withcostume:
+      - "R-18コスチュームA..."
+      - "R-18コスチュームB..."
+
+    scenario_pose_ultraero_withclothes:
+      - "{__YOUR_TOPLEVEL_KEY/rinka/prefix_ultra_ero__}, 超過激服ありA..."
+      - "{__YOUR_TOPLEVEL_KEY/rinka/prefix_ultra_ero__}, 超過激服ありB..."
+
+    scenario_pose_ultraero_noclothes:
+      - "{__YOUR_TOPLEVEL_KEY/rinka/prefix_ultra_ero__}, 超過激服なしA..."
+      - "{__YOUR_TOPLEVEL_KEY/rinka/prefix_ultra_ero__}, 超過激服なしB..."
+      # yuri linesなどあれば同様に追加
+
+    card_rinka:
+      - "{__YOUR_TOPLEVEL_KEY/rinka/fixed__}, {__YOUR_TOPLEVEL_KEY/rinka/fixed_clothes__}, {__YOUR_TOPLEVEL_KEY/rinka/scenario_pose_normal_withclothes__}"
+      - "{__YOUR_TOPLEVEL_KEY/rinka/fixed__}, {__YOUR_TOPLEVEL_KEY/rinka/scenario_pose_normal_noclothes__}"
+      - "{__YOUR_TOPLEVEL_KEY/rinka/fixed__}, {__YOUR_TOPLEVEL_KEY/rinka/fixed_clothes__}, {__YOUR_TOPLEVEL_KEY/rinka/scenario_pose_normal_withcostume__}"
+      - "{__YOUR_TOPLEVEL_KEY/rinka/fixed__}, {__YOUR_TOPLEVEL_KEY/rinka/fixed_clothes__}, {__YOUR_TOPLEVEL_KEY/rinka/scenario_pose_ero_withclothes__}"
+      - "{__YOUR_TOPLEVEL_KEY/rinka/fixed__}, {__YOUR_TOPLEVEL_KEY/rinka/scenario_pose_ero_noclothes__}"
+      - "{__YOUR_TOPLEVEL_KEY/rinka/fixed__}, {__YOUR_TOPLEVEL_KEY/rinka/fixed_clothes__}, {__YOUR_TOPLEVEL_KEY/rinka/scenario_pose_ero_withcostume__}"
+      - "{__YOUR_TOPLEVEL_KEY/rinka/fixed__}, {__YOUR_TOPLEVEL_KEY/rinka/fixed_clothes__}, {__YOUR_TOPLEVEL_KEY/rinka/scenario_pose_ultraero_withclothes__}"
+      #- "{__YOUR_TOPLEVEL_KEY/rinka/fixed__}, {__YOUR_TOPLEVEL_KEY/rinka/scenario_pose_ultraero_noclothes__}"
+
+
+  # ============================================================
+  # 3) Rena
+  # ============================================================
+  rena:
+    fixed: "G|hoshituki_rena, ...(キャラ固有見た目)"
+
+    fixed_clothes:
+      - "衣装パターンA..."
+      - "衣装パターンB..."
+
+    prefix_ero:
+      - "R-18追加タグ..."
+
+    prefix_ultra_ero:
+      - "さらに過激なR-18..."
+
+    scenario_pose_normal_withclothes:
+      - "通常シチュ服ありA..."
+      - "通常シチュ服ありB..."
+
+    scenario_pose_normal_noclothes:
+      - "通常シチュ服なしA..."
+      - "通常シチュ服なしB..."
+
+    scenario_pose_normal_withcostume:
+      - "通常シチュコスチュームA..."
+      - "通常シチュコスチュームB..."
+
+    scenario_pose_ero_withclothes:
+      - "R-18服ありポーズA..."
+      - "R-18服ありポーズB..."
+
+    scenario_pose_ero_noclothes:
+      - "R-18服なしポーズA..."
+      - "R-18服なしポーズB..."
+
+    scenario_pose_ero_withcostume:
+      - "R-18コスチュームA..."
+      - "R-18コスチュームB..."
+
+    scenario_pose_ultraero_withclothes:
+      - "{__YOUR_TOPLEVEL_KEY/rena/prefix_ultra_ero__}, 超過激服ありA..."
+      - "{__YOUR_TOPLEVEL_KEY/rena/prefix_ultra_ero__}, 超過激服ありB..."
+
+    scenario_pose_ultraero_noclothes:
+      - "{__YOUR_TOPLEVEL_KEY/rena/prefix_ultra_ero__}, 超過激服なしA..."
+      - "{__YOUR_TOPLEVEL_KEY/rena/prefix_ultra_ero__}, 超過激服なしB..."
+      # yuri linesなど追加
+
+    card_rena:
+      - "{__YOUR_TOPLEVEL_KEY/rena/fixed__}, {__YOUR_TOPLEVEL_KEY/rena/fixed_clothes__}, {__YOUR_TOPLEVEL_KEY/rena/scenario_pose_normal_withclothes__}"
+      - "{__YOUR_TOPLEVEL_KEY/rena/fixed__}, {__YOUR_TOPLEVEL_KEY/rena/scenario_pose_normal_noclothes__}"
+      - "{__YOUR_TOPLEVEL_KEY/rena/fixed__}, {__YOUR_TOPLEVEL_KEY/rena/fixed_clothes__}, {__YOUR_TOPLEVEL_KEY/rena/scenario_pose_normal_withcostume__}"
+      - "{__YOUR_TOPLEVEL_KEY/rena/fixed__}, {__YOUR_TOPLEVEL_KEY/rena/fixed_clothes__}, {__YOUR_TOPLEVEL_KEY/rena/scenario_pose_ero_withclothes__}"
+      - "{__YOUR_TOPLEVEL_KEY/rena/fixed__}, {__YOUR_TOPLEVEL_KEY/rena/scenario_pose_ero_noclothes__}"
+      - "{__YOUR_TOPLEVEL_KEY/rena/fixed__}, {__YOUR_TOPLEVEL_KEY/rena/fixed_clothes__}, {__YOUR_TOPLEVEL_KEY/rena/scenario_pose_ero_withcostume__}"
+      - "{__YOUR_TOPLEVEL_KEY/rena/fixed__}, {__YOUR_TOPLEVEL_KEY/rena/fixed_clothes__}, {__YOUR_TOPLEVEL_KEY/rena/scenario_pose_ultraero_withclothes__}"
+      #- "{__YOUR_TOPLEVEL_KEY/rena/fixed__}, {__YOUR_TOPLEVEL_KEY/rena/scenario_pose_ultraero_noclothes__}"
+
+
+  # ============================================================
+  # ◆ 最終呼び出し
+  # ============================================================
+  card:
+    - "__YOUR_TOPLEVEL_KEY/runa/card_runa__"
+    - "__YOUR_TOPLEVEL_KEY/rinka/card_rinka__"
+    - "__YOUR_TOPLEVEL_KEY/rena/card_rena__"

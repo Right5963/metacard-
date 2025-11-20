@@ -1,0 +1,635 @@
+# 体カテゴリ辞書（MetaCard統合版）
+
+**MetaCard核心原則**: 体型と体のパーツを明確に指定
+
+## 既存タグ
+- 1boy
+- 1girl
+- 1other
+- 2boys
+- 2girls
+- 3girls
+- 4girls
+- 4koma
+- :3
+- :d
+- :o
+- MetaCard統合版として作成
+- ^_^
+- abs
+- ahoge
+- alternate_costume
+- alternate_hairstyle
+- anal
+- animal
+- animal_ear_fluff
+- animal_ears
+- antenna_hair
+- anus
+- apron
+- aqua_eyes
+- aqua_hair
+- areolae
+- arm_support
+- arm_up
+- armor
+- armpit focus
+- armpits
+- arms
+- arms_behind_back
+- arms_up
+- artist_name
+- ascot
+- ass
+- ass focus
+- ass grab
+- ass visible through thighs
+- ass_visible_through_thighs
+- assisted_exposure
+- athletic
+- average height
+- back
+- bag
+- bandages
+- bar_censor
+- bare arms
+- bare legs
+- bare shoulders
+- bare_arms
+- bare_legs
+- bare_shoulders
+- barefoot
+- beach
+- bed
+- bed_sheet
+- bell
+- belly
+- belly button
+- belt
+- beret
+- bikini
+- bird
+- black_background
+- black_bikini
+- black_boots
+- black_bow
+- black_choker
+- black_dress
+- black_eyes
+- black_gloves
+- black_hair
+- black_hairband
+- black_hat
+- black_jacket
+- black_panties
+- black_pants
+- black_pantyhose
+- black_ribbon
+- black_shirt
+- black_shoes
+- black_shorts
+- black_skirt
+- black_socks
+- black_thighhighs
+- blonde_hair
+- blood
+- blue_background
+- blue_bow
+- blue_dress
+- blue_eyes
+- blue_hair
+- blue_jacket
+- blue_shirt
+- blue_skirt
+- blue_sky
+- blunt_bangs
+- blurry
+- blurry_background
+- blush
+- blush_stickers
+- bob_cut
+- bodysuit
+- book
+- boots
+- border
+- bottomless
+- bow
+- bowtie
+- bra
+- bracelet
+- braid
+- breast grab
+- breast milk
+- breast squeeze
+- breasts
+- bright_pupils
+- brown_eyes
+- brown_hair
+- bubble butt
+- butt
+- buttocks
+- buttons
+- cameltoe
+- cape
+- capelet
+- cardigan
+- cat
+- cat_ears
+- cat_girl
+- cat_tail
+- cellphone
+- censored
+- chain
+- chair
+- character_name
+- chibi
+- chinese_clothes
+- choker
+- chubby
+- cleavage
+- cleavage_cutout
+- clitoris
+- closed_eyes
+- closed_mouth
+- clothes_lift
+- clothing_cutout
+- cloud
+- coat
+- collar
+- collarbone
+- collared_shirt
+- colored_inner_hair
+- colored_skin
+- comic
+- completely nude
+- completely_nude
+- convulsing
+- copyright_name
+- cosplay
+- covered_navel
+- covered_nipples
+- cowboy_shot
+- crop_top
+- crossed_arms
+- crotch
+- cum
+- cum_in_pussy
+- cum_on_body
+- cumming
+- cup
+- curvy
+- dark skin
+- dark-skinned_female
+- dark-skinned_male
+- dark_skin
+- dated
+- day
+- demon_girl
+- demon_horns
+- depth_of_field
+- detached_collar
+- detached_sleeves
+- double_bun
+- dress
+- dress_shirt
+- drill_hair
+- dripping
+- dutch_angle
+- earrings
+- eating
+- elbow_gloves
+- embarrassed
+- english_text
+- erect nipples
+- erection
+- exposed pussy
+- expressionless
+- eyelashes
+- facial_hair
+- facial_mark
+- fake_animal_ears
+- fang
+- fangs
+- feet
+- feet_out_of_frame
+- female_pubic_hair
+- fingering
+- fingering_through_clothes
+- fingerless_gloves
+- fingernails
+- fingers
+- flat chest
+- flat_chest
+- floating_hair
+- floral_print
+- flower
+- flushed skin
+- flying_sweatdrops
+- food
+- fox_ears
+- fox_girl
+- fox_tail
+- frilled_dress
+- frills
+- from behind
+- from_above
+- from_behind
+- from_below
+- from_side
+- frown
+- fruit
+- full_body
+- fur_trim
+- furry
+- gigantic breasts
+- glasses
+- gloves
+- glowing
+- goosebumps
+- grabbing own breasts
+- gradient_background
+- gradient_hair
+- green_eyes
+- green_hair
+- grey_background
+- grey_eyes
+- grey_hair
+- greyscale
+- grin
+- groin
+- groping
+- gun
+- hair_between_eyes
+- hair_bow
+- hair_bun
+- hair_flower
+- hair_intakes
+- hair_ornament
+- hair_over_one_eye
+- hair_ribbon
+- hairband
+- hairclip
+- half-closed_eyes
+- halo
+- halterneck
+- hand_on_own_hip
+- hand_up
+- hands
+- hands_up
+- happy
+- hat
+- head_tilt
+- headband
+- headphones
+- heart
+- heart-shaped_pupils
+- hetero
+- heterochromia
+- high_heels
+- high_ponytail
+- highleg
+- hips
+- holding
+- holding_food
+- holding_hands
+- holding_sword
+- holding_weapon
+- hood
+- hood_down
+- hoodie
+- horns
+- horse_ears
+- horse_girl
+- hug
+- huge ass
+- huge breasts
+- huge_breasts
+- indoors
+- inverted nipples
+- jacket
+- japanese_clothes
+- jewelry
+- kimono
+- kneehighs
+- kneeling
+- labia
+- lactation
+- large breasts
+- large_breasts
+- leaf
+- leaking
+- leaning_forward
+- legs
+- legs apart
+- leotard
+- lips
+- loli
+- long legs
+- long_hair
+- long_sleeves
+- looking_at_another
+- looking_at_viewer
+- looking_back
+- looking_down
+- looking_to_the_side
+- low_twintails
+- lying
+- maid
+- maid_headdress
+- makeup
+- male_focus
+- mask
+- medium breasts
+- medium_breasts
+- medium_hair
+- midriff
+- military
+- military_uniform
+- milk
+- miniskirt
+- mole
+- mole_under_eye
+- monochrome
+- mosaic_censoring
+- multicolored_hair
+- multiple_boys
+- multiple_girls
+- multiple_views
+- muscular
+- muscular_male
+- nail_polish
+- naked
+- narrow hips
+- navel
+- neck
+- neck_ribbon
+- neckerchief
+- necklace
+- necktie
+- night
+- nipple piercing
+- nipples
+- no_bra
+- no_humans
+- no_panties
+- no_shoes
+- nose_blush
+- nude
+- ocean
+- off_shoulder
+- official_alternate_costume
+- oiled
+- on_back
+- on_bed
+- on_side
+- one-piece_swimsuit
+- one_eye_closed
+- one_side_up
+- open_clothes
+- open_jacket
+- open_mouth
+- open_shirt
+- orange_eyes
+- orange_hair
+- orgasming
+- outdoors
+- pale skin
+- panties
+- pants
+- pantyhose
+- pantyshot
+- parody
+- parted_bangs
+- parted_lips
+- pectorals
+- penis
+- perky breasts
+- petals
+- petite
+- phone
+- piercing
+- pillow
+- pink_background
+- pink_eyes
+- pink_hair
+- plaid_clothes
+- plaid_skirt
+- playboy_bunny
+- pleated_skirt
+- plump
+- plump ass
+- pointy_ears
+- pokemon_
+- pokemon_(creature)
+- ponytail
+- portrait
+- pov
+- profile
+- pubic hair
+- pubic hair peek
+- pubic_hair
+- puffy pussy
+- puffy_short_sleeves
+- puffy_sleeves
+- purple_eyes
+- purple_hair
+- pussy
+- pussy juice
+- pussy_juice
+- rabbit_ears
+- red_bow
+- red_dress
+- red_eyes
+- red_hair
+- red_ribbon
+- red_skirt
+- ribbon
+- ring
+- rose
+- sagging breasts
+- sailor_collar
+- saliva
+- sandals
+- sash
+- scar
+- scarf
+- school_uniform
+- see-through_clothes
+- serafuku
+- sex
+- shadow
+- shaking
+- sharp_teeth
+- shaved
+- shiny
+- shiny skin
+- shiny_skin
+- shirt
+- shoes
+- short
+- short_dress
+- short_hair
+- short_shorts
+- short_sleeves
+- shorts
+- shoulders
+- siblings
+- side-tie_bikini_bottom
+- side_ponytail
+- sideboob
+- sidelocks
+- signature
+- simple_background
+- single_braid
+- sitting
+- sketch
+- skindentation
+- skinny
+- skirt
+- sky
+- sleeveless
+- sleeveless_dress
+- sleeveless_shirt
+- sleeves_past_wrists
+- slender
+- slim
+- small breasts
+- small_breasts
+- smartphone
+- smile
+- smooth skin
+- socks
+- soles
+- solo
+- solo_focus
+- sparkle
+- speech_bubble
+- spine
+- spread legs
+- spread pussy
+- spread_legs
+- squatting
+- squirting
+- standing
+- standing_on_one_leg
+- star_
+- star_(symbol)
+- stomach
+- strapless
+- streaked_hair
+- striped_clothes
+- stuffed_toy
+- sunglasses
+- sweat
+- sweatdrop
+- sweater
+- sweaty
+- swept_bangs
+- swimsuit
+- sword
+- symbol-shaped_pupils
+- table
+- tail
+- tall
+- tan
+- tank_top
+- tattoo
+- tears
+- teeth
+- testicles
+- thick thighs
+- thick_eyebrows
+- thick_thighs
+- thigh gap
+- thigh_boots
+- thigh_gap
+- thigh_strap
+- thighhighs
+- thighs
+- thin
+- through_clothes
+- toes
+- toned
+- toned stomach
+- tongue
+- tongue_out
+- topless
+- torn_clothes
+- transparent_background
+- tree
+- trembling
+- turtleneck
+- twin_braids
+- twintails
+- twitter_username
+- two-tone_hair
+- two_side_up
+- umbrella
+- uncensored
+- underboob
+- underwear
+- upper_body
+- upper_teeth_only
+- v
+- v-shaped_eyebrows
+- vagina
+- vaginal
+- vaginal opening
+- very_long_hair
+- vest
+- virtual_youtuber
+- voluptuous
+- waist
+- water
+- watermark
+- wavy_hair
+- weapon
+- wet
+- wet pussy
+- white_background
+- white_bikini
+- white_border
+- white_bow
+- white_dress
+- white_flower
+- white_gloves
+- white_hair
+- white_hat
+- white_jacket
+- white_panties
+- white_shirt
+- white_skirt
+- white_socks
+- white_thighhighs
+- wide hips
+- wide_sleeves
+- window
+- wings
+- witch_hat
+- wrist_cuffs
+- yellow_eyes
+- yuri
+- zettai_ryouiki
+- 総タグ数: 221
+- 総タグ数: 322
+- 総タグ数: 423
+- 総タグ数: 523
+- 総タグ数: 601
+- 総タグ数: 607
+- 総タグ数: 608
+- 総タグ数: 609
+- 総タグ数: 610
+
+## 更新履歴
+- 追加日: 2025-11-03
+- 最終更新: 2025-11-08 21:56:49
+- バージョン: 1.10
+- Danbooru同期: 2025-11-08 21:56:49
+- 総タグ数: 616
+
+- male pubic hair
+- mosaic censoring
+
+- huge breast
+
+- breastshuge breast

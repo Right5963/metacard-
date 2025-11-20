@@ -1,0 +1,53 @@
+character_main:
+- "1girl, solo, __characterface__, __characterbody__, __clothing__, __poseemotion__, __angle__, __backgrounds__, __style__"
+
+characterface:
+- "blonde hair, long hair, brown eyes, hair between eyes"
+- "black hair, blue eyes, straight hair, medium hair"
+- "short hair, grey eyes, light brown hair, hair behind ear"
+- "very long hair, yellow eyes, green eyes, hair ornament"
+- "wet hair, hair over shoulder, closed eyes, half-closed eyes"
+- "empty eyes, eyebrows hidden by hair, black eyes, grey hair"
+
+characterbody:
+- "breasts, thighs, bare shoulders, small breasts"
+- "medium breasts, bare arms, large breasts, covered navel"
+- "upper body, collarbone, legs, arms at sides"
+- "ponytail, high ponytail, spread legs, arm at side"
+- "barefoot, armpits, navel, breasts out"
+- "bare legs, arm support, arm up, feet out of frame, foot out of frame"
+
+clothing:
+- "swimsuit, one-piece swimsuit, school swimsuit, white shirt"
+- "black one-piece swimsuit, blue one-piece swimsuit, white one-piece swimsuit, frilled one-piece swimsuit"
+- "competition swimsuit, shirt, wet clothes, wet swimsuit"
+- "highleg swimsuit, strapless one-piece swimsuit, clothes pull, undressing"
+- "bikini, leotard, casual one-piece swimsuit, alternate costume"
+- "highleg leotard, maid, athletic leotard, strapless leotard"
+- "competition school swimsuit, two-tone swimsuit, official alternate costume, one-piece swimsuit pull"
+- "shirt pull, swimsuit aside, maid headdress"
+
+poseemotion:
+- "closed mouth, smile, blush, standing"
+- "light blush, lying, standing on one leg, standing split"
+- "split, stretching"
+
+angle:
+- "looking at viewer, dutch angle"
+
+backgrounds:
+- "simple background, outdoors, indoors"
+- "blue sky, sky, day, blurry background"
+- "pool, poolside, bed, on bed"
+- "black background, bed sheet, pool ladder"
+
+style:
+- "glitch, sketch, expressionless"
+
+sexual:
+- "crotch, nipples, censored nipples, cameltoe"
+
+uncategorized:
+- "frills, painterly, blurry, see-through"
+- "wet, water, cleavage, sidelocks"
+- "identity censor, leaning to the side, cowboy shot, off shoulder"

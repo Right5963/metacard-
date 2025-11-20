@@ -1,0 +1,410 @@
+# 複数人・人数カテゴリ辞書（MetaCard統合版）
+
+**MetaCard核心原則**: 人数と配置を明確に指定
+
+## 既存タグ
+- 1boy
+- 1girl
+- 1girl 1boy
+- 1girl 2boys
+- 1other
+- 2b_
+- 2b_(nier:automata)
+- 2boys
+- 2girls
+- 2girls 1boy
+- 3boys
+- 3girls
+- 4girls
+- 5girls
+- 6+girls
+- <lora:Kano_Chinatsu-78:0.5>
+- MetaCard統合版として作成
+- abigail_williams_
+- abigail_williams_(fate)
+- admiral_
+- admiral_(kancolle)
+- aerith_gainsborough
+- aether_
+- aether_(genshin_impact)
+- agnes_tachyon_
+- agnes_tachyon_(umamusume)
+- akagi_
+- akagi_(kancolle)
+- akatsuki_
+- akatsuki_(kancolle)
+- akemi_homura
+- akemi_homura_
+- akemi_homura_(magical_girl)
+- akiyama_mio
+- alice_margatroid
+- amatsukaze_
+- amatsukaze_(kancolle)
+- amiya_
+- amiya_(arknights)
+- aris_
+- aris_(blue_archive)
+- artoria_pendragon_
+- artoria_pendragon_(fate)
+- asuna_
+- asuna_(blue_archive)
+- ayanami_rei
+- back to back
+- chen
+- chihaya_anon
+- chun-li
+- cirno
+- classmates
+- cloud_strife
+- colleagues
+- couple
+- crowd
+- cuddling
+- daiyousei
+- dancing together
+- dark-skinned male
+- dawn_
+- dawn_(pokemon)
+- doctor_
+- doctor_(arknights)
+- doodle_sensei_
+- doodle_sensei_(blue_archive)
+- double penetration
+- elysia_
+- elysia_(honkai_impact)
+- embracing
+- facing each other
+- family
+- fate_testarossa
+- firefly_
+- firefly_(honkai:_star_rail)
+- flandre_scarlet
+- friends
+- frieren
+- fubuki_
+- fubuki_(kancolle)
+- fujimaru_ritsuka_
+- fujimaru_ritsuka_(female)
+- fujimaru_ritsuka_(male)
+- fujiwara_no_mokou
+- furina_
+- furina_(genshin_impact)
+- ganyu_
+- ganyu_(genshin_impact)
+- gardevoir
+- gawr_gura
+- gilgamesh_
+- gilgamesh_(fate)
+- gold_ship_
+- gold_ship_(umamusume)
+- gotoh_hitori
+- group
+- group sex
+- hakurei_reimu
+- hamakaze_
+- hamakaze_(kancolle)
+- haruna_
+- haruna_(kancolle)
+- hata_no_kokoro
+- hatsune_miku
+- hetero
+- hibiki_
+- hibiki_(kancolle)
+- hijiri_byakuren
+- himekaidou_hatate
+- hina_
+- hina_(blue_archive)
+- hinanawi_tenshi
+- hirasawa_yui
+- holding hands
+- hong_meiling
+- hoshiguma_yuugi
+- hoshimachi_suisei
+- hoshino_
+- hoshino_(blue_archive)
+- houjuu_nue
+- houraisan_kaguya
+- houshou_
+- houshou_(kancolle)
+- houshou_marine
+- hu_tao_
+- hu_tao_(genshin_impact)
+- hugging
+- ibuki_suika
+- ikazuchi_
+- ikazuchi_(kancolle)
+- illyasviel_von_einzbern
+- imaizumi_kagerou
+- inaba_tewi
+- inazuma_
+- inazuma_(kancolle)
+- inkling_girl
+- inkling_player_character
+- inubashiri_momiji
+- izayoi_sakuya
+- jeanne_d'arc_
+- jeanne_d'arc_(fate)
+- jeanne_d'arc_alter_
+- jeanne_d'arc_alter_(fate)
+- joseph_joestar
+- kaenbyou_rin
+- kafuu_chino
+- kaga_
+- kaga_(kancolle)
+- kagamine_len
+- kagamine_rin
+- kagiyama_hina
+- kaito_
+- kaito_(vocaloid)
+- kaku_seiga
+- kamishirasawa_keine
+- kaname_madoka
+- kaname_madoka_
+- kaname_madoka_(magical_girl)
+- kasane_teto
+- kashima_
+- kashima_(kancolle)
+- kawashiro_nitori
+- kayoko_
+- kayoko_(blue_archive)
+- kazami_yuuka
+- kazusa_
+- kazusa_(blue_archive)
+- keqing_
+- keqing_(genshin_impact)
+- kinomoto_sakura
+- kirby
+- kirisame_marisa
+- kisaki_
+- kisaki_(blue_archive)
+- kissing
+- kita_ikuyo
+- koakuma
+- kochiya_sanae
+- koharu_
+- koharu_(blue_archive)
+- komeiji_koishi
+- komeiji_satori
+- kongou_
+- kongou_(kancolle)
+- konpaku_youmu
+- konpaku_youmu_
+- konpaku_youmu_(ghost)
+- kyubey
+- lillie_
+- lillie_(pokemon)
+- lineup
+- link
+- lovers
+- lumine_
+- lumine_(genshin_impact)
+- lying together
+- makima_
+- makima_(chainsaw_man)
+- manhattan_cafe_
+- manhattan_cafe_(umamusume)
+- manjuu_
+- manjuu_(azur_lane)
+- march_7th_
+- march_7th_(honkai:_star_rail)
+- mari_
+- mari_(blue_archive)
+- maribel_hearn
+- marnie_
+- marnie_(pokemon)
+- mash_kyrielight
+- master and servant
+- matoi_ryuuko
+- may_
+- may_(pokemon)
+- megumin
+- megurine_luka
+- mika_
+- mika_(blue_archive)
+- miki_sayaka
+- miki_sayaka_
+- miki_sayaka_(magical_girl)
+- minato_aqua
+- misaka_mikoto
+- mizuhashi_parsee
+- mona_
+- mona_(genshin_impact)
+- mononobe_no_futo
+- mori_calliope
+- morichika_rinnosuke
+- moriya_suwako
+- multiple boys
+- multiple girls
+- multiple girls and boys
+- multiple handjob
+- multiple insertion
+- multiple others
+- multiple partners
+- multiple penises
+- murakumo_
+- murakumo_(kancolle)
+- murasa_minamitsu
+- mystia_lorelei
+- mythra_
+- mythra_(xenoblade)
+- nagato_
+- nagato_(kancolle)
+- nagato_yuki
+- nahida_
+- nahida_(genshin_impact)
+- nakano_azusa
+- nami_
+- nami_(one_piece)
+- nanami_chiaki
+- nanashi_mumei
+- nazrin
+- nekomata_okayu
+- nero_claudius_
+- nero_claudius_(fate)
+- ninomae_ina'nis
+- nishikino_maki
+- nishizumi_miho
+- okita_souji_
+- okita_souji_(fate)
+- oma_kokichi
+- onozuka_komachi
+- orgy
+- ouro_kronii
+- paimon_
+- paimon_(genshin_impact)
+- patchouli_knowledge
+- pikachu
+- princess_peach
+- princess_zelda
+- producer_
+- producer_(idolmaster)
+- pyra_
+- pyra_(xenoblade)
+- raiden_shogun
+- reisen_udongein_inaba
+- reiuji_utsuho
+- rem_
+- rem_(re:zero)
+- remilia_scarlet
+- rice_shower_
+- rice_shower_(umamusume)
+- rio_
+- rio_(blue_archive)
+- rosa_
+- rosa_(pokemon)
+- rumia
+- ryuujou_
+- ryuujou_(kancolle)
+- saber_
+- saber_(fate)
+- saigyouji_yuyuko
+- sakura_kyoko
+- sakura_miko
+- sandwich position
+- scaramouche_
+- scaramouche_(genshin_impact)
+- scathach_
+- scathach_(fate)
+- sensei_
+- sensei_(blue_archive)
+- serval_
+- serval_(kemono_friends)
+- shameimaru_aya
+- shanghai_doll
+- shigure_
+- shigure_(kancolle)
+- shigure_kai_ni_
+- shigure_kai_ni_(kancolle)
+- shiki_eiki
+- shimakaze_
+- shimakaze_(kancolle)
+- shirakami_fubuki
+- shiroko_
+- shiroko_(blue_archive)
+- side by side
+- sisters
+- sitting together
+- solo
+- solo focus
+- sonoda_umi
+- souryuu_asuka_langley
+- spitroast
+- standing together
+- stelle_
+- stelle_(honkai:_star_rail)
+- strangers
+- surrounded by multiple
+- suzumiya_haruhi
+- suzuya_
+- suzuya_(kancolle)
+- tainaka_ritsu
+- takamachi_nanoha
+- takanashi_kiara
+- tamamo_no_mae_
+- tamamo_no_mae_(fate)
+- tatara_kogasa
+- teacher and student
+- tenryuu_
+- tenryuu_(kancolle)
+- texas_
+- texas_(arknights)
+- threesome
+- tifa_lockhart
+- togawa_sakiko
+- tohsaka_rin
+- tojo_nozomi
+- toki_
+- toki_(blue_archive)
+- tokoyami_towa
+- tomoe_mami
+- tomoe_mami_
+- tomoe_mami_(magical_girl)
+- toramaru_shou
+- toyosatomimi_no_miko
+- trailblazer_
+- trailblazer_(honkai:_star_rail)
+- trainer_
+- trainer_(umamusume)
+- trio
+- usada_pekora
+- usami_renko
+- venti_
+- venti_(genshin_impact)
+- wanderer_
+- wanderer_(genshin_impact)
+- warrior_of_light_
+- warrior_of_light_(ff14)
+- wriggle_nightbug
+- yae_miko
+- yagokoro_eirin
+- yakumo_ran
+- yakumo_yukari
+- yasaka_kanako
+- yor_briar
+- yuudachi_
+- yuudachi_(kancolle)
+- yuudachi_kai_ni_
+- yuudachi_kai_ni_(kancolle)
+- yuuka_
+- yuuka_(blue_archive)
+- yuzuki_yukari
+- zhongli_
+- zhongli_(genshin_impact)
+- zuikaku_
+- zuikaku_(kancolle)
+- 総タグ数: 157
+- 総タグ数: 257
+- 総タグ数: 326
+- 総タグ数: 361
+- 総タグ数: 377
+- 総タグ数: 388
+- 総タグ数: 393
+- 総タグ数: 395
+- 総タグ数: 397
+
+## 更新履歴
+- 追加日: 2025-11-03
+- 最終更新: 2025-11-08 21:56:49
+- バージョン: 1.10
+- Danbooru同期: 2025-11-08 21:56:49
+- 総タグ数: 398

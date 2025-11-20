@@ -1,0 +1,23 @@
+character_face:
+- eye
+- mouth
+character_body:
+- arm
+- leg
+clothing:
+- dress
+- shirt
+pose:
+- standing
+- sitting
+angle:
+- front_view
+- side_view
+background:
+- sky
+- room
+style:
+- watercolor
+- sketch
+sexual:
+- nude

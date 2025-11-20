@@ -1,0 +1,46 @@
+charactermain:
+- "1girl,__characterface__,__characterbody__,__clothing__,__poseemotion__,__angle__,__backgrounds__,__style__,__sexual__"
+
+characterface:
+- "empty eyes, closed mouth, hair between eyes"
+- "eyelashes, brown eyes, half-closed eyes"
+- "mole under eye, black eyes, open mouth"
+- "dot mouth, grey eyes, blue eyes"
+- "purple eyes, red eyes, closed eyes"
+- "yellow eyes, green eyes, hair over one eye"
+- "one eye closed, pink eyes, eyebrows hidden by hair"
+
+characterbody:
+- "spread legs, bare legs, arm support"
+- "highleg leotard, highleg, arm up"
+- "standing on one leg, leg up, legs"
+- "arm at side, bare arms, highleg swimsuit"
+- "presenting armpit, armpits, arms up"
+- "between legs, legs together, arm behind back"
+- "arms behind head, arm behind head, arms behind back"
+- "arms at sides"
+- "leg lift"
+
+clothing:
+- "maid headdress, dress, black dress"
+- "short dress, white dress, sleeveless dress"
+- "gym shirt, shirt, white shirt"
+- "undressing, shirt lift, t-shirt"
+- "collared shirt, wet shirt, see-through shirt"
+- "strapless dress, frilled dress, sleeveless shirt"
+- "shirt pull"
+
+poseemotion:
+- "standing split, standing, sitting"
+
+angle:
+
+backgrounds:
+- "bedroom, gym storeroom"
+- "classroom, sky"
+- "blue sky, cloudy sky"
+
+style:
+- "sketch"
+
+sexual:

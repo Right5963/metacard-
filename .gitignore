@@ -1,0 +1,134 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Env
+venv/
+.venv/
+.venv_mac/
+env/
+ENV/
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Mac
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Editor
+.vscode/
+.idea/
+*.swp
+.specstory/
+
+# Project Specific - Large Data / Output
+downloaded_images/
+downloaded_images_temp/
+tagged_results*/
+model_eva02/
+test_images/
+test_images2/
+tmp_test_image.jpg
+*.zip
+debug_images/
+webui_tagged_results/
+Auto Booru 0413/
+Autobooru_X/
+TXT MATOME 0413/
+WD14_Tagger/
+WD14_Tagger_Standalone/
+tools/
+logs/
+output/
+sample_output/
+single_output/
+test_eva02_output/
+test_few_results/
+test_result/
+test_results2/
+test_results_eva02/
+tagger_data/
+temp_tags/
+simple_tagged_results/
+build_new/
+dist_new/
+release/
+copied_txt_files/
+input/
+test_input/

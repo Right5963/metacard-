@@ -1,0 +1,193 @@
+{
+  "version": "1.0",
+  "updatedAt": "2025-11-19T20:28:20.353Z",
+  "sets": [
+    {
+      "id": "1b5068b7-2bce-41ea-8dcd-b0b28152632b",
+      "name": "face_set_1762457882076",
+      "description": "face カテゴリのセット",
+      "labels": [],
+      "categories": [
+        "face"
+      ],
+      "tagsByCategory": {
+        "face": [
+          "1girl",
+          "grey eyes",
+          "white hair",
+          "short hair",
+          "ahoge",
+          "bangs",
+          "v-shaped eyebrows",
+          "looking at viewer",
+          "hair between eyes",
+          "frown"
+        ]
+      },
+      "thumbnailPath": "thumbnails\\1b5068b7-2bce-41ea-8dcd-b0b28152632b.png",
+      "createdAt": "2025-11-06T19:38:06.464Z",
+      "updatedAt": "2025-11-07T09:40:24.862Z",
+      "author": "",
+      "source": {},
+      "stats": {
+        "useCount": 0,
+        "lastUsedAt": null
+      }
+    },
+    {
+      "id": "de389de7-51eb-4d4d-a543-7b368624ca5e",
+      "name": "Untitled",
+      "description": "",
+      "labels": [],
+      "categories": [],
+      "tagsByCategory": {},
+      "thumbnailPath": "",
+      "createdAt": "2025-11-19T10:51:48.218Z",
+      "updatedAt": "2025-11-19T10:51:48.218Z",
+      "author": "",
+      "source": {},
+      "stats": {
+        "useCount": 0,
+        "lastUsedAt": null
+      }
+    },
+    {
+      "id": "5440928b-0415-478e-9565-b621b89231e1",
+      "name": "温もりカジュアルスタイル",
+      "description": "オーバーサイズのニットとデニムを組み合わせた、リラックス感のある秋の日常着。",
+      "labels": [
+        "秋のコーディネイト",
+        "AI提案",
+        "Gemini"
+      ],
+      "categories": [
+        "other"
+      ],
+      "tagsByCategory": {
+        "other": [
+          "(oversized chunky knit sweater:1.2)",
+          "cable knit",
+          "beige sweater",
+          "high-waisted dark wash jeans",
+          "white sneakers",
+          "(plaid scarf:1.1)",
+          "(beanie)",
+          "(leather crossbody bag)",
+          "long sleeves",
+          "cozy clothes"
+        ]
+      },
+      "thumbnailPath": "",
+      "createdAt": "2025-11-19T14:07:14.204Z",
+      "updatedAt": "2025-11-19T14:07:14.206Z",
+      "author": "",
+      "source": "ai-prompt-suggestor",
+      "stats": {
+        "useCount": 0,
+        "lastUsedAt": null
+      }
+    },
+    {
+      "id": "6d71ae09-20b8-4b81-9b48-1ed5c8a353da",
+      "name": "モダン・グラマラスサンタ",
+      "description": "ベルベットとファーの伝統的な素材を現代的なシルエットで表現し、洗練された大人の魅力を引き出すミニスカサンタ。",
+      "labels": [
+        "ミニスカサンタ ２０２５最新版",
+        "AI提案",
+        "Gemini"
+      ],
+      "categories": [
+        "other"
+      ],
+      "tagsByCategory": {
+        "other": [
+          "(cropped red velvet santa jacket:1.3) with (white fur trim:1.2)",
+          "(matching red velvet mini skirt:1.3)",
+          "(black patent leather over-the-knee boots:1.2)",
+          "(sheer black stockings)",
+          "(red velvet choker:1.1) with (silver charm)",
+          "(long white fur-trimmed gloves:1.1)",
+          "(minimalist santa hat:1.1)",
+          "(silver earrings)"
+        ]
+      },
+      "thumbnailPath": "",
+      "createdAt": "2025-11-19T20:27:47.171Z",
+      "updatedAt": "2025-11-19T20:27:47.178Z",
+      "author": "",
+      "source": "ai-prompt-suggestor",
+      "stats": {
+        "useCount": 0,
+        "lastUsedAt": null
+      }
+    },
+    {
+      "id": "05384f96-13f5-48af-a8d4-4d071bced465",
+      "name": "ストリート・エッジィサンタ",
+      "description": "カジュアルで都会的なストリートファッションの要素を取り入れ、活動的でクールな印象を与えるミニスカサンタ。",
+      "labels": [
+        "ミニスカサンタ ２０２５最新版",
+        "AI提案",
+        "Gemini"
+      ],
+      "categories": [
+        "other"
+      ],
+      "tagsByCategory": {
+        "other": [
+          "(oversized red hoodie with white fur lining:1.2)",
+          "(black faux leather mini skirt:1.3) with (red trim:1.1)",
+          "(chunky black platform boots:1.2)",
+          "(fishnet stockings)",
+          "(fingerless gloves:1.1)",
+          "(black baseball cap:1.1) with (small santa bell detail)",
+          "(silver hoop earrings)",
+          "(layered silver chain necklaces)"
+        ]
+      },
+      "thumbnailPath": "",
+      "createdAt": "2025-11-19T20:28:19.180Z",
+      "updatedAt": "2025-11-19T20:28:19.181Z",
+      "author": "",
+      "source": "ai-prompt-suggestor",
+      "stats": {
+        "useCount": 0,
+        "lastUsedAt": null
+      }
+    },
+    {
+      "id": "6b5a8a2e-cf6c-4b3b-98c4-59c7b2f2d04b",
+      "name": "フェミニン・ドレッシーサンタ",
+      "description": "繊細な素材とフェミニンなディテールを組み合わせ、優雅さと可愛らしさを兼ね備えたドレッシーなミニスカサンタ。",
+      "labels": [
+        "ミニスカサンタ ２０２５最新版",
+        "AI提案",
+        "Gemini"
+      ],
+      "categories": [
+        "other"
+      ],
+      "tagsByCategory": {
+        "other": [
+          "(off-shoulder red satin top:1.3) with (lace trim:1.2) and (puffy sleeves)",
+          "(high-waisted red tulle mini skirt:1.2) layered over (satin mini skirt)",
+          "(red high heels:1.2) with (white fur details)",
+          "(white lace thigh-high stockings:1.1)",
+          "(delicate red velvet ribbon choker)",
+          "(sparkling earrings)",
+          "(white marabou feather boa:1.1)",
+          "(mini santa fascinator hat)"
+        ]
+      },
+      "thumbnailPath": "",
+      "createdAt": "2025-11-19T20:28:20.351Z",
+      "updatedAt": "2025-11-19T20:28:20.353Z",
+      "author": "",
+      "source": "ai-prompt-suggestor",
+      "stats": {
+        "useCount": 0,
+        "lastUsedAt": null
+      }
+    }
+  ]
+}

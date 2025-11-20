@@ -1,0 +1,44 @@
+DownloadedCharacter:
+  # Generated from WD14 Tagger results
+
+  # ============================================================
+  # 1) Character from WD14 Tags
+  # ============================================================
+  character1:
+    # ----------------------------------------------------------------
+    # fixed: キャラのベースタグ（衣装は含めない）
+    # ----------------------------------------------------------------
+    fixed: "1girl, solo"
+
+    # ----------------------------------------------------------------
+    # fixed_clothes: 凝った固定衣装のみ
+    # ----------------------------------------------------------------
+    fixed_clothes:
+    - "school_uniform, skirt, thighhighs"
+    - ""
+
+    prefix_ero:
+    - ""
+
+    prefix_ultra_ero:
+    - ""
+    # =========================
+    # Normal
+    # =========================
+    scenario_pose_normal_withclothes:
+    - "blue_eyes, smile, looking_at_viewer, long_hair, blonde_hair"
+    - ", "
+
+    scenario_pose_normal_noclothes:
+    - "blue_eyes, smile, looking_at_viewer"
+    - ""
+
+    card_character1:
+    - "{__DownloadedCharacter/character1/fixed__}, {__DownloadedCharacter/character1/fixed_clothes__}, {__DownloadedCharacter/character1/scenario_pose_normal_withclothes__}"
+    - "{__DownloadedCharacter/character1/fixed__}, {__DownloadedCharacter/character1/scenario_pose_normal_noclothes__}"
+
+  # ============================================================
+  # ◆ 最終呼び出し
+  # ============================================================
+  card:
+  - "__DownloadedCharacter/character1/card_character1__"

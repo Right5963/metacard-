@@ -1,0 +1,490 @@
+# 女性の顔カテゴリ辞書（MetaCard統合版）
+
+**MetaCard核心原則**: 顔の特徴と表情を明確に指定
+
+## 既存タグ
+- 1girl
+- 2b_
+- 2b_(nier:automata)
+- MetaCard統合版として作成
+- abigail_williams_
+- abigail_williams_(fate)
+- admiral_
+- admiral_(kancolle)
+- aerith_gainsborough
+- aether_
+- aether_(genshin_impact)
+- agnes_tachyon_
+- agnes_tachyon_(umamusume)
+- ahegao
+- akagi_
+- akagi_(kancolle)
+- akatsuki_
+- akatsuki_(kancolle)
+- akemi_homura
+- akemi_homura_
+- akemi_homura_(magical_girl)
+- akiyama_mio
+- alice_margatroid
+- amatsukaze_
+- amatsukaze_(kancolle)
+- amiya_
+- amiya_(arknights)
+- aris_
+- aris_(blue_archive)
+- aroused
+- artoria_pendragon_
+- artoria_pendragon_(fate)
+- asuna_
+- asuna_(blue_archive)
+- ayanami_rei
+- bangs
+- beautiful detailed face
+- beautiful face
+- beauty mark
+- bedroom eyes
+- biting lip
+- blonde hair
+- blue eyes
+- blush
+- braid
+- brown eyes
+- brown hair
+- brown_hair
+- chen
+- chihaya_anon
+- child face
+- chun-li
+- cirno
+- clenched teeth
+- closed eyes
+- closed mouth
+- closed_mouth
+- cloud_strife
+- come hither
+- crying
+- crying with eyes open
+- cute face
+- daiyousei
+- dawn_
+- dawn_(pokemon)
+- doctor_
+- doctor_(arknights)
+- doodle_sensei_
+- doodle_sensei_(blue_archive)
+- drool
+- ear blush
+- ecstasy
+- elysia_
+- elysia_(honkai_impact)
+- embarrassed
+- evil smile
+- eyes
+- facing viewer
+- fate_testarossa
+- female focus
+- firefly_
+- firefly_(honkai:_star_rail)
+- flandre_scarlet
+- flushed
+- flushed face
+- freckles
+- french braid
+- frieren
+- from above
+- from behind
+- from below
+- from side
+- from_below
+- frown
+- fubuki_
+- fubuki_(kancolle)
+- fujimaru_ritsuka_
+- fujimaru_ritsuka_(female)
+- fujimaru_ritsuka_(male)
+- fujiwara_no_mokou
+- furina_
+- furina_(genshin_impact)
+- ganyu_
+- ganyu_(genshin_impact)
+- gardevoir
+- gawr_gura
+- gilgamesh_
+- gilgamesh_(fate)
+- glowing eyes
+- gold_ship_
+- gold_ship_(umamusume)
+- gotoh_hitori
+- green eyes
+- grin
+- hair between eyes
+- hair ornament
+- hair_bow
+- hair_ornament
+- hairclip
+- hakurei_reimu
+- half-closed eyes
+- hamakaze_
+- hamakaze_(kancolle)
+- haruna_
+- haruna_(kancolle)
+- hata_no_kokoro
+- hatsune_miku
+- head tilt
+- hearts in eyes
+- heavy breathing
+- heterochromia
+- hibiki_
+- hibiki_(kancolle)
+- hijiri_byakuren
+- himekaidou_hatate
+- hina_
+- hina_(blue_archive)
+- hinanawi_tenshi
+- hirasawa_yui
+- hong_meiling
+- hoshiguma_yuugi
+- hoshimachi_suisei
+- hoshino_
+- hoshino_(blue_archive)
+- houjuu_nue
+- houraisan_kaguya
+- houshou_
+- houshou_(kancolle)
+- houshou_marine
+- hu_tao_
+- hu_tao_(genshin_impact)
+- ibuki_suika
+- ikazuchi_
+- ikazuchi_(kancolle)
+- illyasviel_von_einzbern
+- imaizumi_kagerou
+- inaba_tewi
+- inazuma_
+- inazuma_(kancolle)
+- inkling_girl
+- inkling_player_character
+- inubashiri_momiji
+- izayoi_sakuya
+- jeanne_d'arc_
+- jeanne_d'arc_(fate)
+- jeanne_d'arc_alter_
+- jeanne_d'arc_alter_(fate)
+- joseph_joestar
+- kaenbyou_rin
+- kafuu_chino
+- kaga_
+- kaga_(kancolle)
+- kagamine_len
+- kagamine_rin
+- kagiyama_hina
+- kaito_
+- kaito_(vocaloid)
+- kaku_seiga
+- kamishirasawa_keine
+- kaname_madoka
+- kaname_madoka_
+- kaname_madoka_(magical_girl)
+- kasane_teto
+- kashima_
+- kashima_(kancolle)
+- kawashiro_nitori
+- kayoko_
+- kayoko_(blue_archive)
+- kazami_yuuka
+- kazusa_
+- kazusa_(blue_archive)
+- keqing_
+- keqing_(genshin_impact)
+- kinomoto_sakura
+- kirby
+- kirisame_marisa
+- kisaki_
+- kisaki_(blue_archive)
+- kita_ikuyo
+- koakuma
+- kochiya_sanae
+- koharu_
+- koharu_(blue_archive)
+- komeiji_koishi
+- komeiji_satori
+- kongou_
+- kongou_(kancolle)
+- konpaku_youmu
+- konpaku_youmu_
+- konpaku_youmu_(ghost)
+- kyubey
+- lewd face
+- licking lips
+- lillie_
+- lillie_(pokemon)
+- link
+- lips
+- lipstick
+- looking at viewer
+- looking away
+- looking back
+- looking down
+- looking to the side
+- looking up
+- looking_at_viewer
+- lumine_
+- lumine_(genshin_impact)
+- makima_
+- makima_(chainsaw_man)
+- manhattan_cafe_
+- manhattan_cafe_(umamusume)
+- manjuu_
+- manjuu_(azur_lane)
+- march_7th_
+- march_7th_(honkai:_star_rail)
+- mari_
+- mari_(blue_archive)
+- maribel_hearn
+- marnie_
+- marnie_(pokemon)
+- mash_kyrielight
+- matoi_ryuuko
+- mature face
+- may_
+- may_(pokemon)
+- medium hair
+- medium_hair
+- megumin
+- megurine_luka
+- mika_
+- mika_(blue_archive)
+- miki_sayaka
+- miki_sayaka_
+- miki_sayaka_(magical_girl)
+- minato_aqua
+- misaka_mikoto
+- mizuhashi_parsee
+- moaning
+- mole
+- mole under eye
+- mole under mouth
+- mona_
+- mona_(genshin_impact)
+- mononobe_no_futo
+- mori_calliope
+- morichika_rinnosuke
+- moriya_suwako
+- mouth
+- murakumo_
+- murakumo_(kancolle)
+- murasa_minamitsu
+- mystia_lorelei
+- mythra_
+- mythra_(xenoblade)
+- nagato_
+- nagato_(kancolle)
+- nagato_yuki
+- nahida_
+- nahida_(genshin_impact)
+- nakano_azusa
+- nami_
+- nami_(one_piece)
+- nanami_chiaki
+- nanashi_mumei
+- narrowed eyes
+- naughty face
+- nazrin
+- nekomata_okayu
+- nero_claudius_
+- nero_claudius_(fate)
+- ninomae_ina'nis
+- nishikino_maki
+- nishizumi_miho
+- nose
+- nose blush
+- nosebleed
+- okita_souji_
+- okita_souji_(fate)
+- oma_kokichi
+- one eye closed
+- onozuka_komachi
+- open mouth
+- orgasm face
+- ouro_kronii
+- paimon_
+- paimon_(genshin_impact)
+- panting
+- parted lips
+- patchouli_knowledge
+- pikachu
+- pink eyes
+- pink lips
+- pink_eyes
+- pleasure face
+- pout
+- pouting
+- pretty face
+- princess_peach
+- princess_zelda
+- producer_
+- producer_(idolmaster)
+- profile
+- purple eyes
+- purple_eyes
+- pyra_
+- pyra_(xenoblade)
+- raiden_shogun
+- red eyes
+- red lips
+- red_eyes
+- reisen_udongein_inaba
+- reiuji_utsuho
+- rem_
+- rem_(re:zero)
+- remilia_scarlet
+- rice_shower_
+- rice_shower_(umamusume)
+- rio_
+- rio_(blue_archive)
+- rosa_
+- rosa_(pokemon)
+- rumia
+- ryuujou_
+- ryuujou_(kancolle)
+- saber_
+- saber_(fate)
+- saigyouji_yuyuko
+- sakura_kyoko
+- sakura_miko
+- saliva
+- saliva trail
+- scaramouche_
+- scaramouche_(genshin_impact)
+- scathach_
+- scathach_(fate)
+- seductive eyes
+- seductive smile
+- sensei_
+- sensei_(blue_archive)
+- serval_
+- serval_(kemono_friends)
+- shameimaru_aya
+- shanghai_doll
+- shigure_
+- shigure_(kancolle)
+- shigure_kai_ni_
+- shigure_kai_ni_(kancolle)
+- shiki_eiki
+- shimakaze_
+- shimakaze_(kancolle)
+- shirakami_fubuki
+- shiroko_
+- shiroko_(blue_archive)
+- short hair
+- short_hair
+- shy
+- side_braid
+- sidelocks
+- single_braid
+- smile
+- smirk
+- solo
+- sonoda_umi
+- souryuu_asuka_langley
+- sparkling eyes
+- stelle_
+- stelle_(honkai:_star_rail)
+- sultry look
+- suzumiya_haruhi
+- suzuya_
+- suzuya_(kancolle)
+- sweat
+- sweatdrop
+- tainaka_ritsu
+- takamachi_nanoha
+- takanashi_kiara
+- tamamo_no_mae_
+- tamamo_no_mae_(fate)
+- tareme
+- tatara_kogasa
+- teardrop
+- tearing up
+- tears
+- teen face
+- teeth
+- tenryuu_
+- tenryuu_(kancolle)
+- texas_
+- texas_(arknights)
+- tifa_lockhart
+- togawa_sakiko
+- tohsaka_rin
+- tojo_nozomi
+- toki_
+- toki_(blue_archive)
+- tokoyami_towa
+- tomoe_mami
+- tomoe_mami_
+- tomoe_mami_(magical_girl)
+- tongue
+- tongue out
+- toramaru_shou
+- toyosatomimi_no_miko
+- trailblazer_
+- trailblazer_(honkai:_star_rail)
+- trainer_
+- trainer_(umamusume)
+- turning head
+- usada_pekora
+- usami_renko
+- venti_
+- venti_(genshin_impact)
+- wanderer_
+- wanderer_(genshin_impact)
+- warrior_of_light_
+- warrior_of_light_(ff14)
+- wet eyes
+- wide-eyed
+- wink
+- wriggle_nightbug
+- yae_miko
+- yagokoro_eirin
+- yakumo_ran
+- yakumo_yukari
+- yasaka_kanako
+- yellow eyes
+- yor_briar
+- young face
+- yuudachi_
+- yuudachi_(kancolle)
+- yuudachi_kai_ni_
+- yuudachi_kai_ni_(kancolle)
+- yuuka_
+- yuuka_(blue_archive)
+- yuzuki_yukari
+- zhongli_
+- zhongli_(genshin_impact)
+- zuikaku_
+- zuikaku_(kancolle)
+- 総タグ数: 204
+- 総タグ数: 304
+- 総タグ数: 373
+- 総タグ数: 408
+- 総タグ数: 424
+- 総タグ数: 444
+- 総タグ数: 449
+- 総タグ数: 451
+- 総タグ数: 453
+
+## 更新履歴
+- 追加日: 2025-11-03
+- 最終更新: 2025-11-08 21:56:49
+- バージョン: 1.10
+- Danbooru同期: 2025-11-08 21:56:49
+- 総タグ数: 468
+
+- (tareme:1.5)
+
+- aqua eyes
+- long hair
+- low twintails
+- twintails
+
+- huge breasts
+- breasts、huge breast、

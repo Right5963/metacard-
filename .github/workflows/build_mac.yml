@@ -1,0 +1,46 @@
+name: Build Mac App
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  workflow_dispatch:
+
+jobs:
+  build-mac:
+    runs-on: macos-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+        
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install pyinstaller
+        
+    - name: Build with PyInstaller
+      run: |
+        # ビルド実行
+        pyinstaller --noconfirm --clean --windowed --name "プロンプト分類ツール" --target-arch universal2 gui_app.py
+        
+    - name: Prepare Artifact
+      run: |
+        # サンプルファイルのコピー
+        mkdir -p dist/sample_input
+        cp -r sample_input/* dist/sample_input/
+        cp -r sample_input "dist/プロンプト分類ツール.app/Contents/Resources/"
+        
+        # ZIP作成
+        cd dist
+        zip -r "PromptClassifier_Mac.zip" "プロンプト分類ツール.app" "sample_input"
+        
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: Mac-App-Build
+        path: dist/PromptClassifier_Mac.zip

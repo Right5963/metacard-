@@ -1,0 +1,971 @@
+# 品質カテゴリ辞書（MetaCard統合版）
+
+**MetaCard核心原則**: 画質と芸術性を明確に指定
+
+## 既存タグ
+- 2d
+- 3d
+- 4k
+- 60+fps
+- 8k
+- <lora:Kano_Chinatsu-78:0.5>
+- <lora:Schizowave:0.5>
+- <lora:USNR STYLE_XL_loha:0.3>
+- <lora:hotarutoneup_v100:1>
+- <lora:iLLMythAn1m3Style:0.1>
+- MetaCard統合版として作成
+- a1_
+- a1_(initial-g)
+- a_re
+- aaaa_
+- aaaa_(quad-a)
+- absurdres
+- abubu
+- accurate anatomy
+- acrylic_paint_
+- acrylic_stand_
+- adobe_animate_
+- adobe_firefly_
+- adoptable
+- adversarial_noise
+- aesthetic
+- afrobull
+- agahari
+- agawa_ryou
+- ai-assisted
+- ai-generated
+- ajitarou_
+- ajitarou_(setsu)
+- akairiot
+- akitsuki_karasu
+- album_cover_redraw
+- aldehyde
+- aliasing
+- alpha_transparency
+- alt_text
+- alternate_language
+- ama_mitsuki
+- amazing quality
+- animal_ear_request
+- animal_request
+- animated
+- animated_gif
+- animated_png
+- anime
+- anime style
+- anime_screenshot
+- annotated
+- annotation_request
+- anti_
+- anti_(untea9)
+- app_filter
+- archived_source
+- art_fight_attack
+- art_study
+- art_trade
+- artbook
+- artist_collaboration
+- artist_request
+- artistic anatomy
+- artstation
+- artstation_sample
+- as109
+- asamura_hiori
+- asanagi
+- aseprite_
+- asteroid_ill
+- asutora
+- asymmetry
+- audible_internal_cumshot
+- audible_music
+- audible_speech
+- autodesk_3ds_max_
+- avogado6
+- award winning
+- ayu_
+- ayu_(mog)
+- b-ginga
+- bad anatomy
+- bad hands
+- bad_artstation_id
+- bad_aspect_ratio
+- bad_baraag_id
+- bad_bcy_id
+- bad_blogspot_id
+- bad_daum_id
+- bad_deviantart_id
+- bad_drawcrowd_id
+- bad_drawr_id
+- bad_facebook_id
+- bad_fanbox_id
+- bad_fandom_id
+- bad_fantia_id
+- bad_hentai-foundry_id
+- bad_id
+- bad_imgur_id
+- bad_instagram_id
+- bad_link
+- bad_lofter_id
+- bad_mihuashi_id
+- bad_newgrounds_id
+- bad_nicoseiga_id
+- bad_nijie_id
+- bad_patreon_id
+- bad_pawoo_id
+- bad_piapro_id
+- bad_pixiv_id
+- bad_poipiku_id
+- bad_skeb_id
+- bad_source
+- bad_tinami_id
+- bad_tumblr_id
+- bad_twitter_id
+- bad_vkontakte_id
+- bad_weibo_id
+- bad_yandere_id
+- ballpoint_pen_
+- ban!_(bansankan)
+- bar censor
+- bb_
+- bb_(baalbuddy)
+- bee_
+- bee_(deadflow)
+- belko
+- beni_shake
+- best quality
+- bilingual_commentary
+- bird_request
+- bkub
+- blade_
+- blade_(galaxist)
+- bleed_through
+- blender_
+- bloom
+- blueprint_
+- blurry
+- bmp-to-png_conversion
+- bokeh
+- boris_
+- boris_(noborhys)
+- bow_
+- bow_(bhp)
+- brush_
+- bubukka
+- butcha-u
+- buzzlyears
+- by famous artist
+- cait_aron
+- calligraphy_brush_
+- canvas_
+- carnelian
+- cato_
+- cato_(monocatienus)
+- cel shading
+- censored
+- centered
+- cg
+- chanta_
+- chanta_(ayatakaoisii)
+- character design
+- character_counter_request
+- character_request
+- check_artist
+- check_character
+- check_clothing
+- check_commentary
+- check_copyright
+- check_gender
+- check_source
+- check_translation
+- check_vehicle
+- chigusa_minori
+- chihuri
+- chikuwa.
+- chinese_audio
+- chinese_commentary
+- chromatic aberration
+- cle_masahiro
+- cleaned
+- clearite
+- clip_studio_paint_
+- close-up
+- clothing_request
+- collage_
+- color_banding
+- color_halftone
+- color_ink_
+- color_study
+- colored_pencil_
+- colorful
+- colorful_palette
+- colorized
+- comic_panel_redraw
+- commentary
+- commentary_request
+- commentary_typo
+- commission
+- commissioner_upload
+- complementary colors
+- completion_time
+- concept art
+- concept_art
+- contest_winner
+- convenient censoring
+- cool colors
+- copyright_request
+- corrupted_file
+- corrupted_metadata
+- corrupted_twitter_file
+- cosplay_photo
+- cosplay_request
+- costume_request
+- cougar_
+- cougar_(cougar1404)
+- countdown_illustration
+- cowboy shot
+- crayon_
+- crease
+- creature_request
+- creayus
+- cropped
+- custom_maid_3d_2
+- cutesexyrobutts
+- dagasi
+- dairi
+- dandon_fuga
+- daram_
+- daram_(shappydude)
+- dated_commentary
+- dd_
+- dd_(ijigendd)
+- decensored
+- deformed
+- dei_shirou
+- depth of field
+- derivative_work
+- detailed
+- detailed anatomy
+- detexted
+- deviantart_sample
+- digital art
+- digital illustration
+- dikko
+- disfigured
+- dishwasher1910
+- displeasing
+- diva_
+- diva_(hyxpk)
+- dog_request
+- dokomon
+- doujinshi
+- downscaled
+- dr_rex
+- dramatic lighting
+- drawfag
+- drawpile_
+- duplicate
+- dutch angle
+- dynamic angle
+- dynamic pose
+- e-hentai_sample
+- e.o.
+- ebi_193
+- ebifurya
+- ebora
+- echo_
+- echo_(circa)
+- emofuri
+- end_card
+- engiyoshi
+- english_audio
+- english_commentary
+- engrish_commentary
+- enkyo_yuuichirou
+- enty_reward
+- epilepsy_warning
+- eromame
+- error
+- exif_rotation
+- explicit
+- extra fingers
+- extra limbs
+- extreme close-up
+- extremely detailed
+- eyecatch
+- fanbox_reward
+- fanfiction_available
+- fantia_reward
+- figure_
+- figure_available
+- film grain
+- fine details
+- finely detailed
+- fisheye
+- fixed
+- flash
+- flash_game
+- flat color
+- flipnote_studio_
+- flower_request
+- flower_stand_art
+- food_art_
+- food_request
+- frapowa
+- french_commentary
+- from above
+- from behind
+- from below
+- from side
+- fujigaya_arctia
+- fujima_takuya
+- full body
+- fumihiko_
+- fumihiko_(fu_mihi_ko)
+- fumio_
+- fumio_(rsqkr)
+- furaggu_
+- furaggu_(frag_0416)
+- fusu_
+- fusu_(a95101221)
+- futa_
+- futa_(nabezoko)
+- fuuzasa
+- game_cg
+- game_model
+- game_screenshot
+- gaoo_
+- gaoo_(frpjx283)
+- gender_request
+- german_commentary
+- gesture_request
+- gibagiba
+- gif_artifacts
+- gift_art
+- gimp_
+- ginhaha
+- glossy
+- glowing
+- god rays
+- golden ratio
+- goma_
+- goma_(gomasamune)
+- gomashio_
+- gomashio_(goma_feet)
+- gomennasai
+- gonzarez
+- gouache_
+- graphite_
+- greyscale
+- gross
+- guest_art
+- gumroad_reward
+- gurande_
+- gurande_(g-size)
+- gweda
+- ha_akabouzu
+- hair_ornament_request
+- hairstyle_request
+- hammer_
+- hammer_(sunset_beach)
+- hamu_koutarou
+- hana_kazari
+- happoubi_jin
+- hara_
+- hara_(harayutaka)
+- hard lighting
+- hard-translated
+- hard-translated_
+- haruhisky
+- haruyama_kazunori
+- has_adversarial_noise_revision
+- has_artifacted_revision
+- has_bad_revision
+- has_censored_revision
+- has_cropped_revision
+- has_downscaled_revision
+- has_watermarked_revision
+- hashtag-only_commentary
+- headshop
+- headwear_request
+- heart censor
+- hews
+- hidefu_kitayan
+- high quality
+- high resolution
+- highly detailed
+- highres
+- himura_kiseki
+- hinghoi
+- hiroki_
+- hiroki_(yyqw7151)
+- hisahiko
+- hisona_
+- hisona_(suaritesumi)
+- hizaka
+- homare_
+- homare_(fool's_art)
+- hori_
+- hori_(hori_no_su)
+- horn/wood
+- horosuke
+- hotathino
+- houtengeki
+- hungry_clicker
+- ibispaint_
+- ichikawa_feesu
+- ichimi
+- ido_
+- ido_(teketeke)
+- iesupa
+- ikeuchi_tanuma
+- ikuchan_kaoru
+- illustration
+- ilya_kuvshinov
+- image_sample
+- imageboard_desourced
+- imizu_
+- imizu_(nitro_unknown)
+- imu_sanjo
+- inactive_account
+- incredibly_absurdres
+- indonesian_commentary
+- ini_
+- ini_(inunabe00)
+- ink_
+- inoino
+- instrument_request
+- intricate details
+- ishikei
+- isshiki_
+- isshiki_(ffmania7)
+- italian_commentary
+- ito_noizi
+- itomugi-kun
+- ixy
+- izawa_
+- izawa_(bhive003)
+- izumi_tsubasu
+- jack_dempa
+- jako_
+- jako_(jakoo21)
+- japanese_audio
+- jjune
+- jmg
+- jokanhiyou
+- jpeg artifacts
+- jpeg_artifacts
+- k-suwabe
+- kaamin_
+- kaamin_(mariarose753)
+- kaigen_1025
+- kairunoburogu
+- kame_
+- kame_(kamepan44231)
+- kamille_
+- kamille_(vcx68)
+- kanade_(kanade_3344)
+- kanduki_kamibukuro
+- kani_biimu
+- kanikama
+- kankan33333
+- kanon_
+- kanon_(kurogane_knights)
+- kantoku
+- karaagetarou
+- karukan_
+- karukan_(monjya)
+- kase_daiki
+- kashikaze
+- kasumi_
+- kasumi_(skchkko)
+- katahira_masashi
+- kato_takuji
+- kawaanago
+- kawamochi_
+- kawamochi_(kawauti919)
+- kawashina_
+- kawashina_(momen_silicon)
+- key_visual
+- kilye_kairi
+- kinkymation
+- kirisawa_juuzou
+- kisekae
+- kishida_mel
+- kitsunerider
+- ko-fi_commission
+- koikatsu_
+- konoshige_
+- konoshige_(ryuun)
+- korean_audio
+- korean_commentary
+- koruri
+- kotorai
+- kou_hiyoyo
+- kouji_
+- kouji_(campus_life)
+- kouno_
+- kouno_(masao)
+- koyama_shigeru
+- krita_
+- kuavera
+- kujou_karasuma
+- kukie-nyan
+- kuromiya
+- kurukurumagical
+- lack
+- large_variant_set
+- lego_
+- lens flare
+- lets0020
+- limited palette
+- line art
+- live2d
+- lolita_channel
+- looping_animation
+- lora:Kano_Chinatsu-78:0.5
+- lossless-lossy
+- lossy-lossless
+- low quality
+- lowres
+- m-da_s-tarou
+- macro
+- magazine_request
+- magazine_scan
+- making-of
+- making-of_available
+- makuwauri
+- manga
+- manga style
+- marker_
+- maru_
+- maru_(marg0613)
+- masking_tape_
+- masterpiece
+- masukuza_j
+- matsunaga_kouyou
+- matsuryuu
+- mattaku_mousuke
+- maturiuta_sorato
+- mauve
+- maya_
+- md5_mismatch
+- mecha_request
+- medibang_paint_
+- medium_request
+- meito_
+- meito_(maze)
+- meme_attire_request
+- meme_request
+- menma_
+- menma_(enaic31)
+- meow_
+- meow_(nekodenki)
+- merchandise_available
+- merunyaa
+- mery_
+- mery_(yangmalgage)
+- metadata_reference
+- meyoco
+- microsoft_paint_
+- mihuashi_commission
+- mikage_takashi
+- mikozin
+- mikumikudance_
+- milkpanda
+- milkshakework
+- millipen_
+- minaba_hideo
+- minami_
+- minami_(colorful_palette)
+- misaki_kurehito
+- mishima_kurone
+- missing fingers
+- missing limbs
+- missing_commentary
+- mitsumoto_jouji
+- mitya
+- mixed-language_commentary
+- mixed_media
+- miyo_
+- miyo_(ranthath)
+- mizuhara_aki
+- mizuki_hitoshi
+- mizuki_makoto
+- mizumizuni
+- mizumoto_tadashi
+- mk_
+- mk_(mod0)
+- mochi_au_lait
+- model sheet
+- model_kit_
+- moisture_
+- moisture_(chichi)
+- mojibake_commentary
+- momo_no_sukebe
+- momoko_
+- momoko_(momopoco)
+- monochrome
+- mosaic censoring
+- mossacannibalis
+- motion blur
+- mousepad_
+- multi-source_commentary
+- multilingual_commentary
+- murakami_suigun
+- music_video
+- muted colors
+- naga_u
+- nai_diffusion
+- namori
+- nanakusa_suzuna
+- nanase_nao
+- nanashi_
+- nanashi_(nlo)
+- naver_sample
+- neckwear_request
+- negom
+- nekotoufu
+- neocoill
+- newest
+- nib_pen_
+- nicoseiga_sample
+- niiko_
+- niiko_(gonnzou)
+- nikorashi-ka
+- niliu_chahui
+- nishi_koutarou
+- niwatazumi
+- noai_nioshi
+- non-repeating_animation
+- non-web_source
+- nori_tamago
+- normal quality
+- novel_illustration
+- nsfw
+- nude_filter
+- null_
+- null_(nyanpyoun)
+- nyantcha
+- object_request
+- off-topic
+- official art
+- official_ad
+- official_art
+- official_artist_extra
+- official_wallpaper
+- ogami_kazuki
+- ohisashiburi
+- oil_painting_
+- ojipon
+- onigirikun
+- onikobe_rin
+- ootsuki_wataru
+- oouso
+- optionaltypo
+- oryo_
+- oryo_(oryo04)
+- otokuyou
+- out of focus
+- pageratta
+- paid_reward
+- paid_reward_available
+- paint.net_
+- paint_chat_
+- painterly
+- painting_
+- painttool_sai_
+- panorama
+- paper_cutout_
+- papercraft_
+- parody_request
+- partial_commentary
+- partially_annotated
+- partially_translated
+- pastel colors
+- pastel_
+- patreon_reward
+- pdf_available
+- pen_
+- pentagon_
+- pentagon_(railgun_ky1206)
+- personal_ami
+- phantom_ix_row
+- photo-referenced
+- photo_
+- photorealistic
+- photoshop_
+- piromizu
+- pixel-perfect_duplicate
+- pixiv
+- pixiv_commission
+- pixiv_sample
+- piyodera_mucha
+- plant_request
+- pokemoa
+- poorly_translated
+- portrait
+- portuguese_commentary
+- pose_request
+- pote_(ptkan)
+- procreate_
+- production_art
+- professional
+- promotional art
+- promotional_art
+- protected_link
+- psd_available
+- ramchi
+- rappa_
+- rappa_(rappaya)
+- rariatto_
+- rariatto_(ganguri)
+- realistic
+- realistic anatomy
+- rebecca_
+- rebecca_(keinelove)
+- recolored
+- redrawn
+- reference_request
+- reflective
+- resized
+- resolution_mismatch
+- reverse_translation
+- reversed
+- revision
+- rim lighting
+- rino_cnc
+- ririko_
+- ririko_(zhuoyandesailaer)
+- rokugou_daisuke
+- romaji_commentary
+- rotated
+- rotte_
+- rotte_(1109)
+- roulette_animation
+- ruffle_compatible
+- rule of thirds
+- russian_commentary
+- ruu_
+- ruu_(tksymkw)
+- ryuuichi_
+- ryuuichi_(f_dragon)
+- saiguchi_otoufu
+- saku_usako_
+- saku_usako_(rabbit)
+- sakura_oriko
+- samneco
+- satou_kibi
+- satou_kuuki
+- sayori_
+- sayori_(neko_works)
+- scan
+- scan_artifacts
+- screenshot
+- screenshot_redraw
+- second-party_source
+- sekina
+- self-portrait
+- self-upload
+- semi-realistic
+- sepia
+- seraziel
+- sexually explicit
+- sheya
+- shimada_fumikane
+- shimazaki_mujirushi
+- shino_
+- shino_(ponjiyuusu)
+- shiny
+- shiromanta
+- shirosato
+- shiseki_hirame
+- signature
+- sincos
+- skeb_commission
+- sketch
+- sky-freedom
+- slugbox
+- sofra
+- soft lighting
+- song_request
+- sorimachi-doufu
+- sound
+- source_filmmaker_
+- source_larger
+- source_mismatch
+- source_request
+- source_smaller
+- spanish_commentary
+- speed lines
+- spine_
+- spoilers
+- sprite_redraw
+- stable_diffusion
+- stitched
+- story_in_commentary
+- studio lighting
+- style_request
+- sumiyao_
+- sumiyao_(amam)
+- suzuhira_hiro
+- suzuki_toto
+- swd3e2
+- symbol-only_commentary
+- symmetry
+- tagme
+- taisa_
+- taisa_(kari)
+- takafumi
+- takato_kurosuke
+- takeuchi_takashi
+- takiki
+- tall_image
+- tanaka_kusao
+- tani_takeshi
+- tegaki_draw_and_tweet
+- telephoto
+- text
+- textless_version
+- tf_cafe
+- thai_commentary
+- third-party_edit
+- third-party_extraction
+- third-party_source
+- third-party_watermark
+- thumbnail_collage
+- thumbnail_surprise
+- tilt shift
+- tk8d32
+- tomose_shunsaku
+- tonda
+- tonee
+- tony_taka
+- toosaka_asagi
+- torotei
+- traditional_media
+- translated
+- translation_request
+- trending on artstation
+- trending on pixiv
+- tsuda_nanafushi
+- tsukishiro_saika
+- tsukudani_
+- tsukudani_(coke-buta)
+- tsunako
+- tsuruse
+- tukiwani
+- tumblr_sample
+- twitter_sample
+- uccow
+- ueyama_michirou
+- ugly
+- ugoira
+- ugoira_conversion
+- ultra high res
+- ultra-detailed
+- uncensored
+- unconventional_media
+- unfinished
+- unya
+- upper body
+- upscaled
+- usashiro_mani
+- username
+- variant_set
+- vector_trace
+- vehicle_request
+- very aesthetic
+- very displeasing
+- vgen_commission
+- vibrant colors
+- video
+- video_game_cover_redraw
+- video_thumbnail
+- vietnamese_commentary
+- vignette
+- vivid colors
+- volume_warning
+- volumetric lighting
+- wa_
+- wa_(genryusui)
+- waero
+- waifu2x
+- wakabayashi_toshiya
+- warm colors
+- warugaki_
+- warugaki_(sk-ii)
+- watanabe_akio
+- watercolor
+- watercolor_
+- watercolor_pencil_
+- watermark
+- waterring
+- weapon_request
+- wide angle
+- wide shot
+- wide_image
+- worst quality
+- xinzoruo
+- yabuki_kentarou
+- yaegashi_nan
+- yamamoto_souichirou
+- yamashita_shun'ya
+- yandere_sample
+- yano_toshinori
+- yanyo_
+- yanyo_(ogino_atsuki)
+- ych_commission
+- yd_
+- yd_(orange_maru)
+- yohane
+- yokochou
+- yomu_
+- yomu_(sgt_epper)
+- yopparai_oni
+- yoshi_tama
+- yoshio_
+- yoshio_(55level)
+- youyume-kun
+- yua_
+- yua_(checkmate)
+- yuichirou
+- yukie_
+- yukie_(kusaka_shi)
+- yukito_
+- yukito_(dreamrider)
+- yunamaro
+- yuuhagi_
+- yuuhagi_(amaretto-no-natsu)
+- yuuji_
+- yuuji_(and)
+- yuureidoushi_
+- yuureidoushi_(yuurei6214)
+- zbrush_
+- zen_
+- zen_(kamuro)
+- zip_available
+- zounose
+- zyugoya
+- 総タグ数: 246
+- 総タグ数: 347
+- 総タグ数: 448
+- 総タグ数: 517
+- 総タグ数: 607
+- 総タグ数: 654
+- 総タグ数: 730
+- 総タグ数: 768
+- 総タグ数: 833
+- 総タグ数: 842
+- 総タグ数: 882
+- 総タグ数: 900
+- 総タグ数: 904
+- 総タグ数: 915
+- 総タグ数: 927
+- 総タグ数: 944
+
+## 更新履歴
+- 追加日: 2025-11-03
+- 最終更新: 2025-11-06 09:41:14
+- バージョン: 1.17
+- Danbooru同期: 2025-11-06 09:41:14
+- 総タグ数: 959
