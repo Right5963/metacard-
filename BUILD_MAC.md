@@ -1,7 +1,7 @@
 # macOS版 ビルド手順書
 
-このドキュメントでは、Mac環境で「プロンプト分類ツール」をビルドする手順を説明します。
-Windows環境ではMac用アプリケーション（.app）を作成できないため、Mac環境での作業が必要です。
+このドキュメントでは、Mac環境で「Prompt Classifier v3」をビルドする手順を説明します。
+Windows環境ではMac用アプリケーション（.app）を作成できないため、GitHub Actionsを使用するか、Mac環境での作業が必要です。
 
 ## 前提条件
 
@@ -26,7 +26,7 @@ Macをお持ちでない場合、GitHubにコードをアップロードする�
 3. **成果物をダウンロード**
    - 実行が完了（緑色のチェックマーク）したら、その実行ログをクリックします。
    - ページ下部の「Artifacts」セクションにある **Mac-App-Build** をクリックしてダウンロードします。
-   - ダウンロードしたZIPファイルを解凍すると、Mac用のアプリが入っています。
+   - ダウンロードしたZIPファイルを解凍すると、`Prompt_Classifier_v3_macOS.zip` が入っています。これを開くとアプリ本体とサンプルファイルが含まれています。
 
 ---
 
@@ -42,7 +42,7 @@ Windows環境から以下のファイルをMacにコピーしてください。
 - `prompt_classifier.py`
 - `text_extractor.py`
 - `keyword_database.py`
-- `requirements.txt`
+- `requirements_mac.txt`
 - `build_mac.sh` (このファイル)
 - `sample_input/` (フォルダごと)
 
@@ -60,15 +60,15 @@ chmod +x build_mac.sh
 
 スクリプトは自動的に以下の処理を行います：
 1. Python仮想環境の作成 (`.venv_mac`)
-2. 必要なライブラリのインストール (`requirements.txt`, `pyinstaller`)
-3. アプリケーションのビルド (`.app`ファイルの生成)
+2. 必要なライブラリのインストール (`requirements_mac.txt`)
+3. アプリケーションのビルド (`Prompt Classifier v3.app`の生成)
 4. 配布用ZIPファイルの作成
 
 ### 3. 生成物の確認
 
 処理が完了すると、同じディレクトリに以下のファイルが生成されます。
 
-- **プロンプト分類ツール_v1.0_macOS.zip**
+- **Prompt_Classifier_v3_macOS.zip**
 
 このZIPファイルが配布用のパッケージです。
 
@@ -82,15 +82,14 @@ python3 -m venv .venv
 source .venv/bin/activate
 
 # 2. ライブラリインストール
-pip install -r requirements.txt
-pip install pyinstaller
+pip install -r requirements_mac.txt
 
 # 3. ビルド実行
 # --target-arch universal2 は Intel/Apple Silicon 両対応にするためのオプションです
-pyinstaller --noconfirm --clean --windowed --name "プロンプト分類ツール" --target-arch universal2 gui_app.py
+pyinstaller --noconfirm --clean --windowed --name "Prompt Classifier v3" --target-arch universal2 gui_app.py
 
 # 4. 動作確認
-open dist/プロンプト分類ツール.app
+open "dist/Prompt Classifier v3.app"
 ```
 
 ## トラブルシューティング
@@ -106,5 +105,5 @@ Pythonがインストールされていません。公式サイト (python.org) 
 ### アプリが起動しない
 ターミナルから直接実行ファイルを実行してエラーログを確認してください：
 ```bash
-./dist/プロンプト分類ツール.app/Contents/MacOS/プロンプト分類ツール
+./dist/Prompt\ Classifier\ v3.app/Contents/MacOS/Prompt\ Classifier\ v3
 ```

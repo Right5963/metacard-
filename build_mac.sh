@@ -3,7 +3,7 @@
 # エラーが発生したら停止
 set -e
 
-echo "===== プロンプト分類ツール Mac版ビルドスクリプト ====="
+echo "===== Prompt Classifier v3 Mac Build Script ====="
 
 # 1. 環境チェック
 if ! command -v python3 &> /dev/null; then
@@ -23,8 +23,7 @@ source .venv_mac/bin/activate
 # 3. 依存パッケージのインストール
 echo "-> 依存パッケージをインストール中..."
 pip install --upgrade pip
-pip install -r requirements.txt
-pip install pyinstaller
+pip install -r requirements_mac.txt
 
 # 4. 古いビルドのクリーンアップ
 echo "-> クリーンアップ中..."
@@ -37,12 +36,12 @@ echo "-> アプリケーションをビルド中..."
 # --noconfirm: 上書き確認なし
 # --clean: キャッシュクリア
 # --target-arch universal2: Intel/Apple Silicon両対応
-pyinstaller --noconfirm --clean --windowed --name "プロンプト分類ツール" --target-arch universal2 gui_app.py
+pyinstaller --noconfirm --clean --windowed --name "Prompt Classifier v3" --target-arch universal2 gui_app.py
 
 # 6. サンプルファイルのコピー
 echo "-> サンプルファイルをコピー中..."
 if [ -d "sample_input" ]; then
-    cp -r sample_input "dist/プロンプト分類ツール.app/Contents/Resources/"
+    cp -r sample_input "dist/Prompt Classifier v3.app/Contents/Resources/"
     # ユーザーがアクセスしやすいようにZIPのルートにも配置するために準備
     mkdir -p dist/sample_input
     cp -r sample_input/* dist/sample_input/
@@ -51,7 +50,7 @@ fi
 # 7. 配布用ZIPの作成
 echo "-> 配布用ZIPを作成中..."
 cd dist
-zip -r "../プロンプト分類ツール_v1.0_macOS.zip" "プロンプト分類ツール.app" "sample_input"
+zip -r "../Prompt_Classifier_v3_macOS.zip" "Prompt Classifier v3.app" "sample_input"
 
 echo "==== ビルド完了 ====="
-echo "生成物: プロンプト分類ツール_v1.0_macOS.zip"
+echo "生成物: Prompt_Classifier_v3_macOS.zip"
