@@ -25,19 +25,20 @@ jobs:
         
     - name: Build with PyInstaller
       run: |
-        # ビルド実行
-        pyinstaller --noconfirm --clean --windowed --name "プロンプト分類ツール" --target-arch universal2 gui_app.py
+        # ビルド実行 (英語名に変更してエンコードエラーを回避)
+        pyinstaller --noconfirm --clean --windowed --name "PromptClassifier" --target-arch universal2 gui_app.py
         
     - name: Prepare Artifact
       run: |
         # サンプルファイルのコピー
         mkdir -p dist/sample_input
         cp -r sample_input/* dist/sample_input/
-        cp -r sample_input "dist/プロンプト分類ツール.app/Contents/Resources/"
+        # .appの中にもコピー
+        cp -r sample_input "dist/PromptClassifier.app/Contents/Resources/"
         
         # ZIP作成
         cd dist
-        zip -r "PromptClassifier_Mac.zip" "プロンプト分類ツール.app" "sample_input"
+        zip -r "PromptClassifier_Mac.zip" "PromptClassifier.app" "sample_input"
         
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
